@@ -85,7 +85,7 @@ Once your virtual environment is active:
 
 #### **CLONING PROJECT**
 
-`git clone https://gl.webb.co.me/nikola.kadic/hg-budva.git`
+`git clone https://github.com/deliteser112/wagtail-python-django-website.git`
 
 
 `pip install -r requirements.txt`
