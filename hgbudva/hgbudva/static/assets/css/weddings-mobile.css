@@ -1,0 +1,41 @@
+.header-hero-container {
+  background: url("../images/Weddings/weddings-header.jpg")
+    center/cover no-repeat;
+}
+
+.header-hero-container h1 {
+  text-transform: none;
+}
+
+.small-part-of-header {
+  display: block;
+    font-size: 25px;
+    font-family: Domine;
+    color: #333;
+    text-align: center;
+    margin-bottom: -45px;
+}
+.blue-underline {
+  flex-direction: column;
+  align-items: center;
+}
+
+#weddings-text-container-top {
+  text-align: center;
+  /* color: #292929; */
+}
+
+#weddings-text-container-bottom {
+  /* color: #292929; */
+  text-align: justify;
+}
+
+.trapezoid-container {
+  background: #f0f1f2;
+  min-height: 350px;
+}
+.weddings-list > li {
+  padding: 5px 0;
+}
+
+

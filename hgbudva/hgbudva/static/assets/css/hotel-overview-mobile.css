@@ -1,0 +1,60 @@
+
+
+.hotel-overview-text-badges-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.hotel-overview-text-badges {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+  text-align: center;
+}
+
+.hotel-overview-text-badges > svg {
+  margin-bottom: 10px;
+}
+
+.certificates-list {
+  list-style-type: none;
+  padding: 0;
+}
+.certificates-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.amenities-list {
+  list-style-type: none;
+}
+.amenities-list li {
+  margin-bottom: 5px;
+}
+.amenities-list i {
+  color: #0059ab;
+  font-size: inherit;
+  margin-right: 5px;
+}
+.two-imgs-stars-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: space-between;
+}
+#star-img-first {
+  height: 90px;
+  width: 90px;
+  object-fit: cover;
+  margin: auto;
+}
+#star-img-second {
+  height: 100px;
+  width: 105px;
+  object-fit: cover;
+  margin: auto;
+}

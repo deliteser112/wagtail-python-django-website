@@ -1,0 +1,272 @@
+.our-hotels-cards-grid-container {
+  width: 100%;
+  margin: 0;
+  /* justify-content: space-between; */
+  justify-content: center;
+}
+
+.hotel-card-container {
+  position: relative;
+  padding: 0;
+  min-height: 200px;
+  width: auto;
+}
+
+.hover-card-div{
+  height: 100%;
+  width: 100%;
+  border-radius: 0px;
+}
+
+.hotel-card {
+  height: 100%;
+  width: 100%;
+}
+
+.hotel-card > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-arrow {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0 70%);
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0 70%);
+  position: absolute;
+  top: 0;
+  right: 10px;
+  background-color: white;
+  z-index: 2;
+  height: 50px;
+  width: 60px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-arrow-text {
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.card-bottom-text-container {
+  position: absolute;
+  bottom: 0;
+  background: transparent;
+  width: 100%;
+  color: #333;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Domine";
+}
+.card-bottom-text-container  > svg{
+  height: 64px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+.card-bottom-text {
+  font-size: 30px;
+  font-weight: 200;
+  z-index: 1;
+}
+
+.card-arrow-badge{
+  width: 40px;
+  display: flex;
+  justify-content: center;
+}
+.card-arrow-badge-left{
+  left: 10px;
+}
+.card-arrow-badge-right{
+  left: 65px;
+}
+
+/*trapezoid*/
+#trapezoid-index-page-container {
+  width: 100%;
+}
+
+.index-read-more-button{
+  background-color: #0059ab;
+  border: 1px solid #0059ab;
+  outline: none;
+  border-radius: 10px;
+  padding: 0 10px;
+  color: white;
+  font-weight: 300;
+  height: 35px;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+/*special offers*/
+.special-offers-card {
+  background: #f0f1f2;
+  box-shadow: none;
+}
+#special-offers-container h4{
+  line-height: 1.2;
+}
+
+.dot-navigation-custom > li.uk-active > a{
+  background: #ecad2e;
+}
+
+/*news events*/
+.events-cards-grid-container {
+  margin: 0;
+}
+
+.events-card {
+  padding: 0;
+  background: #f0f1f2;
+  box-shadow: none !important;
+}
+
+#more-events-button-container {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#more-events-button {
+  background-color: #0059ab;
+  border: 1px solid #0059ab;
+  outline: none;
+  border-radius: 10px;
+  padding: 0 10px;
+  color: white;
+  width: 140px;
+  height: 30px;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+/*signup form*/
+.signup-form{
+  display: flex;
+  flex-wrap: wrap;
+}
+.signup-header{
+    font-size: 1.55rem;
+    font-family: Domine;
+    color: #333;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+.signup-input-field {
+  flex: 1;
+  background-color: white;
+  border: 1px solid #b9b9b9;
+  outline: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+  color: #8d8d8d;
+  min-width: 100px;
+  height: 20px;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+.signup-form input[type="submit"] {
+  background: #0059ab;
+  color: white;
+  font-weight: 300;
+}
+
+.badge-img{
+  width: 35px;
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+#desktop-badge-important{
+  display: none;
+}
+.header-hero-container {
+    overflow: hidden;
+} 
+
+#special-offers-container .uk-slider-items{
+  margin-bottom: 10px;
+}
+.special-offers-card{
+  background: #fff;
+  box-shadow:  0px 0px 10px 2px #eee;
+}
+.special-offers-card a{
+  display: block;
+  position: relative;
+}
+.special-offers-card h4>a{
+  color: #333;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.special-offers-card h4>a:hover{
+  color: #333;
+}
+.special-offers-card svg{
+  height: 70px;
+    width: 100%;
+    position: absolute;
+    bottom: -30px;
+}
+.special-offers-card .uk-card-body{
+  position: relative;
+}
+.special-offers-card:hover {
+  transition: all .35s;
+  transform: translate3d(0, -10px, 0);
+}
+.special-offers-card:hover svg{
+  animation:wave 1s ease-in-out;
+}
+.events-cards-title > a{
+  color: #333;
+  line-height: 1.2;
+  text-decoration: none;
+}
+@keyframes wave{
+  0%,100%,75%{
+    bottom:-30px;
+  }
+  25%{
+    bottom:-20px;
+    opacity: .98;
+    transform: rotate(-1deg);
+  }
+  50%{
+    bottom: -25px;
+    transform: rotate(1deg);
+  }
+}
+.news-list li{
+  font-family: Domine;
+  transition: all .4s;
+}
+.news-list li:hover{
+  -webkit-transform: scale(1.015);
+  transform: scale(1.025);
+  transition: 0.3s ease-in-out;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}

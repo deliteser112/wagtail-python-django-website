@@ -1,0 +1,135 @@
+.header-hero-container {
+  background: url(../images/Headers/accommodation.jpg) center/cover no-repeat;
+}
+.accommodation-btn-wrapper button {
+  border: 1px solid #0059ab !important;
+  width: 100%;
+  height: 35px;
+  line-height: 29px;
+  border-radius: 10px;
+  padding: 0;
+  color: white;
+}
+.accommodation-btn-wrapper button:hover {
+  color: white;
+}
+.accommodation-btn-wrapper button:focus {
+  color: white;
+}
+.details-btn {
+  margin-bottom: 5px;
+}
+.details-btn a {
+  color: #0059ab;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.visit-btn {
+  background: #0059ab !important;
+}
+.visit-btn a {
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.accommodation-cards-mobile-wrapper-2 {
+  display: none;
+}
+.accommodation-grid-container {
+  margin: 0;
+  justify-content: space-between;
+}
+.accommodation-grid-container .uk-card {
+  padding: 0;
+}
+.accommodation-price {
+  text-align: center;
+  color: #0059ab;
+  font-weight: 600;
+  font-size: 20px;
+}
+.accommodation-price-span-first {
+  font-size: 26px;
+}
+.accommodation-price-span-second {
+  color: #666;
+  font-weight: 300;
+  font-size: 16px;
+}
+.accommodation-grid-container .uk-card-body {
+  padding: 30px 30px;
+}
+
+.accommodation-grid-container .uk-card-title {
+  margin: 0;
+}
+.accommodation-grid-container img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.list-half {
+  margin: 20px;
+  line-height: 25px;
+}
+.list-half h4 {
+  text-align: left;
+  margin-left: -17px;
+}
+.list-half h5 {
+  margin-left: -20px;
+}
+.call-us-span {
+  display: block;
+  font-family: Domine;
+  color: #333;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+}
+.phone-number-span {
+  display: block;
+  font-family: Domine;
+  color: #333;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.accommodation-card .uk-card-media-top {
+  position: relative;
+}
+.accommodation-card svg {
+  height: 70px;
+  width: 100%;
+  position: absolute;
+  top: 180px;
+}
+.accommodation-card:hover {
+  transition: all 0.35s;
+  transform: translate3d(0, -10px, 0);
+}
+.accommodation-card:hover svg {
+  animation: wave 1s ease-in-out;
+}
+h3.uk-card-title > a{
+  color: #333;
+  text-decoration: none;
+}
+@keyframes wave {
+  0%,
+  100%,
+  75% {
+    bottom: -30px;
+  }
+  25% {
+    bottom: -20px;
+    opacity: 0.98;
+    transform: rotate(-1deg);
+  }
+  50% {
+    bottom: -25px;
+    transform: rotate(1deg);
+  }
+}

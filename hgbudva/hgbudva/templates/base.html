@@ -1,0 +1,78 @@
+{% load static wagtailuserbar %}
+
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+    <head>
+         <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#ecad2e">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#ecad2e">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ecad2e">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta charset="utf-8" />
+        <title>
+            HG Budvanska rivijera |
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="{{ self.search_description }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/hgbudva.css' %}">
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "hgbudvanskarivijera.com",
+      "alternateName": "hgbudvanskarivijera.com",
+      "url": "https://www.hgbudvanskarivijera.com/"
+    }
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "https://www.hgbudvanskarivijera.com",
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+382 33 402456",
+            "contactType": "customer service"
+        }]
+    }
+</script>
+</head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+
+        {% block content %}{% endblock %}
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/hgbudva.js' %}"></script>
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

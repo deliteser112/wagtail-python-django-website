@@ -1,0 +1,30 @@
+.recent-blog-posts-img-wrapper img {
+  /* width: 290px !important; */
+  height: 200px !important;
+  object-fit: cover !important;
+}
+
+.recent-blog-posts-img-wrapper {
+  height: 200px !important;
+}
+
+.wagtail-icon-wagtail:before {
+  content: "✏️" !important;
+  transform: rotate(90deg) scale(0.8) translateY(-5px);
+}
+body > div.wagtail-userbar-reset > div{
+    margin: -10px 60px !important;
+}
+div.rich-text-buttons{
+  background: #0059ab;
+  border: 1px solid #0059ab;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: fit-content;
+  margin: 25px auto;
+}
+div.rich-text-buttons a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}

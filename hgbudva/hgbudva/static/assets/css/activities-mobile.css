@@ -1,0 +1,36 @@
+.activities-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.activities-card {
+    width: 48.5%;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.show {
+    display: block;
+    margin-right: 2.99%;
+}
+
+.second {
+    margin-right: 0; 
+}
+
+.activities-card:hover .activities-card-text-wrapper {
+    background: #F5F5F5;
+}
+
+.activities-card-text-wrapper {
+    padding: 20px 10px 40px;
+}
+
+.activities-card-text-wrapper h4 {
+    font-size: 1em;
+}
+
+.activities-card-text-wrapper p {
+    text-align: center;
+    font-size: 0.8em;
+}

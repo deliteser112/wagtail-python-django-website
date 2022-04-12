@@ -1,0 +1,22 @@
+{% load context %}
+
+{% load wagtailimages_tags %}
+<h1>LATEST POSTS {{ regular_context_var }}</h1>
+<div class="blog-container" style="width: fit-content;">
+    {% for post in posts %}
+    <li>
+        <div class="uk-card uk-card-default special-offers-card">
+            <div class="uk-card-media-top">
+                <a title= "{{ blog_image.alt }}" href="{{ post.url }}"><img src="{{ blog_image.url }}" alt="{{ blog_image.alt }}" /></a>
+            </div>
+            <div class="uk-card-body">
+                <h4 class="uk-card-title">{{ post.blog_title }} </h4>
+                <p class="paragraph-size-4">
+                    End year with well deserved treatments from one of best
+                    hotels on Montengrian coast.
+                </p>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</div>

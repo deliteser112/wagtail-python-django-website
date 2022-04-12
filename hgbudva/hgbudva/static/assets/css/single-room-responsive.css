@@ -1,0 +1,98 @@
+  /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 640px) {
+  #room-facilities-container{
+    flex-direction: row;
+}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+/* @media only screen and (min-width: 960px) and (max-width: 1400px){
+  .accommodation-wrapper-alignment-correct{
+    padding: 0 !important;
+  }
+} */
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 960px) {
+  .gallery-and-infos-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .get-informations {
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+    padding: 20px 20px 20px 30px;
+    width: 30%;
+  }
+  .get-informations p{
+    text-align: center;
+  }
+  .get-informations-text {
+    width: 90%;
+    font-size: 0.85em;
+  }
+
+  .get-informations h2 {
+    font-size: 1.7em;
+  }
+
+  .book-btn-wrapper {
+    width: 100%;
+  }
+
+  .book-btn-wrapper button {
+    height: 50px;
+    font-size: 1em;
+  }
+
+  .paragraph-wrapper {
+    margin: 70px 0;
+  }
+
+  .commodities-row:first-child {
+    margin-bottom: 40px;
+  }
+
+  .commodity-card img {
+    width: 60px;
+  }
+
+  .commodity-card div {
+    margin-top: 10px;
+    color: #919191;
+  }
+  .single-room-gallery {
+    max-width: 500px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .single-room-gallery {
+    max-width: 450px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .single-room-gallery {
+    max-width: 575px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .single-room-gallery {
+    max-width: 650px;
+  }
+  .accommodation-wrapper-alignment-correct{
+    padding: 0 195px !important;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .single-room-gallery {
+    max-width: 750px;
+  }
+}

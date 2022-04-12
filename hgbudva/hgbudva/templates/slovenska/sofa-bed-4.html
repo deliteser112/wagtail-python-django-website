@@ -1,0 +1,694 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+    {% comment %} Chrome, Firefox OS and Opera {% endcomment %}
+    <meta name="theme-color" content="#ecad2e">
+    {% comment %} Windows Phone {% endcomment %}
+    <meta name="msapplication-navbutton-color" content="#ecad2e">
+    {% comment %} iOS Safari {% endcomment %}
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ecad2e">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="keywords" content="{% trans "resort slovenska plaza double twin room" %}" />
+    <meta name="description" content="{% trans "Double/Twin Room in Resort Slovenska Plaza offers air conditioning, fridge and cable TV." %}">
+    <title>{% trans "Budvanska Rivijera | Resort Slovenska Plaza - Double/Twin Room" %}</title>
+
+    {% comment %} jquery datepicker {% endcomment %}
+    <link href="{% static "assets/css/jquery-ui.css" %}"
+        rel="stylesheet" />
+
+    {% comment %} UIkit CSS {% endcomment %}
+    <link rel="stylesheet" href="{% static "assets/css/uikit.min.css" %}" />
+
+    {% comment %} UIkit CSS {% endcomment %}
+    <link rel="stylesheet" href="{% static "assets/css/uikit.min.css" %}" />
+
+    {% comment %} UIkit JS {% endcomment %}
+    <script async src="{% static "assets/js/uikit.min.js" %}"></script>
+    <script async src="{% static "assets/js/uikit-icons.min.js" %}"></script>
+
+    <link rel="stylesheet" href="{% static "assets/css/main-mobile.css" %}" />
+    <link rel="stylesheet" href="{% static "assets/css/main-responsive.css" %}" />
+
+    <link rel="stylesheet" href="{% static "assets/css/accommodation-mobile.css" %}" />
+    <link rel="stylesheet" href="{% static "assets/css/accommodation-responsive.css" %}" />
+
+    <link rel="stylesheet" href="{% static "assets/css/single-room-mobile.css" %}" />
+    <link rel="stylesheet" href="{% static "assets/css/single-room-responsive.css" %}" />
+
+    <link rel="stylesheet" href="{% static "assets/css/breadcrumbs-slidemenu.css" %}" />
+
+    <link href="{% static "assets/css/material-icons.css" %}" rel="stylesheet" />
+    <script async src="{% static "assets/js/fontawesome.js" %}"></script>
+
+
+</head>
+
+<body>
+    <header>
+    {% include "components/header-desktop-nav.html" %}
+        <div uk-sticky="offset: 50" class="hotel-menu-slide">
+            <div class="uk-position-relative uk-visible-toggle uk-light width-padding" tabindex="-1"
+                uk-slider="finite: true">
+                <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+                    <li class="menu-slide-li">
+                        <a title="{% trans "Resort Slovenska Plaza - Overview" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/overview/" %}">{% trans "HOTEL OVERVIEW" %}</a>
+                      </li>
+                      <li class="menu-slide-li">
+                        <a title="{% trans "Resort Slovenska Plaza - Accommodation 3*" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/3-star-guest-rooms/" %}">{% trans "ACCOMMODATION***" %}</a>
+                      </li>
+                      <li class="menu-slide-li">
+                        <a title="{% trans "Resort Slovenska Plaza - Accommodation 4*" %}" class="slide-menu-current-page" href="{% trans "/en/hotel-slovenska-plaza-in-budva/4-star-guest-rooms/" %}">{% trans "ACCOMMODATION****" %}</a>
+                      </li>
+                      <li class="menu-slide-li">
+                        <a title="{% trans "Resort Slovenska Plaza - Restaurants" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/restaurants-and-bars/" %}">{% trans "RESTAURANTS & BARS" %}</a>
+                      </li>
+                      <li class="menu-slide-li">
+                        <a title="{% trans "Resort Slovenska Plaza - Beaches & Pools" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/beaches-and-pools/" %}">{% trans "BEACHES" %}</a>
+                      </li>
+                      {% comment %} ecolabel <li class="menu-slide-li">
+                        <a title="{% trans "Resort Slovenska Plaza - Eco Label" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/eco-label-certificate/" %}">{% trans "ECO LABEL" %}</a>
+                      </li> {% endcomment %}
+                      <li class="menu-slide-li">
+                        <a title="{% trans "Resort Slovenska Plaza - Tennis resort" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/tennis-resort/" %}">{% trans "TENNIS RESORT" %}</a>
+                      </li>
+                      <li class="menu-slide-li">
+                        <a title="{% trans "Resort Slovenska Plaza - Location" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/location/" %}">{% trans "LOCATION" %}</a>
+                      </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="header-hero-container" id="header-container" style="background: url('{% static "assets/images/Slovenska/slovenska-accommodation.jpg" %}') right/cover;">
+            <div class="hotel-menu" id="hotel-menu">
+                <div class="hotel-menu-container width-padding">
+                    <div id="breadcrumbs-container">
+                        <svg uk-tooltip="title: Resort; " width="25" height="25" version="1.1" id="Capa_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                            y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                            xml:space="preserve">
+                            <style type="text/css">
+                                .st0 {
+                                    fill: #999;
+                                }
+                            </style>
+                            <g>
+                                <g>
+                                    <path class="st0" d="M298.7,384h-85.3c-4.7,0-8.5,3.8-8.5,8.5v59.7c0,4.7,3.8,8.5,8.5,8.5h85.3c4.7,0,8.5-3.8,8.5-8.5v-59.7
+              C307.2,387.8,303.4,384,298.7,384z M290.1,443.7h-68.3v-42.7h68.3V443.7z" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="247.5" y="392.5" class="st0" width="17.1" height="59.7" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path class="st0" d="M341.3,51.2H170.7c-4.7,0-8.5,3.8-8.5,8.5v392.5c0,4.7,3.8,8.5,8.5,8.5h170.7c4.7,0,8.5-3.8,8.5-8.5V59.7
+              C349.9,55,346.1,51.2,341.3,51.2z M332.8,443.7H179.2V68.3h153.6V443.7z" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path class="st0" d="M170.7,85.3h-68.3c-4.7,0-8.5,3.8-8.5,8.5v358.4c0,4.7,3.8,8.5,8.5,8.5h68.3c4.7,0,8.5-3.8,8.5-8.5V93.9
+              C179.2,89.2,175.4,85.3,170.7,85.3z M162.1,443.7h-51.2V102.4h51.2V443.7z" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="76.8" y="85.3" class="st0" width="25.6" height="17.1" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="145.1" y="51.2" class="st0" width="221.9" height="17.1" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="196.3" y="341.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="230.4" y="341.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="264.5" y="341.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="298.7" y="341.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="196.3" y="298.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="230.4" y="298.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="264.5" y="298.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="298.7" y="298.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="196.3" y="256" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="230.4" y="256" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="264.5" y="256" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="298.7" y="256" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="196.3" y="213.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="230.4" y="213.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="264.5" y="213.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="298.7" y="213.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="196.3" y="170.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="230.4" y="170.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="264.5" y="170.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="298.7" y="170.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="196.3" y="128" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="230.4" y="128" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="264.5" y="128" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="298.7" y="128" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="196.3" y="85.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="230.4" y="85.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="264.5" y="85.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="298.7" y="85.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="128" y="384" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="128" y="341.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="128" y="298.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="128" y="256" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="128" y="213.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="128" y="170.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="128" y="128" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path class="st0" d="M409.6,85.3h-68.3c-4.7,0-8.5,3.8-8.5,8.5v358.4c0,4.7,3.8,8.5,8.5,8.5h68.3c4.7,0,8.5-3.8,8.5-8.5V93.9
+              C418.1,89.2,414.3,85.3,409.6,85.3z M401.1,443.7h-51.2V102.4h51.2V443.7z" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="409.6" y="85.3" class="st0" width="25.6" height="17.1" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="366.9" y="384" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="366.9" y="341.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="366.9" y="298.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="366.9" y="256" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="366.9" y="213.3" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="366.9" y="170.7" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="366.9" y="128" class="st0" width="17.1" height="25.6" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect y="443.7" class="st0" width="102.4" height="17.1" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="409.6" y="443.7" class="st0" width="102.4" height="17.1" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="34.1" y="273.1" class="st0" width="17.1" height="179.2" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="34.1" y="273.1" transform="matrix(0.6 -0.8 0.8 0.6 -235.5202 160.4268)"
+                                        class="st0" width="17.1" height="85.3" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="0" y="307.2"
+                                        transform="matrix(0.7999 -0.6002 0.6002 0.7999 -180.9668 88.7876)" class="st0"
+                                        width="85.3" height="17.1" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="460.8" y="273.1" class="st0" width="17.1" height="179.2" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="460.8" y="273.1" transform="matrix(0.6 -0.8 0.8 0.6 -64.8566 501.7589)"
+                                        class="st0" width="17.1" height="85.3" />
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="426.6" y="307.2"
+                                        transform="matrix(0.8001 -0.5998 0.5998 0.8001 -95.6122 344.5997)" class="st0"
+                                        width="85.3" height="17.1" />
+                                </g>
+                            </g>
+                        </svg>
+                        <svg uk-tooltip="title: Tennis resort; " width="25" height="25" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                            y="0px" viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;"
+                            xml:space="preserve">
+                            <style type="text/css">
+                                .st0 {
+                                    fill: #999;
+                                }
+                            </style>
+                            <path class="st0" d="M430.3,291.4c0.8-0.7,1.6-1.4,2.3-2.1c74.6-74.7,84.7-186.1,22.5-248.4C428.8,14.5,392.1,0,351.7,0
+      c-51.6,0-104.3,23.1-144.6,63.5c-51.1,51.2-71.9,119.7-59.9,177.8l-41.9,82l-91.4,91.5c-9,9-13.9,20.9-13.9,33.6
+      C0,474.6,21.3,496,47.5,496c12.7,0,24.6-5,33.6-14l91.4-91.5l81-41.6c2.4,0.5,4.9,1,7.4,1.5c-12,38.5-2.9,82.3,27.5,112.8
+      c21.1,21.2,49.2,32.8,79.1,32.8h0c29.9,0,58-11.6,79.1-32.8c43.6-43.7,43.6-114.7,0-158.4C441.5,299.8,436,295.3,430.3,291.4z
+       M462.3,371.6c-7.4,2.9-15.1,4.4-23,4.4c-35.2,0-63.9-28.7-63.9-64c0-8,1.5-15.7,4.4-23.1c20.9,2.7,40.2,12.1,55.3,27.2
+      C450.7,331.7,459.7,351.3,462.3,371.6z M288.4,304.7c-0.1,0-0.2,0-0.4,0c-4.5,0-8.8-0.3-13.1-0.8l8.6-8.6l7.2,7.2
+      C290,303.3,289.2,304,288.4,304.7z M404.1,249.4L366.8,212l24.6-24.7l34,34.1C419.5,231.2,412.3,240.5,404.1,249.4z M355.4,128.7
+      L330.8,104l24.6-24.7l24.6,24.7L355.4,128.7z M391.4,115.3L416,140l-24.6,24.7L366.8,140L391.4,115.3z M344.1,140l-24.6,24.7
+      L294.9,140l24.6-24.7L344.1,140z M308.2,176l-24.6,24.7L258.9,176l24.6-24.7L308.2,176z M272.2,212l-24.6,24.7L223,212l24.6-24.7
+      L272.2,212z M283.6,223.3l24.6,24.7l-24.6,24.7L258.9,248L283.6,223.3z M294.9,212l24.6-24.7l24.6,24.7l-24.6,24.7L294.9,212z
+       M330.8,176l24.6-24.7l24.6,24.7l-24.6,24.7L330.8,176z M433.3,206.6L402.7,176l24.6-24.7l18.3,18.3
+      C443.2,182,439.1,194.5,433.3,206.6z M438.6,140l8.7-8.7c0.7,5.9,1,12,0.8,18.2L438.6,140z M427.3,128.7L402.7,104l23.5-23.5
+      c7.9,9.4,13.7,20.2,17.3,32L427.3,128.7z M391.4,92.7L366.8,68l15.7-15.8c12.1,3.5,23,9.2,32.4,16.9L391.4,92.7z M355.4,56.7
+      l-8.4-8.4c1.6-0.1,3.1-0.3,4.7-0.3c4,0,7.9,0.2,11.8,0.6L355.4,56.7z M326.8,50.6L344.1,68l-24.6,24.7l-29.8-29.8
+      C301.8,57.1,314.2,53,326.8,50.6z M275.1,70.8l33.1,33.2l-24.6,24.7L247,92C255.8,83.9,265.2,76.8,275.1,70.8z M235.6,103.3
+      l36.6,36.7l-24.6,24.7l-33.3-33.3C220.4,121.5,227.5,112.2,235.6,103.3z M206.5,146.1l29.8,29.9l-24.6,24.7l-17.5-17.5
+      C196.6,170.5,200.8,158.1,206.5,146.1z M200.4,212l-8.1,8.1c-0.5-5.4-0.6-10.9-0.4-16.5L200.4,212z M211.7,223.3l24.6,24.7
+      l-23.5,23.5c-7.7-9.4-13.3-20.4-16.8-32.5L211.7,223.3z M247.6,259.3l24.6,24.7l-16.1,16.2c-12-3.6-22.8-9.4-32.1-17.2L247.6,259.3z
+       M303.2,292.4l-8.4-8.4l24.6-24.7l17,17C324.6,279.8,313.4,285.2,303.2,292.4z M355.4,272.7L330.8,248l24.6-24.7l37.4,37.4
+      c-4.5,4.1-9.2,8-14.3,11.8c-3.7-0.4-7.4-0.5-11.1-0.5C363.4,272,359.4,272.2,355.4,272.7z M69.8,470.8c-6,6-13.9,9.2-22.3,9.2
+      C30.2,480,16,465.8,16,448.4c0-8.4,3.3-16.4,9.2-22.3l86.6-86.7l44.6,44.7L69.8,470.8z M169.3,374.2l-1.5-1.5l-46.2-46.2l32.2-63
+      c6.8,17.9,16.9,34.4,30.8,48.4c13.3,13.3,29.2,23.5,46.8,30.4L169.3,374.2z M195.9,300.5c-55.9-56-45.8-157.3,22.5-225.8
+      C255.8,37.4,304.4,16,351.7,16c36.1,0,68.8,12.9,92.1,36.2c55.9,56,45.8,157.3-22.5,225.8c-1.8,1.8-3.7,3.4-5.5,5.1
+      c-5.4-2.6-10.9-4.8-16.6-6.5c3.8-3.3,7.4-6.6,10.8-9.9c62.1-62.2,72.2-153.3,22.5-203.1C412,42.9,384,32,351.7,32
+      c-43.2,0-87.6,19.7-122,54.1c-30.7,30.7-49.6,69.3-53.4,108.5c-3.6,37.5,7.4,71.1,30.8,94.6c17.9,17.9,41.4,28.5,68.4,31
+      c-3.3,4.8-6.2,9.8-8.7,14.9C239.1,331.1,214.7,319.3,195.9,300.5z M272.5,396.4c7.4-2.9,15.1-4.4,23-4.4c35.2,0,63.9,28.7,63.9,64
+      c0,8-1.5,15.7-4.4,23.1c-20.9-2.7-40.2-12.1-55.3-27.2C284.1,436.3,275.2,416.7,272.5,396.4z M435.2,451.9
+      c-17.1,17.1-39.5,26.9-63.5,27.9c2.4-7.7,3.8-15.6,3.8-23.8c0-44.1-35.8-80-79.9-80c-8.1,0-16,1.3-23.7,3.8
+      c1-23.2,10.2-46,27.8-63.6v0c17.1-17.1,39.5-26.9,63.5-27.9c-2.4,7.7-3.8,15.6-3.8,23.8c0,44.1,35.8,80,79.9,80
+      c8.1,0,16-1.3,23.7-3.8C462,411.4,452.8,434.2,435.2,451.9z" />
+                            <path class="st0" d="M98.2,386.3l16-16l11.3,11.3l-16,16L98.2,386.3z" />
+                            <path class="st0" d="M42.3,442.3l39.9-40l11.3,11.3l-39.9,40L42.3,442.3z" />
+                        </svg>
+                        <ul class="uk-breadcrumb breadcrumbs-list">
+                            <li id="hotel-overview-dropdown">
+                                <span class="breadcrumbs-dropdown">{% trans "RESORT SLOVENSKA PLAZA" %}</span>
+                                <i class="fa fa-angle-down breadcrumbs-dropdown"></i>
+                                <div id="hotel-overview-dropdown-content" class="uk-animation-slide-top-small">
+                                    <a title="{% trans "Resort Slovenska Plaza - Overview" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/overview/" %}">{% trans "Hotel Overview" %}</a>
+                                    <a title="{% trans "Resort Slovenska Plaza - Accommodation 3*" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/3-star-guest-rooms/" %}">{% trans "Accommodation***" %}</a>
+                                    <a title="{% trans "Resort Slovenska Plaza - Accommodation 4*" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/4-star-guest-rooms/" %}">{% trans "Accommodation****" %}</a>
+                                    <a title="{% trans "Resort Slovenska Plaza - Restaurants" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/restaurants-and-bars/" %}">{% trans "Restaurants & bars" %}</a>
+                                    <a title="{% trans "Resort Slovenska Plaza - Beaches & Pools" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/beaches-and-pools/" %}">{% trans "Beaches & Pools" %}</a>
+                                    {% comment %} ecolabel <a title="{% trans "Resort Slovenska Plaza - Eco Label" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/eco-label-certificate/" %}">{% trans "Eco Label" %}</a> {% endcomment %}
+                  <a title="{% trans "Resort Slovenska Plaza - Tennis resort" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/tennis-resort/" %}">{% trans "Tennis resort" %}</a>
+                                    <a title="{% trans "Resort Slovenska Plaza - Location" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/location/" %}">{% trans "Location" %}</a>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="breadcrumbs-last-span"><a title="{% trans "Budvanska Rivijera | Resort Slovenska Plaza - 4 Star Rooms" %}" href="{% trans '/en/hotel-slovenska-plaza-in-budva/4-star-guest-rooms/' %}">{% trans "ACCOMMODATION 4*" %}</a></span>
+                            </li>
+                            <li>
+                                <span class="breadcrumbs-last-span">{% trans "DOUBLE/TWIN ROOM" %}</span>
+                            </li>
+                        </ul>
+                    </div>
+                   {% include "components/dropdown-all-hotels-menu.html" %}
+                </div>
+            </div>
+
+            <h2 id="hero-header" class="width-padding mobile-element">
+                {% trans "RESORT SLOVENSKA PLAZA" %}
+            </h2>
+            <span class="width-padding header-span mobile-element">{% trans "Accommodation" %}</span>
+            <h1 class="desktop-element width-padding" id="hero-header-desktop">
+                {% trans "Accommodation" %}
+            </h1>
+        </div>
+        <form action="https://secure.phobs.net/webservice/mobile/booking.php" id="phobs_book" name="phobs_book"
+            target="_blank" class="width-padding">
+            <span id="book-your-stay-span">{% trans "Book Your Stay" %}</span>
+            <select id="hotel_selection" name="hotel">
+                <option value="-">{% trans "All" %}</option>
+                <option value="690b8cb36cc9778f01169c7b23e92c4d">{% trans "Hotel Palas" %}</option>
+                <option value="0b45adca4485680ff1eb18b468ef97aa">{% trans "Hotel Aleksandar" %}</option>
+                <option value="fad8de6711bed793ff533298b9a8a1c0">{% trans "Hotel Castellastva" %}</option>
+                <option value="2bf69a5e1f101263d2d143794eb63e80">{% trans "Hotel Slovenska Plaza Standard" %}</option>
+                <option value="1f6335bcc23330993ad10df199fe00fb">{% trans "Hotel Resort Slovenska Plaza Lux" %}</option>
+                <option value="9b791e3b56dd06983659e5f985f33516">{% trans "Hotel Mogren" %}</option>
+            </select>
+            <input type="text" id="datepicker1" name="checkin" readonly="readonly" placeholder="arrival date" />
+            <input type="text" id="datepicker2" readonly="readonly" name="checkout" placeholder="departure date" />
+            <input type="text" id="promocode" name="partners_access" placeholder="promo code" />
+
+            <input type="submit" value="{% trans "BOOK NOW" %}" id="submit" class="call-action cursor-pointer"
+                 />
+            <a title="{% trans "Reservation Form" %}" href="#" class="call" uk-sticky uk-totop>{% trans "BOOK" %}</a>
+            <p>
+                <input name="company_id" type="hidden" value="5e01f11fbc6224083351531097a7f0ae" style="display: none" />
+                <input name="view_cancel" type="hidden" value="" style="display: none" />
+                <input name="lang" type="hidden" value="en" style="display: none" />
+            </p>
+        </form>
+    </header>
+
+  
+<!-- slovenska plaza 4 - stand dvokrevetna-->
+    <section class="width-padding">
+        <h3 class="blue-underline">{% trans "Double/Twin Room" %}</h3>
+        <p class="width-padding uk-margin-medium-bottom">{% blocktrans %} 
+            Standard room with possibility of double or twin beds. The rooms are equipped with all standard hotel equipment. Spacious bathroom with shower. Room size 21 square meters.
+        {% endblocktrans %}</p>
+            <div class="uk-position-relative uk-visible-toggle uk-light desktop-element gallery-container uk-width-xxlarge"
+                tabindex="-1" uk-slideshow="min-height: 300; max-height: 600; animation: push" id="gallery-slider">
+                <ul class="uk-slideshow-items gallery-list-desktop ">
+                    <li>
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room1.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li>
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room2.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li>
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room3.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li>
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room4.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li>
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room5.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li>
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room6.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li>
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room7.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li>
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room8.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                </ul>
+                <div class="galery-navigation-container">
+                    <a title="{% trans "Previous" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-previous" uk-slidenav-previous
+                        uk-slideshow-item="previous"></a>
+                    <div class="uk-position-relative uk-visible-toggle uk-light" id="gallery-slider-navigation"
+                        tabindex="-1" uk-slider="center:true">
+                        <ul class="uk-slider-items uk-child-width-1-3 gallery-list-navigation">
+                            <li>
+                                <img class="cursor-pointer"
+                                    src="{% static "assets/images/Slovenska/accommodation4/double-twin-room1.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}"
+                                    onclick="UIkit.slider('#gallery-slider-navigation').show(0); UIkit.slideshow('#gallery-slider').show(0);" />
+                            </li>
+                            <li>
+                                <img class="cursor-pointer"
+                                    src="{% static "assets/images/Slovenska/accommodation4/double-twin-room2.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}"
+                                    onclick="UIkit.slider('#gallery-slider-navigation').show(1); UIkit.slideshow('#gallery-slider').show(1);" />
+                            </li>
+                            <li>
+                                <img class="cursor-pointer"
+                                    src="{% static "assets/images/Slovenska/accommodation4/double-twin-room3.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}"
+                                    onclick="UIkit.slider('#gallery-slider-navigation').show(2); UIkit.slideshow('#gallery-slider').show(2);" />
+                            </li>
+                            <li>
+                                <img class="cursor-pointer"
+                                    src="{% static "assets/images/Slovenska/accommodation4/double-twin-room4.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}"
+                                    onclick="UIkit.slider('#gallery-slider-navigation').show(3); UIkit.slideshow('#gallery-slider').show(3);" />
+                            </li>
+                            <li>
+                                <img class="cursor-pointer"
+                                    src="{% static "assets/images/Slovenska/accommodation4/double-twin-room5.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room 5" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room 5" %}"
+                                    onclick="UIkit.slider('#gallery-slider-navigation').show(4); UIkit.slideshow('#gallery-slider').show(4);" />
+                            </li>
+                            <li>
+                                <img class="cursor-pointer"
+                                    src="{% static "assets/images/Slovenska/accommodation4/double-twin-room6.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room 5" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room 5" %}"
+                                    onclick="UIkit.slider('#gallery-slider-navigation').show(5); UIkit.slideshow('#gallery-slider').show(5);" />
+                            </li>
+                            <li>
+                                <img class="cursor-pointer"
+                                    src="{% static "assets/images/Slovenska/accommodation4/double-twin-room7.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room 5" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room 5" %}"
+                                    onclick="UIkit.slider('#gallery-slider-navigation').show(6); UIkit.slideshow('#gallery-slider').show(6);" />
+                            </li>
+                            <li>
+                                <img class="cursor-pointer"
+                                    src="{% static "assets/images/Slovenska/accommodation4/double-twin-room8.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room 5" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room 5" %}"
+                                    onclick="UIkit.slider('#gallery-slider-navigation').show(7); UIkit.slideshow('#gallery-slider').show(7);" />
+                            </li>
+
+                        </ul>
+                    </div>
+                    <a title="{% trans "Next" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-next" uk-slidenav-next
+                        uk-slideshow-item="next"></a>
+                </div>
+            </div>
+            <div class="uk-position-relative uk-visible-toggle uk-light mobile-element" tabindex="-1"
+                uk-slideshow="min-height: 300; max-height: 600; animation: push" id="gallery-mobile-slider">
+                <ul class="uk-slideshow-items gallery-list-mobile">
+                    <li count="1">
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room1.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li count="2">
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room2.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li count="3">
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room3.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li count="4">
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room4.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li count="5">
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room5.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li count="6">
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room6.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li count="7">
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room7.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                    <li count="8">
+                        <img src="{% static "assets/images/Slovenska/accommodation4/double-twin-room8.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" />
+                    </li>
+                </ul>
+                <div class="galery-navigation-container">
+                    <a title="{% trans "Previous" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-previous" uk-slidenav-previous
+                        uk-slideshow-item="previous"></a>
+                    <p class="gallery-counting-element" count="1" max-count="8">1/8</p>
+                    <a title="{% trans "Next" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-next" uk-slidenav-next
+                        uk-slideshow-item="next"></a>
+                </div>
+            </div>
+            <img style="display: block; margin: 15px auto;" src="{% static "assets/images/Slovenska/accommodation4/slovenska-4-standardna-dvokrev-bez-terase.png" %}" alt="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}" title="{% trans "Resort Slovenska Plaza - Double/Twin Room" %}">
+
+            <div class="accommodation-cards-desktop-wrapper accommodation-cards-desktop-wrapper-1  accommodation-wrapper-alignment-correct">
+                <ul style="list-style-type: none; ">
+                  <h5 class="uk-heading-line"><span>{% trans "In your private bathroom" %}</span></h5>
+                  <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Hairdryer" %}</li>
+                  <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Bathrobe" %}</li>
+                  <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Free toiletries" %}</li>
+                  <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Slippers" %}</li>
+                  <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Towels" %}</li>
+                  <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Shower" %}</li>
+                  <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Cosmetic mirror" %}</li>
+                <!-- <ul style="list-style-type: none; ">
+                  <h5 class="uk-heading-line"><span>{% trans "View" %}</span></h5>
+                </ul> -->
+              </div>
+              <h4>{% trans "Room facilities" %}</h4>
+              <div class="accommodation-cards-desktop-wrapper accommodation-cards-desktop-wrapper-1 width-padding">
+                <ul style="list-style-type: none; ">
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Safety Deposit Box" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Telephone" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Air conditioning" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Desk" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Seating Area" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Cable Channels" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Flat-screen TV" %}</li>
+            </ul>
+
+            <ul style="list-style-type: none; ">
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Free WiFi (rooms and other areas)" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Wake Up Service/Alarm Clock" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Mini fridge (mini bar on request)" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Socket near the bed" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Weight scale" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Baby cot (with surcharge)" %}</li>
+                <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Closet" %}</li>
+            </ul>
+              </div>
+              <hr>
+    </section>
+
+    
+    <section class="width-padding" style="display: flex; justify-content: center;">
+      <button class="custom-submit uk-button uk-button-default" style="border-radius:10px; color:white; background-color:#0059ab;" >
+        <a title="{% trans "Book this room" %}" style="color:white; text-decoration:none;" href="{{ settings.site_settings.UpdateAccomodationCtaLinksSettings.b_slovenska_plaza_4_star_accommodation_double_twin_room }}">{% trans "Book this room" %}</a>
+      </button>
+    </section>
+
+  {% include "components/footer.html" %}
+
+    {% comment %} jquery {% endcomment %}
+    <script src="{% static "assets/js/jquery.min.js" %}"></script>
+    {% comment %} jquery datepicker {% endcomment %}
+    <script src="{% static "assets/js/jquery-ui.min.js" %}"></script>
+    <script src="{% static "assets/js/jquery-ui-i18n.min.js" %}"></script>
+
+    <script src="{% static "assets/js/datepicker-me.js" %}"></script>
+    <script src="{% static "assets/js/index.js" %}"></script>
+    <script src="{% static "assets/js/gallery.js" %}"></script>
+    <script src="{% static "assets/js/search.js" %}"></script>
+
+</body>
+
+</html>

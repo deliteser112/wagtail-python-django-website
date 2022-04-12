@@ -1,0 +1,307 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+  {% comment %} Chrome, Firefox OS and Opera {% endcomment %}
+  <meta name="theme-color" content="#ecad2e">
+  {% comment %} Windows Phone {% endcomment %}
+  <meta name="msapplication-navbutton-color" content="#ecad2e">
+  {% comment %} iOS Safari {% endcomment %}
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ecad2e">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="keywords" content="{% trans "hotel group budvanska rivijera faq" %}" />
+  <meta name="description" 
+    content="{% trans "" %}">
+  <title>{% trans "Budvanska Rivijera | FAQ" %}</title>
+
+  {% comment %} jquery datepicker {% endcomment %}
+  <link href="{% static "assets/css/jquery-ui.css" %}"
+    rel="stylesheet" />
+
+  {% comment %} UIkit CSS {% endcomment %}
+  <link rel="stylesheet" href="{% static "assets/css/uikit.min.css" %}" />
+
+  {% comment %} UIkit JS {% endcomment %}
+  <script async src="{% static "assets/js/uikit.min.js" %}"></script>
+  <script async src="{% static "assets/js/uikit-icons.min.js" %}"></script>
+
+  <link rel="stylesheet" href="{% static "assets/css/homepage-responsive.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/main-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/main-responsive.css" %}" />
+
+  <link href="{% static "assets/css/material-icons.css" %}" rel="stylesheet" />
+  <script async src="{% static "assets/js/fontawesome.js" %}"></script>
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "hgbudvanskarivijera.com",
+    "alternateName": "hgbudvanskarivijera.com",
+    "url": "https://www.hgbudvanskarivijera.com/"
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "https://www.hgbudvanskarivijera.com",
+      "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+382 33 402456",
+          "contactType": "customer service"
+      }]
+  }
+</script>
+
+</head>
+
+<body>
+  <header>
+    {% include "components/header-desktop-nav.html" %}
+
+    
+    <div class="header-hero-container header-hero-container-not-homepage" id="header-container">
+      <div class="hotel-menu" id="hotel-menu">
+        <div class="hotel-menu-container width-padding">
+          {% include "components/dropdown-index-menu.html" %}
+        </div>
+      </div>
+
+      <h2 id="hero-header" class="width-padding mobile-element">
+        BUDVANSKA RIVIJERA
+      </h2>
+      <span class="width-padding header-span mobile-element">{% trans "FAQ" %}</span>
+      <h1 class="desktop-element width-padding" id="hero-header-desktop">
+        {% trans "FAQ" %}
+      </h1>
+    </div>
+    <form action="https://secure.phobs.net/webservice/mobile/booking.php" id="phobs_book" name="phobs_book"
+      target="_blank" class="width-padding">
+      <span id="book-your-stay-span">{% trans "Book Your Stay" %}</span>
+      <select id="hotel_selection" name="hotel">
+        <option value="-">{% trans "All" %}</option>
+        <option value="690b8cb36cc9778f01169c7b23e92c4d">Hotel Palas</option>
+        <option value="0b45adca4485680ff1eb18b468ef97aa">Hotel Aleksandar</option>
+        <option value="fad8de6711bed793ff533298b9a8a1c0">Hotel Castellastva</option>
+        <option value="2bf69a5e1f101263d2d143794eb63e80">Hotel Slovenska Plaza Standard</option>
+        <option value="1f6335bcc23330993ad10df199fe00fb">Hotel Resort Slovenska Plaza Lux</option>
+        <option value="9b791e3b56dd06983659e5f985f33516">Hotel Mogren</option>
+      </select>
+      <input type="text" id="datepicker1" name="checkin" readonly="readonly" placeholder="arrival date" />
+      <input type="text" id="datepicker2" readonly="readonly" name="checkout" placeholder="departure date" />
+      <input type="text" id="promocode" name="partners_access" placeholder="promo code" />
+
+      <input type="submit" value="{% trans "BOOK NOW" %}" id="submit" class="call-action cursor-pointer"
+         />
+      <a title="{% trans "Reservation Form" %}" href="#" class="call" uk-sticky uk-totop>{% trans "BOOK" %}</a>
+      <p class="hidden-inputs__wrapper">
+        <input name="company_id" type="hidden" value="5e01f11fbc6224083351531097a7f0ae" style="display: none" />
+        <input name="view_cancel" type="hidden" value="" style="display: none" />
+        <input name="lang" type="hidden" value="en" style="display: none" />
+      </p>
+    </form>
+  </header>
+
+ 
+
+  <section class="width-padding">
+    <h2 class="blue-underline">{% trans "FAQ" %}</h2>
+    <p class="width-padding paragraph-size-3">
+      <h3>{% trans "Site search:" %}</h3>
+      <span style="font-weight: bold;">{% trans "1. How can I search for available rooms / apartments?" %}</span> <br> <br>
+      {% blocktrans %}
+      You can check the availability of rooms/apartments by selecting the option: Book now, on the home page. You need to fill in the required fields regarding the type of accommodation, number of persons, date of arrival and departure, and you will be shown the availability of accommodation for each of the hotels of the Hotel Group ’’Budvanska Rivijera’’ 
+      {% endblocktrans %} <br><br>
+
+      <span style="font-weight: bold;">{% trans "2. How can I search for hotels by price - from lowest to highest?" %}</span> <br> <br>
+      {% blocktrans %}
+      In the section: Availability you can set a parameter by which the prices will be displayed from lowest to highest or vice versa. You can also search for hotels by star rating.
+      {% endblocktrans %} <br><br>
+
+      <span style="font-weight: bold;">{% trans "3. Where can I find contact information?" %}</span> <br> <br>
+      {% blocktrans %}
+      Contact information for each of the hotels you can find in the section {% endblocktrans %} <a href="{% trans "/en/contact/" %}">{% trans "Contact" %}</a> {% blocktrans %} on the home page.
+      {% endblocktrans %} <br><br>
+
+      <span style="font-weight: bold;">{% trans "4. Where can I find information about the location of the hotel that interests me?" %}</span> <br> <br>
+      {% blocktrans %}
+      Each of the hotels of Hotel Group’’Budvanska Rivijera’’ has a special tab on the site. After selecting the desired hotel, at the bottom of the page you can find information about the location, as well as a map with the exact location of the hotel. 
+      {% endblocktrans %} <br>
+
+      <a href="{% trans "/en/hotel-palas/location/" %}">{% trans "Hotel Palas Petrovac location" %}</a> <br>
+      <a href="{% trans "/en/hotel-aleksandar-in-budva/location/" %}">{% trans "Hotel Aleksandar Budva location" %}</a> <br>
+      <a href="{% trans "/en/hotel-castellastva-in-petrovac/location/" %}">{% trans "Hotel Castellastva Petrovac location" %}</a> <br>
+      <a href="{% trans "/en/hotel-slovenska-plaza-in-budva/location/" %}">{% trans "Hotel Slovenska plaža Budva location" %}</a> <br>
+      <a href="{% trans "/en/hotel-mogren-in-budva/location/" %}">{% trans "Hotel Mogren Budva location" %}</a> <br> <br>
+
+    </p>
+
+    <p class="width-padding paragraph-size-3">
+      <h3>{% trans "Room/apartment reservations:" %}</h3>
+      <span style="font-weight: bold;">{% trans "1. How can I book a room/ an apartment through the site?" %}</span> <br> <br>
+      {% blocktrans %} You can make a reservation easily, in three steps. Click the option: Book now you are accessing the booking process. You need to enter the required information to automatically get an overview of hotel capacity availability. After selecting a hotel and room/apartment, you need to confirm your reservation, enter your personal and card details and book your accommodation. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "2. Do I pay a booking fee?" %}</span> <br> <br>
+      {% blocktrans %} During the reservation process, you need to pay 20 percent of the reservation value via the card. The rest of the value of the arrangement is authorized after the expiration of the free cancellation period, which is in accordance with the cancellation policy (three days until the arrival, out of season, and seven days until arrival in the main season). <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "3. Is the reservation made through the site guaranteed?" %}</span> <br> <br>
+      {% blocktrans %}The value of 20 percent of the total price you pay during the booking is a guarantee for the reservation, so you can be sure that you will receive exactly what you booked. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "4. What credit cards can I use to pay for the reservation?" %}</span> <br> <br>
+      {% blocktrans %} You can pay with Visa, Visa electron, Master card and Maestro cards. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "5. Can I make a reservation by phone or e-mail?" %}</span> <br> <br>
+      {% blocktrans %} If you prefer to make a reservation by phone or e-mail, you can do so by sending an inquiry to the email address: {% endblocktrans %} <a href="mailto:reservations@budvanskarivijera.co.me">{% trans "reservations@budvanskarivijera.co.me" %}</a> {% blocktrans %} or by calling the phone number: {% endblocktrans %} <a href="tel:+38233402456">{% trans " +382 33 402 456." %}</a>  <br /><br />
+
+      <span style="font-weight: bold;">{% trans "6. Is it safe to leave my credit card information on your site?" %}</span> <br> <br>
+      {% blocktrans %} Your credit card information is sent via a specially designed security server (3D secure). We use the latest and most advanced technology to protect your personal information and guarantee that we will use your information only for the purpose of making a reservation. We have also created a special type of protection for our servers and network against unauthorized access. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "7. What are the benefits of booking through the site?" %}</span> <br> <br>
+      {% blocktrans %} By booking your accommodation through the site, the best price at the time of the search is always guaranteed to you. In addition, you have the opportunity to choose the room/apartment that best suits your affinities and needs. Check our site regularly for information on benefits and discounts when making an online reservation. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "8. What if I do not receive an e-mail confirmation after booking?" %}</span> <br> <br>
+      {% blocktrans %} After booking, you will receive a confirmation email. Please check your spam and junk folders too. If you have not received a confirmation, contact us urgently by e-mail: {% endblocktrans %} <a href="mailto:reservations@budvanskarivijera.co.me">{% trans "reservations@budvanskarivijera.co.me" %}</a> {% blocktrans %} or by calling the phone number: {% endblocktrans %} <a href="tel:+38233402456">{% trans " +382 33 402 456." %}</a> <br /><br /> 
+
+      <span style="font-weight: bold;">{% trans "9. How many rooms/apartments can I book within one reservation?" %}</span> <br> <br>
+      {% blocktrans %} Within one reservation, you can book several rooms or apartments of a certain type, depending on what you choose. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "10. Can I book a room/apartment for the daily stay only? " %}</span> <br> <br>
+      {% blocktrans %} You can book a daily stay by contacting the reception of the hotel you are interested in, or by sending an e-mail. <br /><br /> {% endblocktrans %}
+    </p>
+
+
+    <p class="width-padding paragraph-size-3">
+      <h3>{% trans "Cancellation:" %}</h3>
+      <span style="font-weight: bold;">{% trans "1. How can I cancel a reservation?" %}</span> <br> <br>
+      {% blocktrans %} You can cancel your reservation free of charge online, three days before arrival in low season, and seven days before arrival at the hotel, in high season. Otherwise, we will apply the penalty payments with the cancellation policy (50 percent or 100 percent of the reservation value is charged, depending on the day of arrival or - no show).  <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "2. How can I change my reservation?" %}</span> <br> <br>
+      {% blocktrans %} If you want to change the existing reservation, contact us by e-mail: {% endblocktrans %} <a href="mailto:reservations@budvanskarivijera.co.me">{% trans "reservations@budvanskarivijera.co.me" %}</a> {% blocktrans %}, or you can correct the date online, by entering your reservation. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "3. Do I pay a cancellation fee?" %}</span> <br> <br>
+      {% blocktrans %}Cancellations are free of charge. However, it is necessary to cancel the reservation in accordance with the policy of the Hotel Group ’’Budvanska Rivijera’’: three days before arrival in low season, and d seven days before arrival in high season (July/August). <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "4. How do I know that my reservation has been canceled?" %}</span> <br> <br>
+      {% blocktrans %} After you cancel your reservation, you will receive an e-mail that confirms the cancellation. If you do not receive the e-mail, contact us as soon as possible by e-mail:{% endblocktrans %} <a href="mailto:reservations@budvanskarivijera.co.me">{% trans "reservations@budvanskarivijera.co.me" %}</a> {% blocktrans %} or by calling the phone number: {% endblocktrans %} <a href="tel:+38233402456">{% trans " +382 33 402 456." %}</a> <br /><br />
+
+    </p>
+
+
+    <p class="width-padding paragraph-size-3">
+      <h3>{% trans "Types of accommodation:" %}</h3>
+      <span style="font-weight: bold;">{% trans "1. Which rooms I can book through the HG ’’Budvanska Rivijera website’’?" %}</span> <br> <br>
+      {% blocktrans %} On the site you can see the types of rooms for all hotels: <br/> {% endblocktrans %}
+      <a href="{% trans "/en/hotel-palas/rooms-and-suites/" %}">{% trans "Hotel Palas Petrovac - Rooms and apartments" %}</a> <br>
+      <a href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/" %}">{% trans "Hotel Aleksandar Budva - Rooms and apartments" %}</a> <br>
+      <a href=" {% trans "/en/hotel-castellastva-in-petrovac/guest-rooms/" %}">{% trans "Hotel Castellastva Petrovac - Rooms and apartments" %}</a> <br>
+      <a href="{% trans "/en/hotel-slovenska-plaza-in-budva/3-star-guest-rooms/" %}">{% trans "Hotel Slovenska plaža Budva - Rooms and apartments 3*" %}</a> <br>
+      <a href="{% trans "/en/hotel-slovenska-plaza-in-budva/4-star-guest-rooms/" %}">{% trans "Hotel Slovenska plaža Budva - Rooms and apartments 4*" %}</a> <br>
+      <a href="{% trans "/en/hotel-mogren-in-budva/guest-rooms/" %}">{% trans "Hotel Mogren Budva - Rooms and apartments" %}</a> <br> <br>
+
+      <span style="font-weight: bold;">{% trans "2. What type of double room can I book?" %}</span> <br> <br>
+      {% blocktrans %} You can book a room with one large bed (double bed) or a room with twin beds. This type of accommodation unit is treated as a double room.<br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "3. If I have a baby, can I get a baby cot in the room?" %}</span> <br> <br>
+      {% blocktrans %} You can get a baby cot, on request, at an additional cost. <br /><br /> {% endblocktrans %}
+    </p>
+
+
+    <p class="width-padding paragraph-size-3">
+      <h3>{% trans "Prices:" %}</h3>
+      <span style="font-weight: bold;">{% trans "1. Are the prices displayed on the site per person or room/apartment?" %}</span> <br> <br>
+      {% blocktrans %} The prices displayed on the site are prices per person. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "2. Do I pay extra fees?" %}</span> <br> <br>
+      {% blocktrans %} Lunch fee and staying/sojourn tax are added to the price of your reservation. The final price includes the price for accommodation together with accompanying fees. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "3. Is breakfast included in the price?" %}</span> <br> <br>
+      {% blocktrans %}The minimum service we charge is bed and breakfast. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "4. What is half board and what is full board?" %}</span> <br> <br>
+      {% blocktrans %} Half board includes overnight at the hotel with breakfast and dinner, while full board includes overnight stay at the hotel with breakfast, lunch, and dinner.{% endblocktrans %} <br /><br />
+
+      <span style="font-weight: bold;">{% trans "5. Do you offer special discounts for the groups such as corporate clients, regular guests, etc.?" %}</span> <br> <br>
+      {% blocktrans %} You should send this type of inquiry directly to the Sales Department due to the specifics of the arrangement. Please find contact phone and e-mail address, for each hotel, in the section: {% endblocktrans %} <a href="{% trans "/en/contact/" %}">{% trans "Contact." %}</a> <br /><br />
+
+      <span style="font-weight: bold;">{% trans "6. Is it possible to organize corporate or private events in the hotels of Hotel Group ’’Budvanska Rivijera’’?" %}</span> <br> <br>
+      {% blocktrans %} It is possible to organize seminars, conferences, and other types of business events within the Palace, Alexander, and Mogren hotels. {% endblocktrans %} <br/>
+      <a href="{% trans "/en/hotel-palas/conference-rooms/" %}">{% trans "Hotel Palas Petrovac - Meetings and events" %}</a> <br>
+      <a href="{% trans "/en/hotel-aleksandar-in-budva/conference-rooms/" %}">{% trans "Hotel Aleksandar Budva - Meetings and events" %}</a> <br>
+      <a href="{% trans "/en/hotel-mogren-in-budva/conference-rooms/" %}">{% trans "Hotel Mogren Budva - Meetings and events" %}</a> <br> <br>
+
+      <span style="font-weight: bold;">{% trans "7. Is it possible to organize a wedding in the hotels of HG ’’Budvanska Rivijera’’?" %}</span> <br> <br>
+      {% blocktrans %} It is possible to organize {% endblocktrans %} <a href="{% trans "/en/weddings/" %}">{% trans "weddings" %}</a> {% blocktrans %} in {% endblocktrans %} <a href="{% trans "/en/hotel-palas/weddings/" %}">{% trans "Hotel Palas" %}</a> {% blocktrans %} , in Petrovac and {% endblocktrans %} <a href="{% trans "/en/hotel-mogren-in-budva/weddings/" %}">{% trans "Hotel Mogren" %}</a> {% blocktrans %} , in Budva. <br /><br /> {% endblocktrans %}
+
+    </p>
+
+
+    <p class="width-padding paragraph-size-3">
+      <h3>{% trans "General rules and information:" %}</h3>
+      <span style="font-weight: bold;">{% trans "1. When is the Check In in hotel?" %}</span> <br> <br>
+      {% blocktrans %} Check In is from 12:00PM on the day of your arrival. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "2. When is the Check Out from hotel?" %}</span> <br> <br>
+      {% blocktrans %} Check Out is until 10:00AM on the day of your departure. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "3. If I leave the accommodation after check out hours , do I have to pay?" %}</span> <br> <br>
+      {% blocktrans %}In case you leave the accommodation after the check-out hours , you will have to pay a fee for it. The fee equals to the amount of the price for daily stay. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "4. How can I send a request for an earlier Check In or a later Check Out?" %}</span> <br> <br>
+      {% blocktrans %} This type of request you should send to the Sales Department or the hotel reception. Please check {% endblocktrans %} <a href="{% trans "/en/contact/" %}">{% trans "Contact" %}</a> {% blocktrans %} session for contact phone and e-mail address, for each hotel. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "5. Can I Check In if I arrive late at night at the hotel?" %}</span> <br> <br>
+      {% blocktrans %} You can Check In if you arrive late, our reception is available 24 hours a day. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "6. How do I get information about the parking capacity for the hotel I want to make a reservation in?" %}</span> <br> <br>
+      {% blocktrans %}For all additional information regarding accommodation, parking capacity, etc., please contact us at:{% endblocktrans %} <a href="tel:+38233402456">{% trans " +382 33 402 456." %}</a> <br /><br />
+
+      <span style="font-weight: bold;">{% trans "7. Do your hotels offer an airport transfer service?" %}</span> <br> <br>
+      {% blocktrans %} We do not offer transfer services. Hotel receptions will recommend you companies that provide this type of service. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "8.Are your hotels pet friendly?" %}</span> <br> <br>
+      {% blocktrans %}None of our hotels are pet friendly. {% endblocktrans %} <br /><br /> 
+
+      <span style="font-weight: bold;">{% trans "9. Is internet available in your hotels?" %}</span> <br> <br>
+      {% blocktrans %}  Free internet is available in all hotels of the Hotel Group ’’Budvanska Rivijera’’. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "10. Do I pay for accommodation for children?" %}</span> <br> <br>
+      {% blocktrans %}We approve different types of discounts for children up to 12 years of age, accompanied by two adults: <br /> {% endblocktrans %}
+      <ul>
+        <li> {% blocktrans %} For children up to 2 years, the stay is free (except when it comes to special actions). {% endblocktrans %} </li>
+        <li> {% blocktrans %} For children aged 2-7 we grant a 50 percent discount. {% endblocktrans %} </li>
+        <li> {% blocktrans %} For children aged 7-12, we grant a 30 percent discount. {% endblocktrans %} </li>
+      </ul> <br> 
+
+      <span style="font-weight: bold;">{% trans "11. Do your hotels have a safe?" %}</span> <br> <br>
+      {% blocktrans %} All our rooms in all hotels are equipped with a safe. <br /><br /> {% endblocktrans %}
+
+      <span style="font-weight: bold;">{% trans "12. Do your hotels have an exchange office?" %}</span> <br> <br>
+      {% blocktrans %} There are no exchange offices in our hotels.<br /><br /> {% endblocktrans %}
+    </p>
+  </section>
+
+
+  {% include "components/footer.html" %}
+
+  {% comment %} jquery {% endcomment %}
+  <script src="{% static "assets/js/jquery.min.js" %}"></script>
+  {% comment %} jquery datepicker {% endcomment %}
+  <script src="{% static "assets/js/jquery-ui.min.js" %}"></script>
+  <script src="{% static "assets/js/jquery-ui-i18n.min.js" %}"></script>
+
+  <script src="{% static "assets/js/datepicker-me.js" %}"></script>
+  <script src="{% static "assets/js/index.js" %}"></script>
+  <script src="{% static "assets/js/search.js" %}"></script>
+
+</body>
+
+</html>

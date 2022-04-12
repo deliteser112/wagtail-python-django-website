@@ -1,0 +1,504 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+  {% comment %} Chrome, Firefox OS and Opera {% endcomment %}
+  <meta name="theme-color" content="#ecad2e">
+  {% comment %} Windows Phone {% endcomment %}
+  <meta name="msapplication-navbutton-color" content="#ecad2e">
+  {% comment %} iOS Safari {% endcomment %}
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ecad2e">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="keywords" content="{% trans "hotel aleksandar rooms" %}" />
+  <meta name="description" content="{% trans "Hotel Aleksandar counts as many as 187 rooms and suites that guests can choose from when booking their stay at one of Budva's top hotel sites." %}">
+  <title>{% trans "Budvanska Rivijera | Aleksandar Hotel - Guest Rooms & Suites" %}</title>
+ 
+  {% comment %} jquery datepicker {% endcomment %}
+  <link href="{% static "assets/css/jquery-ui.css" %}"
+    rel="stylesheet" />
+ 
+  {% comment %} UIkit CSS {% endcomment %}
+  <link rel="stylesheet" href="{% static "assets/css/uikit.min.css" %}" />
+
+  {% comment %} UIkit JS {% endcomment %}
+  <script async src="{% static "assets/js/uikit.min.js" %}"></script>
+  <script async src="{% static "assets/js/uikit-icons.min.js" %}"></script>
+
+  <link rel="stylesheet" href="{% static "assets/css/main-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/main-responsive.css" %}" />
+
+  <link rel="stylesheet" href="{% static "assets/css/accommodation-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/accommodation-responsive.css" %}" />
+
+  <link rel="stylesheet" href="{% static "assets/css/breadcrumbs-slidemenu.css" %}" />
+
+  <link href="{% static "assets/css/material-icons.css" %}" rel="stylesheet" />
+  <script async src="{% static "assets/js/fontawesome.js" %}"></script>
+  {% comment %} Button Animation {% endcomment %}
+  <link rel="stylesheet" href="{% static 'assets/css/button-wave-animation.css' %}">
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "hgbudvanskarivijera.com",
+    "alternateName": "hgbudvanskarivijera.com",
+    "url": "https://www.hgbudvanskarivijera.com/"
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "https://www.hgbudvanskarivijera.com",
+      "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+382 33 402456",
+          "contactType": "customer service"
+      }]
+  }
+</script>
+
+</head>
+
+<body>
+  <header>
+    {% include "components/header-desktop-nav.html" %}
+    <div uk-sticky="offset: 50" class="hotel-menu-slide">
+        <div class="uk-position-relative uk-visible-toggle uk-light width-padding" tabindex="-1" uk-slider="finite: true">
+          <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+            <li class="menu-slide-li">
+              <a title="{% trans "Hotel Aleksandar - Overview" %}" href="{% trans "/en/hotel-aleksandar-in-budva/overview/" %}">{% trans "HOTEL OVERVIEW" %}</a>
+            </li>
+            <li class="menu-slide-li">
+              <a title="{% trans "Hotel Aleksandar - Accommodation" %}" class="slide-menu-current-page" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/" %}">{% trans "ACCOMMODATION" %}</a>
+            </li>
+            <li class="menu-slide-li">
+              <a title="{% trans "Hotel Aleksandar - Meetings & Events" %}" href="{% trans "/en/hotel-aleksandar-in-budva/conference-rooms/" %}">{% trans "MEETINGS & EVENTS" %}</a>
+            </li>
+            <li class="menu-slide-li">
+              <a title="{% trans "Hotel Aleksandar - Restaurants" %}" href="{% trans "/en/hotel-aleksandar-in-budva/restaurants-and-bars/" %}">{% trans "RESTAURANTS & BARS" %}</a>
+            </li>
+            <li class="menu-slide-li">
+              <a title="{% trans "Hotel Aleksandar - Beaches & Pools" %}" href="{% trans "/en/hotel-aleksandar-in-budva/beaches-and-pools/" %}">{% trans "BEACHES & POOLS" %}</a>
+            </li>
+            <li class="menu-slide-li">
+              <a title="{% trans "Hotel Aleksandar - Wellness" %}" href="{% trans "/en/hotel-aleksandar-in-budva/wellness-and-spa/" %}">{% trans "WELLNESS" %}</a>
+            </li>
+            <li class="menu-slide-li">
+              <a title="{% trans "Hotel Aleksandar - Location" %}" href="{% trans "/en/hotel-aleksandar-in-budva/location/" %}">{% trans "LOCATION" %}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <div class="header-hero-container" id="header-container" style="background: url('{% static "assets/images/Aleksandar/aleksandar-accommodation.jpg" %}') right/cover;">
+      <div class="hotel-menu" id="hotel-menu">
+        <div class="hotel-menu-container width-padding">
+          <div id="breadcrumbs-container">
+            <svg uk-tooltip="title: Beachfront; " width="25" height="25" version="1.1" id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 581 581" style="enable-background:new 0 0 581 581;" xml:space="preserve">
+              <style type="text/css">
+                .st0 {
+                  fill: #999;
+                }
+              </style>
+              <path class="st0" d="M329.4,367.8c0,53.4,43.3,96.8,96.8,96.8c53.4,0,96.8-43.3,96.8-96.8c0-53.4-43.3-96.8-96.8-96.8
+	C372.7,271,329.4,314.3,329.4,367.8z M426.1,290.3c42.8,0,77.4,34.7,77.4,77.4s-34.7,77.4-77.4,77.4s-77.4-34.7-77.4-77.4
+	C348.8,325,383.4,290.4,426.1,290.3z" />
+              <path class="st0" d="M370.8,561.3h110.6v19.4H370.8V561.3z" />
+              <path class="st0" d="M329.4,522.6h193.5v19.4H329.4V522.6z" />
+              <path class="st0" d="M116.5,522.6h19.4v19.4h-19.4V522.6z" />
+              <path class="st0" d="M58.4,541.9h19.4v19.4H58.4V541.9z" />
+              <path class="st0" d="M117.5,468.1c50.5-88,82.2-185.5,93.1-286.4l90,89.5c1.8,1.8,4.2,2.8,6.8,2.8c0.5,0,1.1,0,1.6-0.1
+	c3.1-0.5,5.7-2.4,7.1-5.2c18.2-36.4,11.1-80.4-17.7-109.2l-7.9-7.9h68.1c5.3,0,9.7-4.3,9.7-9.7c0-1-0.2-2.1-0.5-3.1
+	c-12.9-38.6-49-64.7-89.7-64.7h-12.6l48.3-48.6c3.8-3.8,3.8-9.9,0-13.7c-0.7-0.7-1.6-1.3-2.5-1.8C274.6-8.2,230.6-1.1,201.8,27.7
+	l-9.2,9.2c-3,3-5.8,6.3-8.4,9.7c-2.5-3.4-5.3-6.6-8.3-9.7l-9.2-9.2C137.9-1.1,93.9-8.2,57.5,10c-4.8,2.4-6.7,8.2-4.3,13
+	c0.5,0.9,1.1,1.8,1.8,2.5l48.4,48.6H90.6c-40.7,0-76.9,26-89.7,64.7c-1.7,5.1,1,10.5,6.1,12.2c1,0.3,2,0.5,3.1,0.5h68l-7.9,7.9
+	c-28.8,28.8-36,72.8-17.7,109.2c1.4,2.8,4,4.7,7.1,5.2c0.5,0.1,1,0.1,1.6,0.1c2.6,0,5-1,6.8-2.8l83.8-83.3
+	c-10.4,92.7-45.3,181-101.2,255.7c-13-3.4-26.2-6.1-39.5-8l-6-0.6L3,454.2l5.6,0.6c9.7,1.4,19.3,3.3,28.9,5.6
+	c-1.9,2.4-3.9,4.9-5.9,7.3L46.5,480c74.4-88.4,118.7-198.2,126.6-313.4l11.1-11.1l8.3,8.3c-10.2,123.3-52.5,241.7-122.7,343.5
+	l15.8,11.1c7.6-10.9,14.9-22.1,21.9-33.6c45.3,21.7,85.2,53,117.1,91.7l15-12.3c-18.8-22.9-40.4-43.4-64.3-61H581v-19.4H146.7
+	C137.2,478.1,127.5,473,117.5,468.1z M303.8,247.1L201.5,145.4c26.2-7.8,54.5-0.7,73.9,18.5l9.2,9.2
+	C304,192.5,311.3,220.8,303.8,247.1z M343.6,132.2h-80.1c-18.7-8.9-39.7-11.4-59.9-7.2c14.1-19.8,36.9-31.6,61.2-31.6h13.1
+	C305.2,93.4,330.4,108.3,343.6,132.2z M206.2,50.7l9.2-9.2c19.3-19.4,47.7-26.7,74-19.1L232.1,80c-18.6,6.9-34.6,19.4-45.7,35.9
+	C181.9,92.2,189.3,67.8,206.2,50.7L206.2,50.7z M152.9,41.4l9.2,9.2c4.3,4.4,8,9.3,11.1,14.7c-4.4,10.2-6.9,21.1-7.4,32.2
+	c-8.7-7.6-18.7-13.5-29.5-17.5L79,22.3C105.3,14.7,133.6,22.1,152.9,41.4L152.9,41.4z M90.6,93.5h13.1c24.3,0,47.1,11.7,61.2,31.5
+	c-20.2-4.2-41.3-1.7-59.9,7.2H24.8C38.1,108.3,63.3,93.4,90.6,93.5L90.6,93.5z M64.7,247.1c-7.6-26.3-0.2-54.6,19.1-73.9l9.2-9.2
+	c13.9-13.9,32.8-21.7,52.5-21.6c7.3,0,14.5,1,21.4,3.1L64.7,247.1z" />
+            </svg>
+            <svg uk-tooltip="title: Family; " width="25" height="25" version="1.1" id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <style type="text/css">
+                .st0 {
+                  fill: #999;
+                }
+              </style>
+              <g>
+                <g>
+                  <path class="st0" d="M157.9,185.9c-3.2-2.6-7.9-2.1-10.5,1.1c-3,3.7-7,5.8-11.3,5.8s-8.3-2.1-11.3-5.8c-2.6-3.2-7.3-3.7-10.5-1.1
+			c-3.2,2.6-3.7,7.3-1.1,10.5c5.8,7.2,14.2,11.3,23,11.3s17.1-4.1,23-11.3C161.6,193.2,161.1,188.5,157.9,185.9z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path class="st0" d="M101.8,141.4c-4.1,0-7.5,3.4-7.5,7.5v8.6c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-8.6
+			C109.3,144.7,105.9,141.4,101.8,141.4z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path class="st0" d="M170.3,141.4c-4.1,0-7.5,3.4-7.5,7.5v8.6c0,4.1,3.4,7.5,7.5,7.5c4.1,0,7.5-3.4,7.5-7.5v-8.6
+			C177.8,144.7,174.5,141.4,170.3,141.4z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path class="st0" d="M406.4,228.8c-3.2-2.6-7.9-2.1-10.5,1.1c-3,3.7-7,5.8-11.3,5.8c-4.3,0-8.3-2.1-11.3-5.8
+			c-2.6-3.2-7.3-3.7-10.5-1.1c-3.2,2.6-3.7,7.3-1.1,10.5c5.8,7.2,14.2,11.3,23,11.3s17.1-4.1,23-11.3
+			C410.1,236.1,409.6,231.4,406.4,228.8z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path class="st0" d="M350.3,184.2c-4.1,0-7.5,3.4-7.5,7.5v8.6c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-8.6
+			C357.8,187.6,354.4,184.2,350.3,184.2z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path class="st0" d="M418.8,184.2c-4.1,0-7.5,3.4-7.5,7.5v8.6c0,4.1,3.4,7.5,7.5,7.5c4.1,0,7.5-3.4,7.5-7.5v-8.6
+			C426.3,187.6,423,184.2,418.8,184.2z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path class="st0" d="M491.1,332.5L432.4,309c-0.3-0.1-0.6-0.3-0.9-0.4c40.6-9.2,59.8-24.7,60.7-25.4c2-1.7,3-4.3,2.7-6.9
+			c-0.1-0.6-8.5-60.1-8.5-118.9c0-56.1-45.6-101.8-101.8-101.8s-101.8,45.6-101.8,101.8c0,15.4-0.7,34.2-1.8,52l-16.4,8.2l-48.1-24
+			c-0.1-0.1-0.3-0.1-0.4-0.2c2.3-6.7,3.8-13.7,4.3-21c10.1-3.1,17.4-12.5,17.4-23.5c0-7.4-3.3-14.1-8.6-18.7V80.3
+			c0-13.8-7-26.7-18.4-34.4c-3.9-14.4-16.8-24.5-32-24.5h-68.6c-37.2,0-67.5,30.3-67.5,67.5v41.3c-5.2,4.5-8.6,11.2-8.6,18.7
+			c0,11.1,7.3,20.4,17.4,23.5c1.9,25.2,14.9,47.3,34,61.5v20.7l-62,18.6C9.5,277.6,0,290.3,0,305.1v83.7c0,4.1,3.4,7.5,7.5,7.5h1.1
+			v86.8c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-86.8h27.8v86.8c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5V353.8
+			c0-6.6-1.9-12.9-5.6-18.4L48,316.1c-2.3-3.4-7-4.4-10.4-2.1c-3.4,2.3-4.4,7-2.1,10.4l12.8,19.2c2,3,3.1,6.5,3.1,10.1v27.6H16.1H15
+			v-76.2c0-8.1,5.2-15.1,13-17.4l25.7-7.7c9,37.5,43,64.9,82.3,64.9c14.1,0,27.8-3.5,40.1-10.1c4.5,6.1,11.7,10.1,19.9,10.1h1.1v1.1
+			c0,25.1,13.8,47.1,34.3,58.7v12.2c0,0.5-0.3,0.9-0.7,1l-28,9.3c-13.6,4.5-22.7,17.2-22.7,31.5v24.3c0,4.1,3.4,7.5,7.5,7.5
+			s7.5-3.4,7.5-7.5v-24.3c0-7.8,5-14.8,12.4-17.3l8.2-2.7c10.9,16.2,29.2,26.1,48.9,26.1c19.8,0,38.1-9.9,48.9-26.1l8.2,2.7
+			c7.4,2.5,12.4,9.4,12.4,17.3v24.3c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-24.3c0-14.3-9.1-27-22.7-31.5l-28-9.3
+			c-0.4-0.1-0.7-0.6-0.7-1v-12.2c15.3-8.7,26.9-23.2,31.8-40.5c14.2,14.8,34,23.5,55,23.5c33.2,0,62.4-21.5,72.4-52.7l28.6,11.5
+			c7,2.8,11.4,9.4,11.4,16.9v35.1h-1.1h-26.8v-9.6c0-4.1-3.4-7.5-7.5-7.5s-7.5,3.4-7.5,7.5v94.3c0,4.1,3.4,7.5,7.5,7.5
+			s7.5-3.4,7.5-7.5v-69.6h19.3v69.6c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-69.6h1.1c2,0,3.9-0.8,5.3-2.2c1.4-1.4,2.2-3.3,2.2-5.3
+			v-42.6C512,349.7,503.8,337.6,491.1,332.5z M297.8,157.5c0-47.8,38.9-86.8,86.8-86.8s86.8,38.9,86.8,86.8
+			c0,50.4,6.1,101.3,8,116.5c-6.7,4.4-23.9,14.1-53,20.4v-11.9c4-2.3,7.8-4.8,11.4-7.7c14.8-11.9,25.2-28.6,29.4-47
+			c1.4-6.1,2.1-12.5,2.1-18.8c0-42.4-30.7-48.5-60.3-54.4c-18.9-3.7-38.4-7.6-53.9-20c-2.3-1.8-5.3-2.2-7.9-0.9s-4.3,3.9-4.3,6.8
+			c0,0.2-0.3,19.9-28.6,27c-4,1-26.8,6-26.8,13.2c1,4,26.4,2.4,30.4,1.4c23.7-5.9,33.3-19.2,37.2-29.2c16.3,9.6,34.5,13.3,50.9,16.5
+			c31.7,6.3,48.2,10.9,48.2,39.6c0,5.2-0.6,10.4-1.7,15.5c-3.4,15.1-12,28.9-24.2,38.7c-12.5,10.1-27.6,15.4-43.7,15.4
+			c-14.7,0-28.7-4.5-40.5-13c-4.3-11.9-11.3-22.7-20.5-31.6v-33.5c0-2.6-1.3-5-3.6-6.4s-5-1.5-7.3-0.3l-16.2,8.1
+			C297.3,186.1,297.8,171.2,297.8,157.5z M308.5,212.4v27.1L281.3,226L308.5,212.4z M220.7,212.4l27.1,13.6l-27.1,13.6V212.4z
+			 M179.9,294.6v7.1c-5.4,4.6-8.6,11.4-8.6,18.6c-10.7,6.3-22.8,9.6-35.3,9.6c-32.6,0-60.8-23-67.9-54.3l18.5-5.6
+			c4.6,23.1,25,40.6,49.4,40.6c19.4,0,36.2-11,44.6-27.1C180.2,287.2,179.9,290.8,179.9,294.6z M100.7,260.3v-17.4
+			c10.8,5,22.7,7.7,35.3,7.7c12.6,0,24.6-2.8,35.3-7.7v17.4c0,19.5-15.9,35.3-35.3,35.3c-19.5,0-35.3-15.8-35.3-35.2
+			C100.7,260.3,100.7,260.3,100.7,260.3z M136,235.6c-38.4,0-69.6-31.2-69.6-69.6c0-4.1-3.4-7.5-7.5-7.5c-5.3,0-9.6-4.3-9.6-9.6
+			s4.3-9.6,9.6-9.6h17.1c3.2,0,6.1-2.1,7.1-5.1l6.9-20.7c17.2-0.4,70.7-2.8,100.8-17.9c3.7-1.9,40.6-26,28.6-31.1
+			c-1.9-3.7-31.6,15.8-35.3,17.6c-32.3,16.1-98.8,16.3-99.5,16.3c-3.2,0-6.1,2.1-7.1,5.1l-6.9,20.6H58.9c-0.4,0-0.7,0-1.1,0V88.9
+			c0-28.9,23.5-52.5,52.5-52.5h68.6c9,0,16.5,6.5,17.9,15.3c0.4,2.3,1.7,4.2,3.7,5.4c8.5,4.8,13.7,13.7,13.7,23.2v43.9
+			c-0.4,0-0.7,0-1.1,0h-8.6c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h8.6c5.3,0,9.6,4.3,9.6,9.6s-4.3,9.6-9.6,9.6
+			c-4.1,0-7.5,3.4-7.5,7.5C205.7,204.4,174.4,235.6,136,235.6z M186.4,260.3V234c7.5-5.5,14-12.3,19.3-19.9v19.8
+			c-8.4,8.2-14.9,17.9-19.3,28.5C186.4,261.7,186.4,261,186.4,260.3z M298.5,433.8c-8.3,10.1-20.7,16.1-34,16.1
+			c-13.3,0-25.7-6-34-16.1l4.8-1.6c6.6-2.2,11-8.3,11-15.2v-6c5.8,1.6,11.9,2.5,18.2,2.5s12.4-0.9,18.2-2.5v6
+			c0,6.9,4.4,13.1,11,15.2L298.5,433.8z M324.6,329.9c-4.1,0-7.5,3.4-7.5,7.5v7.5c0,0.1,0,0.1,0,0.2v0.9c0,28.9-23.5,52.5-52.5,52.5
+			s-52.5-23.5-52.5-52.5v-8.6c0-4.1-3.4-7.5-7.5-7.5H196c-5.3,0-9.6-4.3-9.6-9.6c0-3.4,1.8-6.5,4.8-8.3c0.7-0.4,1.3-0.9,1.8-1.5
+			c18.5-0.5,78.6-4,118.1-26.6c3.6-2.1,31.6-20.1,23.2-27.9c-2.1-3.6-27.1,12.9-30.7,14.9c-34.6,19.8-89,23.7-108.7,24.5v-0.9
+			c0-13.9,4.2-27.5,11.9-38.8c0.6,0.9,1.4,1.8,2.4,2.4c1.2,0.7,2.6,1.1,3.9,1.1c1.1,0,2.3-0.3,3.4-0.8l48.1-24l48.1,24
+			c1.1,0.5,2.2,0.8,3.4,0.8c1.4,0,2.7-0.4,3.9-1.1c1-0.6,1.8-1.4,2.4-2.4c7.7,11.4,11.9,24.9,11.9,38.8v10.9c0,2.7,1.4,5.1,3.7,6.5
+			c3,1.8,4.8,4.9,4.8,8.3c0,5.3-4.3,9.6-9.6,9.6H324.6z M384.5,372.7c-20.8,0-40-10.6-51.2-27.8c13.5-0.1,24.5-11.1,24.5-24.6
+			c0-7.2-3.2-13.9-8.6-18.6v-7.1c0-3-0.2-6-0.5-9c11.1,5.2,23.3,7.9,35.8,7.9c9.1,0,18.2-1.5,26.8-4.4v11c0,10.1,6.1,19.1,15.5,22.9
+			l16.2,6.5C435.2,355.1,411.5,372.7,384.5,372.7z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path class="st0" d="M286.4,357.3c-3.2-2.6-7.9-2.1-10.5,1.1c-3,3.7-7,5.8-11.3,5.8c-4.3,0-8.3-2.1-11.3-5.8
+			c-2.6-3.2-7.3-3.7-10.5-1.1c-3.2,2.6-3.7,7.3-1.1,10.5c5.8,7.2,14.2,11.3,23,11.3s17.1-4.1,23-11.3
+			C290.1,364.6,289.6,359.9,286.4,357.3z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <circle class="st0" cx="239" cy="328.9" r="7.5" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <circle class="st0" cx="290" cy="328.9" r="7.5" />
+                </g>
+              </g>
+            </svg>
+            <ul class="uk-breadcrumb breadcrumbs-list">
+              <li id="hotel-overview-dropdown">
+                <span class="breadcrumbs-dropdown">{% trans "HOTEL ALEKSANDAR" %}</span>
+                <i class="fa fa-angle-down breadcrumbs-dropdown"></i>
+                <div id="hotel-overview-dropdown-content" class="uk-animation-slide-top-small">
+                    <a title="{% trans "Hotel Aleksandar - Overview" %}" href="{% trans "/en/hotel-palas/en/hotel-aleksandar-in-budva/overview/" %}">{% trans "Hotel Overview" %}</a>
+                    <a title="{% trans "Hotel Aleksandar - Accommodation" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/" %}">{% trans "Accommodation" %}</a>
+                    <a title="{% trans "Hotel Aleksandar - Meetings & Events" %}" href="{% trans "/en/hotel-aleksandar-in-budva/conference-rooms/" %}">{% trans "Meetings & Events" %}</a>
+                    <a title="{% trans "Hotel Aleksandar - Restaurants" %}" href="{% trans "/en/hotel-aleksandar-in-budva/restaurants-and-bars/" %}">{% trans "Restaurants & bars" %}</a>
+                    <a title="{% trans "Hotel Aleksandar - Beaches & Pools" %}" href="{% trans "/en/hotel-aleksandar-in-budva/beaches-and-pools/" %}">{% trans "Beaches & Pools" %}</a>
+                    <a title="{% trans "Hotel Aleksandar - Wellness" %}" href="{% trans "/en/hotel-aleksandar-in-budva/wellness-and-spa/" %}">{% trans "Wellness & SPA" %}</a>
+                    <a title="{% trans "Hotel Aleksandar - Location" %}" href="{% trans "/en/hotel-aleksandar-in-budva/location/" %}">{% trans "Location" %}</a>
+                </div>
+              </li>
+              <li>
+                <span class="breadcrumbs-last-span">{% trans "ACCOMMODATION" %}</span>
+              </li>
+            </ul>
+          </div>
+          {% include "components/dropdown-all-hotels-menu.html" %}
+        </div>
+      </div>
+
+      <h2 id="hero-header" class="width-padding mobile-element">
+        {% trans "HOTEL ALEKSANDAR" %}
+      </h2>
+      <span class="width-padding header-span mobile-element">{% trans "Accommodation" %}</span>
+      <h1 class="desktop-element width-padding" id="hero-header-desktop">
+        {% trans "Accommodation" %}
+      </h1>
+    </div>
+    <form action="https://secure.phobs.net/webservice/mobile/booking.php" id="phobs_book" name="phobs_book"
+      target="_blank" class="width-padding">
+      <span id="book-your-stay-span">{% trans "Book Your Stay" %}</span>
+      <select id="hotel_selection" name="hotel">
+        <option value="-">{% trans "All" %}</option>
+        <option value="690b8cb36cc9778f01169c7b23e92c4d">{% trans "Hotel Palas" %}</option>
+        <option value="0b45adca4485680ff1eb18b468ef97aa">{% trans "Hotel Aleksandar" %}</option>
+        <option value="fad8de6711bed793ff533298b9a8a1c0">{% trans "Hotel Castellastva" %}</option>
+        <option value="2bf69a5e1f101263d2d143794eb63e80">{% trans "Hotel Slovenska Plaza Standard" %}</option>
+        <option value="1f6335bcc23330993ad10df199fe00fb">{% trans "Hotel Resort Slovenska Plaza Lux" %}</option>
+        <option value="9b791e3b56dd06983659e5f985f33516">{% trans "Hotel Mogre" %}</option>
+      </select>
+      <input type="text" id="datepicker1" name="checkin" readonly="readonly" placeholder="arrival date" />
+      <input type="text" id="datepicker2" readonly="readonly" name="checkout" placeholder="departure date" />
+      <input type="text" id="promocode" name="partners_access" placeholder="promo code" />
+
+      <input class="custom-submit" type="submit" value="{% trans "BOOK NOW" %}" id="submit" class="call-action cursor-pointer"
+         />
+      <a title="{% trans "Reservation Form" %}" href="#" class="call" uk-sticky uk-totop>{% trans "BOOK" %}</a>
+      <p class="hidden-inputs__wrapper">
+        <input name="company_id" type="hidden" value="5e01f11fbc6224083351531097a7f0ae" style="display: none" />
+        <input name="view_cancel" type="hidden" value="" style="display: none" />
+        <input name="lang" type="hidden" value="en" style="display: none" />
+      </p>
+    </form>
+  </header>
+
+ 
+
+  <section class="width-padding">
+    <h2 class="blue-underline">{% trans "Rooms & Suits" %}</h2>
+        <p class="width-padding paragraph-size-3">
+            {% blocktrans %} The hotel&#39;s serene lodgings inside any of our four grand villas
+      propose the unsurpassable comfort of waking up to the sound of the sea.
+      Our villas feature a total of <a title="Hotel Aleksandar - Accommodation" href="/en/hotel-aleksandar-in-budva/rooms-and-suites/" target="_blank">187 rooms</a>
+       and are named after plant species: Lavanda, Hortensia, Pinea and Tilia; depicting the very
+      surroundings of the buildings. {% endblocktrans %}
+        </p>
+        <div class="accommodation-cards-desktop-wrapper accommodation-cards-desktop-wrapper-1 width-padding">
+        </div>
+    <br/>
+    <div uk-grid
+      class="uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-3@xl uk-grid-match accommodation-grid-container">
+
+      <div class="uk-card uk-card-default accommodation-card">
+        <div class="uk-card-media-top">
+          <a title="{% trans "Hotel Aleksandar - Double/Twin Room no Balcony" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/double-twin-room/" %}">
+          <svg viewBox="0 0 500 150" preserveAspectRatio="none" ><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg>
+          <img src="{% static "assets/images/Aleksandar/accommodation/double-twin-room1.jpg" %}" alt="{% trans "Hotel Aleksandar - Double/Twin Room no Balcony" %}" title="{% trans "Hotel Aleksandar - Double/Twin Room no Balcony" %}">
+        </a>
+        </div>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title"><a title="{% trans "Hotel Aleksandar - Double/Twin Room no Balcony" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/double-twin-room/" %}">{% trans "Double/Twin Room no Balcony" %}</a></h3>
+          {% if settings.site_settings.UpdateAccomodationPricesSettings.aleksandar_double_twin_room %}
+          <p class="accommodation-price">{% trans "od" %} <span class="accommodation-price-span-first">{{ settings.site_settings.UpdateAccomodationPricesSettings.aleksandar_double_twin_room }}&euro;</span>
+            <span class="accommodation-price-span-second">{% trans "per room" %}</span></p>
+            {% endif %}
+          <div class="accommodation-btn-wrapper">
+            <button class="uk-button uk-button-default details-btn blob-btn">
+              <a title="{% trans "Hotel Aleksandar - Double/Twin Room no Balcony" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/double-twin-room/" %}">{% trans "Details" %}</a>
+              <span class="blob-btn__inner">
+                <span class="blob-btn__blobs">
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                </span>
+              </span>
+            </button>
+            <button class="custom-submit uk-button uk-button-default visit-btn" >
+              <a title = "{% trans "Book your room" %}" style="color:white; text-decoration:none;" href="{{ settings.site_settings.UpdateAccomodationCtaLinksSettings.b_aleksandar_double_twin_room }}">{% trans "Book your room" %}</a>
+
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="uk-card uk-card-default accommodation-card">
+        <div class="uk-card-media-top">
+          <a title="{% trans "Hotel Aleksandar - Double/Twin Room with Balcony" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/double-twin-room-balcony/" %}">
+          <svg viewBox="0 0 500 150" preserveAspectRatio="none" ><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg>
+          <img src="{% static "assets/images/Aleksandar/accommodation/double-twin-room-balcony1.jpg" %}" alt="{% trans "Hotel Aleksandar - Double/Twin Room with Balcony" %}" title="{% trans "Hotel Aleksandar - Double/Twin Room with Balcony" %}">
+        </a>
+        </div>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title"><a title="{% trans "Hotel Aleksandar - Double/Twin Room with Balcony" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/double-twin-room-balcony/" %}">{% trans "Double/Twin Room with Balcony" %}</a></h3>
+          {% if settings.site_settings.UpdateAccomodationPricesSettings.aleksandar_double_twin_room_with_balcony %}
+          <p class="accommodation-price">{% trans "od" %} <span class="accommodation-price-span-first">{{ settings.site_settings.UpdateAccomodationPricesSettings.aleksandar_double_twin_room_with_balcony }}&euro;</span>
+            <span class="accommodation-price-span-second">{% trans "per room" %}</span></p>
+            {% endif %}
+          <div class="accommodation-btn-wrapper">
+            <button class="uk-button uk-button-default details-btn blob-btn">
+              <a title="{% trans "Hotel Aleksandar - Double/Twin Room with Balcony" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/double-twin-room-balcony/" %}">{% trans "Details" %}</a>
+              <span class="blob-btn__inner">
+                <span class="blob-btn__blobs">
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                </span>
+              </span>
+            </button>
+            <button class="custom-submit uk-button uk-button-default visit-btn" >
+              <a title="{% trans "Book your room" %}" style="color:white; text-decoration:none;" href="{{ settings.site_settings.UpdateAccomodationCtaLinksSettings.b_aleksandar_double_twin_room_with_balcony }}">{% trans "Book your room" %}</a>
+
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="uk-card uk-card-default accommodation-card">
+        <div class="uk-card-media-top">
+          <a title="{% trans "Hotel Aleksandar - Family Room" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/family-room/" %}">
+          <svg viewBox="0 0 500 150" preserveAspectRatio="none" ><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg>
+          <img src="{% static "assets/images/Aleksandar/accommodation/family-room1.jpg" %}" alt="{% trans "Hotel Aleksandar - Family Room" %}" title="{% trans "Hotel Aleksandar - Family Room" %}">
+        </a>
+        </div>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title"><a title="{% trans "Hotel Aleksandar - Family Room" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/family-room/" %}">{% trans "Family room" %}</a></h3>
+          {% if settings.site_settings.UpdateAccomodationPricesSettings.aleksandar_family_room %}
+          <p class="accommodation-price">{% trans "od" %} <span class="accommodation-price-span-first">{{ settings.site_settings.UpdateAccomodationPricesSettings.aleksandar_family_room }}&euro;</span>
+            <span class="accommodation-price-span-second">{% trans "per room" %}</span></p>
+            {% endif %}
+          <div class="accommodation-btn-wrapper">
+            <button class="uk-button uk-button-default details-btn blob-btn">
+              <a title="{% trans "Hotel Aleksandar - Family Room" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/family-room/" %}">{% trans "Details" %}</a>
+              <span class="blob-btn__inner">
+                <span class="blob-btn__blobs">
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                </span>
+              </span>
+            </button>
+            <button class="custom-submit uk-button uk-button-default visit-btn" >
+              <a title="{% trans "Book your room" %}" style="color:white; text-decoration:none;" href="{{ settings.site_settings.UpdateAccomodationCtaLinksSettings.b_aleksandar_family_room }}">{% trans "Book your room" %}</a>
+
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="uk-card uk-card-default accommodation-card">
+        <div class="uk-card-media-top">
+          <a title="{% trans "Hotel Aleksandar - Apartment" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/apartment/" %}">
+          <svg viewBox="0 0 500 150" preserveAspectRatio="none" ><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg>
+          <img src="{% static "assets/images/Aleksandar/accommodation/apartment1.jpg" %}" alt="{% trans "Hotel Aleksandar - Apartment" %}" title="{% trans "Hotel Aleksandar - Apartment" %}">
+        </a>
+        </div>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title"><a title="{% trans "Hotel Aleksandar - Apartment" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/apartment/" %}">{% trans "Apartment" %}</a></h3>
+          {% if settings.site_settings.UpdateAccomodationPricesSettings.aleksandar_apartment %}
+          <p class="accommodation-price">{% trans "od" %} <span class="accommodation-price-span-first">{{ settings.site_settings.UpdateAccomodationPricesSettings.aleksandar_apartment }}&euro;</span>
+            <span class="accommodation-price-span-second">{% trans "per room" %}</span></p>
+            {% endif %}
+          <div class="accommodation-btn-wrapper">
+            <button class="uk-button uk-button-default details-btn blob-btn">
+              <a title="{% trans "Hotel Aleksandar - Apartment" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/apartment/" %}">{% trans "Details" %}</a>
+              <span class="blob-btn__inner">
+                <span class="blob-btn__blobs">
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                </span>
+              </span>
+            </button>
+            <button class="custom-submit uk-button uk-button-default visit-btn" >
+              <a title="{% trans "Book your room" %}" style="color:white; text-decoration:none;" href="{{ settings.site_settings.UpdateAccomodationCtaLinksSettings.b_aleksandar_apartment }}">{% trans "Book your room" %}</a>
+
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="uk-card uk-card-default accommodation-card">
+        <div class="uk-card-media-top">
+          <a title="{% trans "Hotel Aleksandar - Comfort Room with Balcony" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/comfort-room-balcony/" %}">
+          <svg viewBox="0 0 500 150" preserveAspectRatio="none" ><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg>
+          <img src="{% static "assets/images/Aleksandar/accommodation/comfort-room-balcony1.jpg" %}" alt="{% trans "Hotel Aleksandar - Comfort Room with Balcony" %}" title="{% trans "Hotel Aleksandar - Comfort Room with Balcony" %}">
+        </a>
+        </div>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title"><a title="{% trans "Hotel Aleksandar - Comfort Room with Balcony" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/comfort-room-balcony/" %}">{% trans "Comfort Room with Balcony" %}</a></h3>
+          {% if settings.site_settings.UpdateAccomodationPricesSettings.aleksandar_comfort_room_with_balcony %}
+          <p class="accommodation-price">{% trans "od" %} <span class="accommodation-price-span-first">{{ settings.site_settings.UpdateAccomodationPricesSettings.aleksandar_comfort_room_with_balcony }}&euro;</span>
+            <span class="accommodation-price-span-second">{% trans "per room" %}</span></p>
+            {% endif %}
+          <div class="accommodation-btn-wrapper">
+            <button class="uk-button uk-button-default details-btn blob-btn">
+              <a title="{% trans "Hotel Aleksandar - Comfort Room with Balcony" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/comfort-room-balcony/" %}">{% trans "Details" %}</a>
+              <span class="blob-btn__inner">
+                <span class="blob-btn__blobs">
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                </span>
+              </span>
+            </button>
+            <button class="custom-submit uk-button uk-button-default visit-btn" >
+              <a title="{% trans "Book your room" %}" style="color:white; text-decoration:none;" href="{{  settings.site_settings.UpdateAccomodationCtaLinksSettings.b_aleksandar_comfort_room_with_balcony }}">{% trans "Book your room" %}</a>
+
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {% include "components/footer.html" %}
+
+  {% comment %} jquery {% endcomment %}
+  <script src="{% static "assets/js/jquery.min.js" %}"></script>
+  {% comment %} jquery datepicker {% endcomment %}
+  
+  <script src="{% static "assets/js/jquery-ui.min.js" %}"></script>
+  <script src="{% static "assets/js/jquery-ui-i18n.min.js" %}"></script>
+
+  <script src="{% static "assets/js/datepicker-me.js" %}"></script>
+  <script src="{% static "assets/js/index.js" %}"></script>
+  <script src="{% static "assets/js/search.js" %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 640px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (max-width: 960px) {
+  /* body {
+    background: url(../images/hgbrbg-2.png);
+  } */
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 960px) {
+  .accommodation-cards-desktop-wrapper {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-gap: 2%;
+    align-items: baseline;
+  }
+
+  /* .accommodation-btn-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  } */
+
+  .accommodation-btn-wrapper button {
+    border: 2px solid #0059ab !important;
+    height: 35px;
+  }
+
+  .accommodation-btn-wrapper .details-btn {
+    width: 100%;
+    padding: 0 30px;
+    cursor: auto;
+  }
+
+  .accommodation-btn-wrapper .visit-btn {
+    width: 100%;
+    padding: 0 30px;
+  }
+  .accommodation-grid-container .uk-card{
+    width: 48%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+.accommodation-btn-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  }
+  .accommodation-btn-wrapper .details-btn {
+    width: auto;
+  }
+  .accommodation-btn-wrapper .visit-btn {
+    width: auto;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1400px) {
+  .accommodation-grid-container img{
+    width: 100%;
+  }
+  .accommodation-btn-wrapper {
+    justify-content: space-evenly;
+  }
+  .accommodation-grid-container .uk-card-body {
+    padding: 25px 25px;
+  }
+}

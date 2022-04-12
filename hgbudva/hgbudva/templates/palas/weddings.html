@@ -1,0 +1,454 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+  {% comment %} Chrome, Firefox OS and Opera {% endcomment %}
+  <meta name="theme-color" content="#ecad2e">
+  {% comment %} Windows Phone {% endcomment %}
+  <meta name="msapplication-navbutton-color" content="#ecad2e">
+  {% comment %} iOS Safari {% endcomment %}
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ecad2e">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="keywords" content='{% trans "hotel palas weddings" %}' />
+  <meta name="description" content="{% trans "Hotel Palas is close to Mother Nature's wonders, therefore being a great coastal venue for weddings and memorable ceremonies alike." %}"> 
+  <title>{% trans "Budvanska Rivijera | Hotel Palas - Weddings" %}</title>
+
+  {% comment %} jquery datepicker {% endcomment %}
+  <link href="{% static "assets/css/jquery-ui.css" %}"
+    rel="stylesheet" />
+
+  {% comment %} UIkit CSS {% endcomment %}
+  <link rel="stylesheet" href="{% static "assets/css/uikit.min.css" %}" />
+
+  {% comment %} UIkit JS {% endcomment %}
+  <script async src="{% static "assets/js/uikit.min.js" %}"></script>
+  <script async src="{% static "assets/js/uikit-icons.min.js" %}"></script>
+
+  <link rel="stylesheet" href="{% static "assets/css/main-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/main-responsive.css" %}" />
+
+  <link rel="stylesheet" href="{% static "assets/css/weddings-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/weddings-responsive.css" %}" />
+
+  <link rel="stylesheet" href="{% static "assets/css/breadcrumbs-slidemenu.css" %}" />
+
+  <link href="{% static "assets/css/material-icons.css" %}" rel="stylesheet" />
+  <script async src="{% static "assets/js/fontawesome.js" %}"></script>
+
+
+
+</head>
+
+<body>
+  <header>
+    {% include "components/header-desktop-nav.html" %}
+
+    <div uk-sticky="offset: 50" class="hotel-menu-slide">
+      <div class="uk-position-relative uk-visible-toggle uk-light width-padding" tabindex="-1" uk-slider="finite: true">
+        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Palas - Overview" %}" href="{% trans "/en/hotel-palas/overview/" %}">{% trans "HOTEL OVERVIEW" %}</a>
+          </li>
+          
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Palas - Accommodation" %}" href="{% trans "/en/hotel-palas/rooms-and-suites/" %}">{% trans "ACCOMMODATION" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Palas - Accommodation Lux" %}" href="{% trans "/en/hotel-palas-lux/rooms-and-suites/" %}">{% trans "ACCOMMODATION LUX" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Palas - Meetings & Events" %}" href="{% trans "/en/hotel-palas/conference-rooms/" %}">{% trans "MEETINGS & EVENTS" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Palas - Weddings" %}" class="slide-menu-current-page" href="{% trans "/en/hotel-palas/weddings/" %}">{% trans "WEDDINGS" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Palas - Restaurants" %}" href="{% trans "/en/hotel-palas/restaurants-and-bars/" %}">{% trans "RESTAURANTS & BARS" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Palas - Beaches & Pools" %}" href="{% trans "/en/hotel-palas/beaches-and-pools/" %}">{% trans "BEACHES" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Palas - Wellness" %}" href="{% trans "/en/hotel-palas/wellness-and-spa/" %}">{% trans "WELLNESS" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Palas - Location" %}" href="{% trans "/en/hotel-palas/location/" %}">{% trans "LOCATION" %}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-hero-container" id="header-container" style="background: url('{% static "assets/images/Palas/palas-weddings.jpg" %}') center/cover no-repeat;">
+
+      <div class="hotel-menu" id="hotel-menu">
+        <div class="hotel-menu-container width-padding">
+          <div id="breadcrumbs-container">
+            <svg uk-tooltip="title: Beachfront; " width="25" height="25" version="1.1" id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 581 581" style="enable-background:new 0 0 581 581;" xml:space="preserve">
+              <style type="text/css">
+                .st0 {
+                  fill: #999;
+                }
+              </style>
+              <path class="st0" d="M329.4,367.8c0,53.4,43.3,96.8,96.8,96.8c53.4,0,96.8-43.3,96.8-96.8c0-53.4-43.3-96.8-96.8-96.8
+	C372.7,271,329.4,314.3,329.4,367.8z M426.1,290.3c42.8,0,77.4,34.7,77.4,77.4s-34.7,77.4-77.4,77.4s-77.4-34.7-77.4-77.4
+	C348.8,325,383.4,290.4,426.1,290.3z" />
+              <path class="st0" d="M370.8,561.3h110.6v19.4H370.8V561.3z" />
+              <path class="st0" d="M329.4,522.6h193.5v19.4H329.4V522.6z" />
+              <path class="st0" d="M116.5,522.6h19.4v19.4h-19.4V522.6z" />
+              <path class="st0" d="M58.4,541.9h19.4v19.4H58.4V541.9z" />
+              <path class="st0" d="M117.5,468.1c50.5-88,82.2-185.5,93.1-286.4l90,89.5c1.8,1.8,4.2,2.8,6.8,2.8c0.5,0,1.1,0,1.6-0.1
+	c3.1-0.5,5.7-2.4,7.1-5.2c18.2-36.4,11.1-80.4-17.7-109.2l-7.9-7.9h68.1c5.3,0,9.7-4.3,9.7-9.7c0-1-0.2-2.1-0.5-3.1
+	c-12.9-38.6-49-64.7-89.7-64.7h-12.6l48.3-48.6c3.8-3.8,3.8-9.9,0-13.7c-0.7-0.7-1.6-1.3-2.5-1.8C274.6-8.2,230.6-1.1,201.8,27.7
+	l-9.2,9.2c-3,3-5.8,6.3-8.4,9.7c-2.5-3.4-5.3-6.6-8.3-9.7l-9.2-9.2C137.9-1.1,93.9-8.2,57.5,10c-4.8,2.4-6.7,8.2-4.3,13
+	c0.5,0.9,1.1,1.8,1.8,2.5l48.4,48.6H90.6c-40.7,0-76.9,26-89.7,64.7c-1.7,5.1,1,10.5,6.1,12.2c1,0.3,2,0.5,3.1,0.5h68l-7.9,7.9
+	c-28.8,28.8-36,72.8-17.7,109.2c1.4,2.8,4,4.7,7.1,5.2c0.5,0.1,1,0.1,1.6,0.1c2.6,0,5-1,6.8-2.8l83.8-83.3
+	c-10.4,92.7-45.3,181-101.2,255.7c-13-3.4-26.2-6.1-39.5-8l-6-0.6L3,454.2l5.6,0.6c9.7,1.4,19.3,3.3,28.9,5.6
+	c-1.9,2.4-3.9,4.9-5.9,7.3L46.5,480c74.4-88.4,118.7-198.2,126.6-313.4l11.1-11.1l8.3,8.3c-10.2,123.3-52.5,241.7-122.7,343.5
+	l15.8,11.1c7.6-10.9,14.9-22.1,21.9-33.6c45.3,21.7,85.2,53,117.1,91.7l15-12.3c-18.8-22.9-40.4-43.4-64.3-61H581v-19.4H146.7
+	C137.2,478.1,127.5,473,117.5,468.1z M303.8,247.1L201.5,145.4c26.2-7.8,54.5-0.7,73.9,18.5l9.2,9.2
+	C304,192.5,311.3,220.8,303.8,247.1z M343.6,132.2h-80.1c-18.7-8.9-39.7-11.4-59.9-7.2c14.1-19.8,36.9-31.6,61.2-31.6h13.1
+	C305.2,93.4,330.4,108.3,343.6,132.2z M206.2,50.7l9.2-9.2c19.3-19.4,47.7-26.7,74-19.1L232.1,80c-18.6,6.9-34.6,19.4-45.7,35.9
+	C181.9,92.2,189.3,67.8,206.2,50.7L206.2,50.7z M152.9,41.4l9.2,9.2c4.3,4.4,8,9.3,11.1,14.7c-4.4,10.2-6.9,21.1-7.4,32.2
+	c-8.7-7.6-18.7-13.5-29.5-17.5L79,22.3C105.3,14.7,133.6,22.1,152.9,41.4L152.9,41.4z M90.6,93.5h13.1c24.3,0,47.1,11.7,61.2,31.5
+	c-20.2-4.2-41.3-1.7-59.9,7.2H24.8C38.1,108.3,63.3,93.4,90.6,93.5L90.6,93.5z M64.7,247.1c-7.6-26.3-0.2-54.6,19.1-73.9l9.2-9.2
+	c13.9-13.9,32.8-21.7,52.5-21.6c7.3,0,14.5,1,21.4,3.1L64.7,247.1z" />
+            </svg>
+            <svg uk-tooltip="title: Wedding destination; " width="25" height="25" version="1.1" id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <style type="text/css">
+                .st0 {
+                  fill: #999;
+                }
+              </style>
+              <g>
+                <path class="st0" d="M382.3,148.4c0.1,0,0.1,0,0.2,0c0.1,0,0.1,0,0.2,0l63.3-1.1c5.4-0.1,9.7-4.4,9.8-9.8l1.1-63.3
+		c0-0.1,0-0.2,0-0.4C456.4,50.4,437,31,413.7,30.6c-19.9-0.3-36.2,15.5-38,36.6c-20.7,1.8-36.9,18.5-36.6,38
+		C339.5,128.6,358.9,148,382.3,148.4z M378.6,87l0.5,0c4.5-0.1,8.7-0.3,12.3-3.9c3.6-3.6,3.8-8,4-12.3l0-0.6
+		c0.3-9.5,7.1-19.6,17.5-19.6c0.1,0,0.2,0,0.3,0c12.5,0.2,23.2,10.9,23.5,23.4l-1,53.5l-53.5,1c-12.7-0.3-23.2-10.8-23.4-23.6
+		C358.9,94.3,369.1,87.3,378.6,87L378.6,87z" />
+                <path class="st0" d="M100.8,59.9c1.3,4.3,5.3,7.1,9.6,7.1c1,0,1.9-0.1,2.9-0.4c5.3-1.6,8.3-7.2,6.7-12.5l-9.4-31.4
+		c-1.6-5.3-7.2-8.3-12.4-6.7c-5.3,1.6-8.3,7.2-6.7,12.5L100.8,59.9z" />
+                <path class="st0" d="M41.3,93.2c3.4,0,6.7-1.7,8.6-4.8c2.8-4.7,1.3-10.9-3.4-13.7L17.2,57c-4.7-2.8-10.9-1.3-13.7,3.4
+		c-2.8,4.7-1.3,10.9,3.4,13.7l29.3,17.6C37.7,92.8,39.5,93.2,41.3,93.2z" />
+                <path class="st0" d="M178.1,49.9c1.4,0.7,2.9,1,4.3,1c3.7,0,7.3-2.1,9-5.7l14.7-30.8c2.4-5,0.3-11-4.7-13.3c-5-2.4-11-0.3-13.3,4.7
+		l-14.7,30.8C171,41.5,173.1,47.5,178.1,49.9z" />
+                <path class="st0" d="M484.5,417.1c3.9-8,7.2-16.4,9.7-24.9c14.3-47.8,6.6-98.9-21.3-140.3c-4.9-7.3-17.6-6.1-19.3,7.3
+		c26.7,37.1,34.4,83.7,21.4,127.3c-1.5,4.9-3.2,9.8-5.2,14.5c-4.3-9.6-12.1-17-21.4-20.6c0.2-0.6,0.4-1.2,0.6-1.8
+		c18.8-62.6-16.9-128.8-79.4-147.6c-17.9-5.4-36.8-6.4-55.1-3.1c-7.9-7.9-16.6-15.1-26-21.3c28.6-9.8,59.5-10.5,88.9-1.6
+		c3.2,0.9,25.4,9.3,44.6,24.2c11.7,9.1,25.7,23.9,31.7,30.2c5.4,5.8,3.2,3.4,4.7,3.2c3.5-1.2,17.4-3.8,13.3-12
+		c-4.2-8.4-21.6-27-35.1-37c-16.5-12.3-34.2-20.7-37.8-22.2c-5.2-2.1-10.4-4-15.7-5.5c-38.9-11.7-80.3-8.8-117.1,8.2
+		c-23.4-10.8-48.6-16-73.9-15.2l18.2-48.7c1.4-3.7,0.5-7.8-2.3-10.5l-37-37.4c-2.6-2.6-6.4-3.6-10-2.5l-86.4,25.9l-11.5,57.5
+		c-0.8,3.8,0.8,7.7,3.9,10l42,30.6c-24.4,15.1-44.5,36.4-58.4,62.3c-21,39-25.5,83.8-12.8,126.3c1,3.5,2.2,7,3.5,10.4
+		c-0.4,0.4-0.9,0.8-1.3,1.3c-16.2,16.8-16.2,44.2,0,61.1c0.1,0.1,0.2,0.2,0.3,0.3l45.6,44c1.9,1.9,4.4,2.8,6.9,2.8s5-0.9,6.9-2.8
+		l19-18.3c24.1,12.8,51,19.4,78,19.4c16,0,32-2.3,47.5-7c7.5-2.3,14.8-5,21.8-8.2c7,3.2,14.2,6,21.7,8.2c15.6,4.7,31.7,7,47.7,7
+		c24,0,47.8-5.2,70-15.6l61,1.1c0.1,0,0.1,0,0.2,0c0.1,0,0.1,0,0.2,0c23.4-0.4,42.8-19.8,43.2-43.2
+		C510.3,436.7,499.6,422.8,484.5,417.1L484.5,417.1z M92,121.2l69.1-20.8l21.1,21.3l-96,28.8L92,121.2z M95.2,168.7l89.4-26.8
+		l-14.6,39c-7,1.2-14.1,2.8-21,4.9c-6.9,2.1-13.7,4.6-20.2,7.5L95.2,168.7z M68.3,275.4c14.5-27,36.7-48.3,63.7-61.6
+		c0.1,0,0.2-0.1,0.3-0.1c7.2-3.5,14.7-6.5,22.5-8.8c37.3-11.2,76.7-7.2,111,11.2c34.3,18.5,59.3,49.2,70.5,86.5
+		c14.2,47.2,3.2,98.9-28.6,136.4c-0.2,0-0.3-0.1-0.5-0.1c-9.2-2.8-17.7-6.8-25.4-11.8c29.7-30.6,40.9-75.1,28.5-116.7
+		c-9.1-30.3-29.5-55.3-57.3-70.3c-27.9-15-59.9-18.3-90.2-9.2c-30.3,9.1-55.3,29.5-70.3,57.4c-15,27.9-18.3,59.9-9.1,90.3
+		c2.5,8.4,5.9,16.4,10.1,23.9c-0.1,0.1-0.3,0.2-0.4,0.3c-9.7-8.1-22.1-11.2-33.4-9.2c-0.9-2.4-1.7-4.8-2.4-7.2
+		C45.8,349.1,49.8,309.7,68.3,275.4L68.3,275.4z M266.1,414.5c-24.9-24.8-35.8-62.3-25-98.3c4.8-15.9,13.3-30.1,25-41.6
+		c11.5,11.4,20.1,25.6,24.9,41.6C301.5,351.3,291.7,389,266.1,414.5L266.1,414.5z M202.1,442.9c-15.1,0.8-30.4-1.8-44.4-7.9
+		c0.2-11.3-3.9-22.6-12.2-31.2c-8.9-9.2-21.9-12.5-34.2-10c-3.8-6.6-6.8-13.6-9.1-21c-7.6-25.2-4.9-51.9,7.6-75
+		c12.5-23.2,33.2-40.1,58.4-47.7c11.1-3.3,22.5-4.7,33.7-4.1c-11.3,15.2-19.8,32.3-25.3,50.8C161.1,348.7,172.3,402.3,202.1,442.9
+		L202.1,442.9z M92.8,488.1l-38.5-37.1c-8.7-9.2-8.7-24,0.1-33.2c7.4-7.6,19.5-5.3,26.4,1.2l0.4,0.4c3.1,2.9,6.4,6,11.5,6
+		c5.1,0,8.3-3,11.5-6l0.4-0.4c7-6.5,19.1-8.9,26.4-1.2c8.8,9.1,8.9,24,0.1,33.2L92.8,488.1z M238.5,484.2
+		c-34.7,10.4-72.1,7.4-104.5-8l11.3-10.9c0.1-0.1,0.2-0.2,0.2-0.2c3-3.1,5.4-6.6,7.3-10.3c14,5.6,28.8,8.4,43.8,8.4
+		c7,0,14.1-0.6,21-1.9c7.8,7.9,16.5,15.1,25.9,21.3C241.9,483.1,240.2,483.7,238.5,484.2L238.5,484.2z M293.6,484.2
+		c-77-23.1-120.8-104.6-97.7-181.6c5.9-19.6,15.5-37.3,28.6-52.6c6.5,1.9,12.8,4.5,18.8,7.8c2.4,1.3,4.8,2.7,7.1,4.2
+		c-13.2,13.6-22.9,30.1-28.5,48.5c-18.8,62.6,16.9,128.8,79.4,147.6c11.2,3.4,22.6,5,34,5c19.9,0,39.7-5,57.3-14.8l0.5,30.1
+		C361.7,492,326.6,494.1,293.6,484.2z M392.2,421.2c0,0.1,0,0.2,0,0.4l0.1,3.4C374,437.9,352,444.1,330,442.9
+		c13.1-17.8,22.6-38.2,27.8-59.7c6.8-28.4,6-58.2-2.5-86.3c-5.6-18.5-14.1-35.6-25.3-50.8c11.3-0.6,22.7,0.7,33.7,4
+		c52,15.6,81.6,70.7,66,122.7c-0.6,2-1.3,4-2,6C407.9,382.8,392.6,400.4,392.2,421.2L392.2,421.2z M466.6,475.9l-53.5-1l-1-53.5
+		c0.3-12.5,11.1-23.2,23.6-23.4c0.1,0,0.2,0,0.3,0c10.4,0,17.2,10.1,17.5,19.6l0,0.5c0.1,4.3,0.3,8.8,3.9,12.4
+		c3.6,3.6,8.1,3.8,12.4,3.9l0.5,0c9.6,0.3,19.8,7.2,19.6,17.8C489.8,465,479.3,475.5,466.6,475.9z" />
+              </g>
+            </svg>
+            <ul class="uk-breadcrumb breadcrumbs-list">
+              <li id="hotel-overview-dropdown">
+                <span class="breadcrumbs-dropdown">{% trans "HOTEL PALAS" %}</span>
+                <i class="fa fa-angle-down breadcrumbs-dropdown"></i>
+                <div id="hotel-overview-dropdown-content" class="uk-animation-slide-top-small">
+                  <a title="{% trans "Hotel Palas - Overview" %}" href="{% trans "/en/hotel-palas/overview/" %}">{% trans "Hotel Overview" %}</a>
+                  <a title="{% trans "Hotel Palas - Accommodation" %}" href="{% trans "/en/hotel-palas/rooms-and-suites/" %}">{% trans "Accommodation" %}</a>
+                  <a title="{% trans "Hotel Palas Lux - Accommodation" %}" href="{% trans "/en/hotel-palas-lux/rooms-and-suites/" %}">{% trans "Accommodation Lux" %}</a>
+
+                  <a title="{% trans "Hotel Palas - Meetings & Events" %}" href="{% trans "/en/hotel-palas/conference-rooms/" %}">{% trans "Meetings & Events" %}</a>
+                  <a title="{% trans "Hotel Palas - Weddings" %}" href="{% trans "/en/hotel-palas/weddings/" %}">{% trans "Weddings" %}</a>
+                  <a title="{% trans "Hotel Palas - Resaurants" %}" href="{% trans "/en/hotel-palas/restaurants-and-bars/" %}">{% trans "Restaurants & bars" %}</a>
+                  <a title="{% trans "Hotel Palas - Beaches & Pools" %}" href="{% trans "/en/hotel-palas/beaches-and-pools/" %}">{% trans "Beaches & Pools" %}</a>
+                  <a title="{% trans "Hotel Palas - Wellness" %}" href="{% trans "/en/hotel-palas/wellness-and-spa/" %}">{% trans "Wellness & SPA" %}</a>
+                  <a title="{% trans "Hotel Palas - Location" %}" href="{% trans "/en/hotel-palas/location/" %}">{% trans "Location" %}</a>
+                </div>
+              </li>
+              <li>
+                <span class="breadcrumbs-last-span">{% trans "WEDDINGS" %}</span>
+              </li>
+            </ul>
+          </div>
+          {% include "components/dropdown-all-hotels-menu.html" %}
+
+        </div>
+      </div>
+
+      <h2 id="hero-header" class="width-padding mobile-element">
+        {% trans "HOTEL PALAS" %}
+      </h2>
+      <span class="width-padding header-span mobile-element">{% trans "Weddings" %}</span>
+      <h1 class="desktop-element width-padding" id="hero-header-desktop">
+        {% trans "Weddings" %}
+      </h1>
+    </div>
+    <form action="https://secure.phobs.net/webservice/mobile/booking.php" id="phobs_book" name="phobs_book"
+      target="_blank" class="width-padding">
+      <span id="book-your-stay-span">{% trans "Book Your Stay" %}</span>
+      <select id="hotel_selection" name="hotel">
+        <option value="-">{% trans "All" %}</option>
+        <option value="690b8cb36cc9778f01169c7b23e92c4d">{% trans "Hotel Palas" %}</option>
+        <option value="0b45adca4485680ff1eb18b468ef97aa">{% trans "Hotel Aleksandar" %}</option>
+        <option value="fad8de6711bed793ff533298b9a8a1c0">{% trans "Hotel Castellastva" %}</option>
+        <option value="2bf69a5e1f101263d2d143794eb63e80">{% trans "Hotel Slovenska Plaza Standard" %}</option>
+        <option value="1f6335bcc23330993ad10df199fe00fb">{% trans "Hotel Resort Slovenska Plaza Lux" %}</option>
+        <option value="9b791e3b56dd06983659e5f985f33516">{% trans "Hotel Mogren" %}</option>
+      </select>
+      <input type="text" id="datepicker1" name="checkin" readonly="readonly" placeholder="arrival date" />
+      <input type="text" id="datepicker2" readonly="readonly" name="checkout" placeholder="departure date" />
+      <input type="text" id="promocode" name="partners_access" placeholder="promo code" />
+
+      <input type="submit" value="{% trans "BOOK NOW" %}" id="submit" class="call-action cursor-pointer"
+         />
+      <a title="{% trans "Reservation Form" %}" href="#" class="call" uk-sticky uk-totop>{% trans "BOOK" %}</a>
+      <p class="hidden-inputs__wrapper">
+        <input name="company_id" type="hidden" value="5e01f11fbc6224083351531097a7f0ae" style="display: none" />
+        <input name="view_cancel" type="hidden" value="" style="display: none" />
+        <input name="lang" type="hidden" value="en" style="display: none" />
+      </p>
+    </form>
+  </header>
+
+ 
+  <section class="width-padding desktop-element" id="weddings-text-container-top">
+    <span class="small-part-of-header">{% trans "Together we plan your" %}</span> <br />
+    <h2 class="blue-underline">
+      {% trans "Dream Wedding" %}
+    </h2>
+    <p class="paragraph-size-3 width-padding">
+      {% blocktrans %} Pin the most important day in your lives with a breath-taking setting
+      that’s perfect for saying “I do”, ideal for memorable photographs, and
+      highlights all of Mother Nature’s beauties. {% endblocktrans %}
+    </p>
+    <br />
+    <p class="width-padding">
+      {% blocktrans %} Our crew of experienced and caring event managers guarantee a perfectly
+      planned wedding ceremony with all wishes fulfilled and every detail
+      considered. {% endblocktrans %}
+    </p>
+  </section>
+
+  <section id="weddings-trapezoid-container">
+    <div class="trapezoid-container">
+      <img src="{% static "assets/images/Weddings/weddings-info1.jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+      <div class="trapezoid-text-container width-padding">
+        <p class="paragraph-size-3">
+          {% blocktrans %} Hotel Palas can provide multiple <a title="Hotel Palas - Meetings & Events" href="/en/hotel-palas/conference-rooms/" target="_blank">venues</a>
+          for weddings so that bride and groom can consider both indoor and outdoor ceremonies to create
+          an ambience as unique as they are. Our offer entails possibilities
+          to organise large- to small-scale weddings with cuisine ranging from
+          traditional to international and ornamentations that match
+          seasonality (<a title="Hotel Group Budvanska Rivijera - Contact" href="/en/contact/" target="_blank">subject to agreement</a>). {% endblocktrans %}
+        </p>
+      </div>
+    </div>
+    <div class="trapezoid-container">
+      <img src="{% static "assets/images/Weddings/weddings-info2.jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title=""{% trans "Hotel Palas - Weddings" %}"" />
+      <div class="trapezoid-text-container width-padding">
+        <p class="paragraph-size-3">
+          {% blocktrans %} The Palas Hotel’s larger <a title="Hotel Palas - Restaurants & Bars" href="/en/hotel-palas/restaurants-and-bars/" target="_blank">restaurant hall</a>
+          is overlooking the sea and the hotel’s garden. This area capacitates 500 guests and provides
+          the possibility to install a projector for guests to enjoy the wedding couple’s photographs or video.
+          <br />
+          An additional smaller hall of the <a title="Hotel Palas - Restaurants & Bars" href="/en/hotel-palas/restaurants-and-bars/" target="_blank">restaurant</a>
+          is available with 120 seats in capacity, suitable for smaller ceremonies that are meant to
+          be more private. {% endblocktrans %}
+        </p>
+      </div>
+    </div>
+    <div class="trapezoid-container">
+      <img src="{% static "assets/images/Weddings/weddings-info3.jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+      <div class="trapezoid-text-container width-padding">
+        <p class="paragraph-size-3">
+          {% blocktrans %} Our <a title="Hotel Palas - Restaurants & Bars" href="/en/hotel-palas/restaurants-and-bars/" target="_blank">French terrace</a>
+          guarantees romantic moments for newlyweds and all attendees. 
+          This area is suitable for smaller weddings with a maximum
+          capacity of 120 seats.
+          <br />
+          Palas hotel’s terrace by the pool is our sea-oriented setting. This
+          area can host 200 guests and is meant for mid-sized weddings.
+          <br />
+          The American terrace covers 250 seats and has the most stunning
+          view, with your gaze directly aiming at the sunset and 
+          <a title="Katič Island" href="https://www.lonelyplanet.com/montenegro/petrovac/attractions/katic-island/a/poi-sig/1324855/1314083/" target="_blank">Katic</a> and
+          <a title="Sveta Nedjelja Island" href="https://www.lonelyplanet.com/montenegro/petrovac/attractions/sveta-nedjelja-island/a/poi-sig/1542530/1314083/" target="_blank">Sveta Nedjelja</a>
+          islands. {% endblocktrans %}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="width-padding" id="weddings-text-container-bottom">
+    <h2 class="blue-underline">{% trans "Wedding & Staying at Our Hotel" %}</h2>
+    <p class="paragraph-size-3 width-padding">
+      {% blocktrans %} There are a number of privileges for wedding couples who opt in for
+      spending their weekend in <a title="Hotel Palas - Overview" href="/en/hotel-palas/overview/" target="_blank">Hotel Palas</a>: {% endblocktrans %}
+      <br />
+      <br />
+    </p>
+
+    <ul class="blue-dots-list width-padding weddings-list">
+      <li class="paragraph-size-3">
+        {% blocktrans %} Relaxation in a suite for newlyweds with room service, breakfast in
+        the morning, or refreshments with champagne for romantic candle light
+        dinner. {% endblocktrans %}
+      </li>
+      <li class="paragraph-size-3">
+        {% blocktrans %} “Just married” <a title="Hotel Palas - Wellness" href="/en/hotel-palas/wellness-and-spa/" target="_blank">wellness</a>
+        package with dozens of perks only for you two in our <a title="Hotel Palas - Wellness" href="/en/hotel-palas/wellness-and-spa/" target="_blank">spa</a>
+        centre. {% endblocktrans %}
+      </li>
+      <li class="paragraph-size-3">
+        {% trans "Free parking lots for all wedding guests." %}
+      </li>
+    </ul>
+    <p class="paragraph-size-3 width-padding">
+      {% blocktrans %} We are here to make one of your happiest days truly memorable. <a title="Hotel Group Budvanska Rivijera - Contact" href="/en/contact/" target="_blank">Write us</a>
+      in the form below in as much detail as possible, and our talented
+      wedding planners will reach out to you. {% endblocktrans %}
+      <br />
+      <br />
+    </p>
+  </section>
+
+  <section class="width-padding">
+    <h2 class="blue-underline">{% trans "Gallery" %}</h2>
+    <div class="uk-position-relative uk-visible-toggle uk-light desktop-element gallery-container uk-width-xxlarge" tabindex="-1"
+      uk-slideshow="min-height: 300; max-height: 600; animation: push" id="gallery-slider">
+      <ul class="uk-slideshow-items gallery-list-desktop ">
+        <li>
+          <img src="{% static "assets/images/Weddings/weddings-slider (1).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+        </li>
+        <li>
+          <img src="{% static "assets/images/Weddings/weddings-slider (2).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+        </li>
+        <li>
+          <img src="{% static "assets/images/Weddings/weddings-slider (3).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+        </li>
+        <li>
+          <img src="{% static "assets/images/Weddings/weddings-slider (4).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+        </li>
+        <li>
+          <img src="{% static "assets/images/Weddings/weddings-slider (5).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+        </li>
+      </ul>
+      <div class="galery-navigation-container">
+        <a title="{% trans "Previous" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-previous" uk-slidenav-previous
+          uk-slideshow-item="previous"></a>
+        <div class="uk-position-relative uk-visible-toggle uk-light" id="gallery-slider-navigation" tabindex="-1"
+          uk-slider="center:true">
+          <ul class="uk-slider-items uk-child-width-1-3 gallery-list-navigation">
+            <li>
+              <img class="cursor-pointer" src="{% static "assets/images/Weddings/weddings-slider (1).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(0); UIkit.slideshow('#gallery-slider').show(0);" />
+            </li>
+            <li>
+              <img class="cursor-pointer" src="{% static "assets/images/Weddings/weddings-slider (2).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(1); UIkit.slideshow('#gallery-slider').show(1);" />
+            </li>
+            <li>
+              <img class="cursor-pointer" src="{% static "assets/images/Weddings/weddings-slider (3).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(2); UIkit.slideshow('#gallery-slider').show(2);" />
+            </li>
+            <li>
+              <img class="cursor-pointer" src="{% static "assets/images/Weddings/weddings-slider (4).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(3); UIkit.slideshow('#gallery-slider').show(3);" />
+            </li>
+            <li>
+              <img class="cursor-pointer" src="{% static "assets/images/Weddings/weddings-slider (5).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(4); UIkit.slideshow('#gallery-slider').show(4);" />
+            </li>
+          </ul>
+        </div>
+        <a title="{% trans "Next" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-next" uk-slidenav-next
+          uk-slideshow-item="next"></a>
+      </div>
+    </div>
+    <div class="uk-position-relative uk-visible-toggle uk-light mobile-element" tabindex="-1"
+      uk-slideshow="min-height: 300; max-height: 600; animation: push" id="gallery-mobile-slider">
+      <ul class="uk-slideshow-items gallery-list-mobile">
+        <li count="1">
+          <img src="{% static "assets/images/Weddings/weddings-slider (1).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+        </li>
+        <li count="2">
+          <img src="{% static "assets/images/Weddings/weddings-slider (2).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+        </li>
+        <li count="3">
+          <img src="{% static "assets/images/Weddings/weddings-slider (3).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+        </li>
+        <li count="4">
+          <img src="{% static "assets/images/Weddings/weddings-slider (4).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+        </li>
+        <li count="5">
+          <img src="{% static "assets/images/Weddings/weddings-slider (5).jpg" %}" alt="{% trans "Hotel Palas - Weddings" %}" title="{% trans "Hotel Palas - Weddings" %}" />
+        </li>
+      </ul>
+      <div class="galery-navigation-container">
+        <a title="{% trans "Previous" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-previous" uk-slidenav-previous
+          uk-slideshow-item="previous"></a>
+        <p class="gallery-counting-element" count="1" max-count="5">1/5</p>
+        <a title="{% trans "Next" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-next" uk-slidenav-next
+          uk-slideshow-item="next"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="width-padding desktop-element" id="contact-us-container">
+    <div id="contact-us-grid-container">
+      <div>
+        <span class="contact-us-header">{% trans "Stay in touch" %}</span>
+        <div>
+          <p class="paragraph-size-3">{% trans "HOTEL PALAS" %}</p>
+          <p class="paragraph-size-4">
+            <i class="fas fa-map-marker-alt"></i>{% trans " Petrovac, Montenegro" %}
+          </p>
+          <p class="paragraph-size-4">
+            <i class="fas fa-phone"></i><a title="" href="tel:+38233421100">{% trans " +382 33 421 100" %}</a>
+          </p>
+          <p class="paragraph-size-4">
+            <i class="fas fa-envelope"></i>{% trans " sales.palas@budvanskarivijera.co.me" %}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include "components/footer.html" %}
+
+  {% comment %} jquery {% endcomment %}
+  <script src="{% static "assets/js/jquery.min.js" %}"></script>
+  {% comment %} jquery datepicker {% endcomment %}
+  <script src="{% static "assets/js/jquery-ui.min.js" %}"></script>
+  <script src="{% static "assets/js/jquery-ui-i18n.min.js" %}"></script>
+
+  <script src="{% static "assets/js/datepicker-me.js" %}"></script>
+  <script src="{% static "assets/js/index.js" %}"></script>
+  <script src="{% static "assets/js/gallery.js" %}"></script>
+  <script src="{% static "assets/js/search.js" %}"></script>
+
+</body>
+
+</html>

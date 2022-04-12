@@ -1,0 +1,46 @@
+.uk-modal{
+    background: rgba(0,0,0,.35);
+}
+#modal{
+    display: block;
+}
+.uk-modal-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    top: 20vh;
+    width: 700px;
+    height: 340px;
+    margin-bottom: -1px;
+    /* box-shadow: 0px 0px 10px 2px #eee; */
+}
+#modal img{
+    width: 300px;
+    margin-bottom: 20px;
+}
+#modal > svg{
+    width: 700px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    top: 20vh;
+}
+#first-p{
+    color: #333;
+    font-size: 37px;
+    font-family: "Domine";
+    text-align: center;
+}
+#second-p{
+    color: #666;
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+}
+@media only screen and (min-width: 660px){
+    .uk-modal-body{
+        padding: 55px;
+    }
+}

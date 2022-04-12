@@ -1,0 +1,192 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+  {% comment %} Chrome, Firefox OS and Opera {% endcomment %}
+  <meta name="theme-color" content="#ecad2e">
+  {% comment %} Windows Phone {% endcomment %}
+  <meta name="msapplication-navbutton-color" content="#ecad2e">
+  {% comment %} iOS Safari {% endcomment %}
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ecad2e">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="keywords" content="{% trans "hotel group budvanska rivijera about" %}" />
+  <meta name="description" content="{% trans "Budvanska Rivijera Hotel Group, is a major tourism company in Montenegro with the longest and richest history of providing hospitality services in the region." %}">
+  <title>{% trans "Budvanska Rivijera | About Us" %}</title>
+
+  {% comment %} jquery datepicker {% endcomment %}
+  <link href="{% static "assets/css/jquery-ui.css" %}"
+    rel="stylesheet" />
+
+  {% comment %} UIkit CSS {% endcomment %}
+  <link rel="stylesheet" href="{% static "assets/css/uikit.min.css" %}" />
+
+  {% comment %} UIkit JS {% endcomment %}
+  <script async src="{% static "assets/js/uikit.min.js" %}"></script>
+  <script async src="{% static "assets/js/uikit-icons.min.js" %}"></script>
+  <link rel="stylesheet" href="{% static "assets/css/homepage-responsive.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/main-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/main-responsive.css" %}" />
+
+  <link href="{% static "assets/css/material-icons.css" %}" rel="stylesheet" />
+  <script async src="{% static "assets/js/fontawesome.js" %}"></script>
+
+  <style>
+    .blue-dots-list>li::before {
+      margin-left: -12px;
+    }
+    .blue-dots-list>li {
+      margin-left: 12px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <header>
+    {% include "components/header-desktop-nav.html" %}
+
+    <div class="header-hero-container header-hero-container-not-homepage" id="header-container">
+      <div class="hotel-menu" id="hotel-menu">
+        <div class="hotel-menu-container width-padding">
+          {% include "components/dropdown-index-menu.html" %}
+        </div>
+      </div>
+
+      <h2 id="hero-header" class="width-padding mobile-element">
+        {% trans "BUDVANSKA RIVIJERA" %}
+      </h2>
+      <span class="width-padding header-span mobile-element">{% trans "About Us" %}</span>
+      <h1 class="desktop-element width-padding" id="hero-header-desktop">
+        {% trans "About Us" %}
+      </h1>
+    </div>
+    <form action="https://secure.phobs.net/webservice/mobile/booking.php" id="phobs_book" name="phobs_book"
+      target="_blank" class="width-padding">
+      <span id="book-your-stay-span">{% trans "Book Your Stay" %}</span>
+      <select id="hotel_selection" name="hotel">
+        <option value="-">{% trans "All" %}</option>
+        <option value="690b8cb36cc9778f01169c7b23e92c4d">{% trans "Hotel Palas" %}</option>
+        <option value="0b45adca4485680ff1eb18b468ef97aa">{% trans "Hotel Aleksandar" %}</option>
+        <option value="fad8de6711bed793ff533298b9a8a1c0">{% trans "Hotel Castellastva" %}</option>
+        <option value="2bf69a5e1f101263d2d143794eb63e80">{% trans "Hotel Slovenska Plaza Standard" %}</option>
+        <option value="1f6335bcc23330993ad10df199fe00fb">{% trans "Hotel Resort Slovenska Plaza Lux" %}</option>
+        <option value="9b791e3b56dd06983659e5f985f33516">{% trans "Hotel Mogren" %}</option>
+      </select>
+      <input type="text" id="datepicker1" name="checkin" readonly="readonly" placeholder="arrival date" />
+      <input type="text" id="datepicker2" readonly="readonly" name="checkout" placeholder="departure date" />
+      <input type="text" id="promocode" name="partners_access" placeholder="promo code" />
+
+      <input type="submit" value="{% trans "BOOK NOW" %}" id="submit" class="call-action cursor-pointer"
+         />
+      <a title="{% trans "Reservation Form" %}" href="#" class="call" uk-sticky uk-totop>{% trans "BOOK" %}</a>
+      <p class="hidden-inputs__wrapper">
+        <input name="company_id" type="hidden" value="5e01f11fbc6224083351531097a7f0ae" style="display: none" />
+        <input name="view_cancel" type="hidden" value="" style="display: none" />
+        <input name="lang" type="hidden" value="en" style="display: none" />
+      </p>
+    </form>
+  </header>
+
+ 
+
+  <section class="width-padding paragraph-size-3">
+    <p class="width-padding" style="display: flex; flex-direction: column;">
+      {% blocktrans %} Budvanska Rivijera Hotel Group, JSC spread across 5 hotels, is the major tourism company in Montenegro. The
+      long and rich history of providing hospitality services enforces the
+      hotel group’s brand image, for which it is being recognised in the
+      European tourism market. {% endblocktrans %}<br /><br />
+      {% blocktrans %} Breath-taking sites, supreme services, imaginative and delicious
+      cuisine, attentive approach by all hosts, eco and family-friendly
+      business orientation, and the abundance of culture and entertainment
+      events make for an enviable reputation of the Hotel Group. {% endblocktrans %} <br />
+      <br />
+    <img src="{% static "assets/images/budva-1.jpg" %}" alt="Budva" title="Budva" style="margin: 0 auto;">
+    </p>
+    <ul class="blue-dots-list width-padding">
+      <p>{% trans "The hotel group concurrently manages and operates 5 hotels:" %}</p>
+      <li>{% trans "Palas Hotel (4*+) and Palas Lux, Petrovac, 219 accommodation units" %}</li>
+      <li>
+        {% trans "Slovenska Plaza  3* and 4*, 1016 accommodation units" %}
+      </li>
+      <li>{% trans "Aleksandar Hotel 4*, Budva, 187 units" %}</li>
+      <li>{% trans "Castellastva Hotel (4*), Petrovac, 185 accommodation units" %}</li>
+      <li>{% trans "and hotel Mogren (under the reconstruction, and it suppose this hotel with luxury contents get (or become) 5* level)" %}</li>
+    </ul>
+    <p class="width-padding">
+      {% blocktrans %} In addition to providing supreme services, all hotels pride themselves
+      with exquisite locations – in the immediate vicinity of sandy, pebble,
+      and concrete beaches – making offers of Budvanska Rivijera even more
+      enticing to travellers who seek both: relaxation and activity. {% endblocktrans %}
+      <br /><br />
+      
+    </p>
+    <h4 class="blue-underline">{% trans "Leader in the country" %}</h4>
+    <p class="width-padding" style="display: flex; flex-direction: column;">
+      {% blocktrans %} Currently, the Hotel Group Budvanska Rivijera enjoys being the largest
+      enterprise of its kind in Montenegro, employing around 200 permanent
+      workers along with seasonal labour expanding the total workforce 
+      to more than 600 – all with the aspiration to serve the needs of our guests. {% endblocktrans %}
+      <br /><br />
+      {% blocktrans %} The joint stock company is majority-owned by the state and, as such,
+      makes considerable efforts to ensure a high-quality promotion of the
+      destinations it belongs to.{% endblocktrans %} <br /><br />
+      <img src="{% static "assets/images/budva-2.jpg" %}" alt="Budva" title="Budva" style="margin: 0 auto 20px;">
+      {% blocktrans %} By keeping pace with global tourism trends and by listening to demand,
+      all with a view to taking the best possible position in the market and
+      branding its own tourism product, Budvanska Rivijera Hotel Group never
+      stops working on upgrading the quality of its offer through both raising
+      the quality of accommodation facilities and continuous professional
+      training of its human resources.{% endblocktrans %} <br /><br />
+      {% blocktrans %} The greater number of the hotel group’s establishments are seasonal and
+      open from April to November.{% endblocktrans %}
+    </p>
+    <h4 class="blue-underline">{% trans "Awards" %}</h4>
+    <p class="width-padding">{% blocktrans %}
+      Decades of presence in the tourism market, a continuous work on hotel category upgrades and 
+      investing into the quality thereof have resulted in numerous international and national awards 
+      to Budvanska Rivijera Hotel Group and in the employees thereof having won numerous prizes at 
+      vocational skills competitions.
+      {% endblocktrans %}</p>
+    <ul class="blue-dots-list width-padding">
+      <li style="margin-bottom: 20px;">{% blocktrans %} Wild Beauty Award to Budvanska Rivijera Hotel Group for an enterprise with the best 
+        results in tourism and largest contribution to the quality thereof in 2011.{% endblocktrans %} </li>
+      <li style="margin-bottom: 20px;">{% blocktrans %} The Best Club Hotel – Palas Hotel, in competition among 11 Mediterranean countries, 
+        for the superior quality of service in the season of 2011.{% endblocktrans %} </li>
+      <li style="margin-bottom: 20px;">{% blocktrans %} Gold Medal to Aleksandar Hotel and the Grand Gold Medal to Palas  
+        Hotel at the Tourism Fair in Novi Sad in 2011.{% endblocktrans %} </li>
+      <li style="margin-bottom: 20px;">{% blocktrans %} Award of the Czech tour operator Vitkovice Tours at the Tourism Fair in Prague in  
+        2010 for the superior quality of services provided in Slovenska Plaza Tourist Development.{% endblocktrans %} </li>
+      <li style="margin-bottom: 20px;">{% blocktrans %} Award of the French tour operator Prodintour to Palas Hotel in competition  
+        among club hotels from 12 Mediterranean countries in 2010.{% endblocktrans %} </li>
+      <li style="margin-bottom: 20px;">{% blocktrans %} Wild Beauty Award for the best coastal 3* hotel to Palas Hotel in 2010. 
+          {% endblocktrans %} </li>
+      <li style="margin-bottom: 20px;">{% blocktrans %} Wild Beauty Award for the Montenegrin company with the best results  
+        in the international market in 2005 and 2007.{% endblocktrans %} </li>
+      <li style="margin-bottom: 20px;">{% blocktrans %} 2007 Business Partner in Tourism award, organised by the Mass  
+        Media International company from Belgrade.{% endblocktrans %} </li>
+      <li style="margin-bottom: 20px;">{% blocktrans %} Golden Award for Tourism, Hotel and Catering Industry 2004 at the proposal  
+        of Trade Leaders Club from Madrid and the Editorial Office publishing group.{% endblocktrans %} </li> 
+    </ul>
+  </section>
+  {% include "components/footer.html" %}
+
+  {% comment %} jquery {% endcomment %}
+  <script src="{% static "assets/js/jquery.min.js" %}"></script>
+  {% comment %} jquery datepicker {% endcomment %}
+  <script src="{% static "assets/js/jquery-ui.min.js" %}"></script>
+  <script src="{% static "assets/js/jquery-ui-i18n.min.js" %}"></script>
+
+  <script src="{% static "assets/js/datepicker-me.js" %}"></script>
+  <script src="{% static "assets/js/index.js" %}"></script>
+  <script src="{% static "assets/js/search.js" %}"></script>
+
+</body>
+
+</html>

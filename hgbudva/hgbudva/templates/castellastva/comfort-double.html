@@ -1,0 +1,458 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+  {% comment %} Chrome, Firefox OS and Opera {% endcomment %}
+  <meta name="theme-color" content="#ecad2e">
+  {% comment %} Windows Phone {% endcomment %}
+  <meta name="msapplication-navbutton-color" content="#ecad2e">
+  {% comment %} iOS Safari {% endcomment %}
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ecad2e">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description"
+    content="{% trans "The accommodation section of the hotel Castellastva is divided into 6 buildings, so-called depandances: Mare, Kate, Eva, Jana, Ana, and Lux." %}" />
+    <meta name="keywords" content="{% trans "hotel castellastva double room terrace balcony" %}" />
+  <title>{% trans "Budvanska Rivijera | Hotel Castellastva - Double Room with Terrace/Balcony" %}</title>
+
+  {% comment %} jquery datepicker {% endcomment %}
+  <link href="{% static "assets/css/jquery-ui.css" %}"
+    rel="stylesheet" />
+
+  {% comment %} UIkit CSS {% endcomment %}
+  <link rel="stylesheet" href="{% static "assets/css/uikit.min.css" %}" />
+
+  {% comment %} UIkit JS {% endcomment %}
+  <script async src="{% static "assets/js/uikit.min.js" %}"></script>
+  <script async src="{% static "assets/js/uikit-icons.min.js" %}"></script>
+
+  <link rel="stylesheet" href="{% static "assets/css/main-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/main-responsive.css" %}" />
+
+  <link rel="stylesheet" href="{% static "assets/css/accommodation-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/accommodation-responsive.css" %}" />
+
+  <link rel="stylesheet" href="{% static "assets/css/single-room-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/single-room-responsive.css" %}" />
+
+  <link rel="stylesheet" href="{% static "assets/css/breadcrumbs-slidemenu.css" %}" />
+
+  <link href="{% static "assets/css/material-icons.css" %}" rel="stylesheet" />
+  <script async src="{% static "assets/js/fontawesome.js" %}"></script>
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "hgbudvanskarivijera.com",
+    "alternateName": "hgbudvanskarivijera.com",
+    "url": "https://www.hgbudvanskarivijera.com/"
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "https://www.hgbudvanskarivijera.com",
+      "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+382 33 402456",
+          "contactType": "customer service"
+      }]
+  }
+</script>
+
+</head>
+
+<body>
+  <header>
+    {% include "components/header-desktop-nav.html" %}
+
+    <div uk-sticky="offset: 50" class="hotel-menu-slide">
+      <div class="uk-position-relative uk-visible-toggle uk-light width-padding" tabindex="-1" uk-slider="finite: true">
+        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Castellastva - Overview" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/overview/" %}">{% trans "HOTEL OVERVIEW" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Castellastva - Accommodation" %}" class="slide-menu-current-page" href="{% trans "/en/hotel-castellastva-in-petrovac/guest-rooms/" %}">{% trans "ACCOMMODATION" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Castellastva - Restaurants" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/restaurants-and-bars/" %}">{% trans "RESTAURANTS & BARS" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Castellastva - Beaches & Pools" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/beaches-and-pools/" %}">{% trans "BEACHES & POOLS" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Castellastva - Wellness" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/wellness-and-spa/" %}">{% trans "WELLNESS" %}</a>
+          </li>
+          <li class="menu-slide-li">
+            <a title="{% trans "Hotel Castellastva - Location" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/location/" %}">{% trans "LOCATION" %}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="header-hero-container" id="header-container" style="background: url('{% static "assets/images/Castellastva/castellastva-accommodation.jpg" %}') right/cover;">
+      <div class="hotel-menu" id="hotel-menu">
+        <div class="hotel-menu-container width-padding">
+          <div id="breadcrumbs-container">
+            <svg uk-tooltip="title: TUI TOUCAN; " width="25" height="25" viewBox="0 -4 511.99982 511" width="511pt"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m171.566406 448.289062h10.414063v-52.507812c0-8.628906 6.992187-15.621094 15.621093-15.621094 8.625 0 15.617188 6.992188 15.617188 15.621094v52.507812h34.367188c18.949218 0 34.363281 15.417969 34.363281 34.367188 0 8.625-6.992188 15.621094-15.621094 15.621094-8.625 0-15.621094-6.996094-15.621094-15.621094 0-1.722656-1.398437-3.125-3.125-3.125h-76.015625c-1.722656 0-3.125 1.402344-3.125 3.125 0 8.625-6.992187 15.621094-15.621094 15.621094-8.625 0-15.617187-6.996094-15.617187-15.621094 0-18.949219 15.414063-34.367188 34.363281-34.367188zm0 0"
+                fill="#50e0e0" />
+              <path
+                d="m19.253906 487.652344 89.523438-117.683594c10.34375 14.308594 16.296875 32.003906 15.871094 51.117188-.992188 44.753906-37.53125 81.226562-82.289063 82.140624-6.097656.125-12.050781-.398437-17.796875-1.511718-6.425781-1.242188-9.273438-8.855469-5.308594-14.0625zm0 0"
+                fill="#4a5660" />
+              <path
+                d="m108.777344 369.96875-89.523438 117.683594c-3.964844 5.210937-1.117187 12.820312 5.308594 14.0625 4.46875.867187 9.070312 1.371094 13.761719 1.492187l82.667969-108.664062c-2.726563-8.910157-6.878907-17.195313-12.214844-24.574219zm0 0"
+                fill="#3d4851" />
+              <path
+                d="m197.597656 380.160156c-8.625 0-15.621094 6.992188-15.621094 15.621094v41.527344h10.144532c7.109375 0 14.148437-.464844 21.097656-1.324219v-40.203125c0-8.628906-6.992188-15.621094-15.621094-15.621094zm0 0"
+                fill="#00bcb9" />
+              <path
+                d="m333.371094 68.699219c-5.851563-12.621094-13.871094-24.023438-23.585938-33.730469-21.296875-21.292969-50.707031-34.46875-83.207031-34.46875-64.980469 0-117.675781 52.683594-117.675781 117.675781v189.527344h-40.957032c0 60.203125 48.800782 109 109 109h15.175782c61.636718 0 114.707031-36.65625 138.617187-89.347656zm0 0"
+                fill="#3d4851" />
+              <path
+                d="m139.808594 118.175781c0-59.753906 44.542968-109.097656 102.222656-116.664062-5.054688-.664063-10.214844-1.011719-15.453125-1.011719-64.980469 0-117.675781 52.683594-117.675781 117.675781v189.527344h30.90625zm0 0"
+                fill="#333a41" />
+              <path
+                d="m98.851562 307.703125h-30.90625c0 60.203125 48.800782 109.003906 109 109.003906h15.175782c2.808594 0 5.597656-.105469 8.371094-.253906-56.769532-3.785156-101.640626-51.019531-101.640626-108.75zm0 0"
+                fill="#333a41" />
+              <path
+                d="m193.316406 147.367188c3.261719 33.46875 24.378906 53.296874 49.539063 72.601562 38.363281 29.429688 85.238281 54.214844 87.882812 107.386719 8.683594-19.140625 13.515625-40.40625 13.515625-62.792969v-146.386719c0-17.671875-3.894531-34.4375-10.882812-49.476562-14.671875-10.996094-32.894532-17.515625-52.640625-17.515625-51.171875 0-92.351563 45.601562-87.414063 96.183594zm0 0"
+                fill="#e8e8e8" />
+              <path
+                d="m458.003906 117.570312c-32.710937-30.0625-77.175781-48.871093-124.632812-48.871093 6.03125 54.277343-22.273438 70.980469-29.179688 97.066406l35.898438 25.304687 65.261718 10.300782zm0 0"
+                fill="#ff8f71" />
+              <path
+                d="m405.351562 177.011719v24.359375l45.820313 7.226562 56.089844 24.835938c2.363281.824218 4.820312-1 4.734375-3.496094-1.59375-43.449219-22.253906-83.207031-53.992188-112.367188-29.671875 3.5625-52.652344 28.816407-52.652344 59.441407zm0 0"
+                fill="#4a5660" />
+              <path
+                d="m302.691406 176.679688c-.257812 25.441406 21.484375 45.59375 46.894532 44.519531 99.253906-4.1875 143.980468 7.507812 157.675781 12.234375-77.71875-82.070313-203.070313-67.667969-203.070313-67.667969-.914062 3.4375-1.457031 7.039063-1.5 10.914063zm0 0"
+                fill="#f75747" />
+              <path
+                d="m275.304688 124.242188c4.265624 0 7.726562-3.460938 7.726562-7.726563v-14.585937c0-4.265626-3.460938-7.726563-7.726562-7.726563-4.265626 0-7.726563 3.460937-7.726563 7.726563v14.585937c0 4.265625 3.460937 7.726563 7.726563 7.726563zm0 0"
+                fill="#333a41" />
+              <path
+                d="m255.667969 149.355469h18.445312c4.265625 0 7.726563-3.457031 7.726563-7.726563 0-4.265625-3.460938-7.726562-7.726563-7.726562h-18.445312c-4.269531 0-7.726563 3.460937-7.726563 7.726562 0 4.269532 3.457032 7.726563 7.726563 7.726563zm0 0"
+                fill="#ff8997" />
+              <path
+                d="m1.910156 364.574219 94.652344-135.011719c18.757812-26.753906 54.492188-35.367188 83.378906-20.097656 35.683594 18.863281 45.753906 65.492187 20.792969 97.214844-34.339844 43.640624-94.808594 90.027343-191.875 74.289062-7.65625-1.238281-11.402344-10.042969-6.949219-16.394531zm0 0"
+                fill="#4a5660" />
+              <path
+                d="m39.765625 380.96875c-7.65625-1.238281-11.402344-10.042969-6.949219-16.394531l94.652344-135.011719c9.320312-13.300781 22.839844-22.109375 37.628906-25.738281-25.441406-6.253907-52.890625 3.425781-68.535156 25.738281l-94.652344 135.011719c-4.453125 6.351562-.707031 15.15625 6.949219 16.398437 19.015625 3.082032 36.617187 3.769532 52.902344 2.574219-7.113281-.503906-14.445313-1.351563-21.996094-2.578125zm0 0"
+                fill="#3d4851" />
+            </svg>
+            <svg uk-tooltip="title: Couples; " width="25" height="25" version="1.1" id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <style type="text/css">
+                .st0 {
+                  fill: #999;
+                }
+              </style>
+              <g>
+                <path class="st0" d="M345.4,298.1c-6.7,0-12.2,5.5-12.2,12.2c0,6.7,5.5,12.2,12.2,12.2s12.2-5.5,12.2-12.2
+		C357.5,303.6,352.1,298.1,345.4,298.1z" />
+                <path class="st0" d="M415.1,322.5c6.7,0,12.2-5.5,12.2-12.2c0-6.7-5.5-12.2-12.2-12.2c-6.7,0-12.2,5.5-12.2,12.2
+		C403,317,408.4,322.5,415.1,322.5z" />
+                <path class="st0" d="M96.9,298.1c-6.7,0-12.2,5.5-12.2,12.2c0,6.7,5.5,12.2,12.2,12.2S109,317,109,310.3
+		C109,303.6,103.6,298.1,96.9,298.1z" />
+                <path class="st0" d="M166.6,322.5c6.7,0,12.2-5.5,12.2-12.2c0-6.7-5.5-12.2-12.2-12.2c-6.7,0-12.2,5.5-12.2,12.2
+		C154.5,317,159.9,322.5,166.6,322.5z" />
+                <path class="st0"
+                  d="M474.6,412c10.2-7.5,18.2-20.8,24-39.7c1.2-4,9.2-32.2,6.2-41.7c-6.3-9.9-10.9-18.7-15.2,13.9
+		c-1.4,10.8-4.9,21.6-5.4,23.3c-3.8,12.4-10.5,27.7-21.1,33.7c-12.7-10.3-27.4-18.3-43.4-23.4c31-14.8,52.4-46.4,52.4-83V280
+		c0-3.7-2.6-6.8-6.2-7.4c-37.2-6.4-62.9-44.1-63.1-44.5c-1.5-2.3-4.2-3.6-7-3.3c-2.8,0.3-5.1,2.1-6.2,4.6c-0.2,0.4-18.4,43-93.8,43
+		c-4.1,0-7.5,3.4-7.5,7.5v15.2c0,36.6,21.4,68.2,52.4,83c-16,5-30.6,13-43.4,23.4c-5.9-3.4-11.2-9.9-15.8-19.6
+		c-17.9-38-17.9-113.2-5.3-145.8c8.1-21.2,22.3-39.1,40.9-52c18.7-12.8,40.5-19.6,63.1-19.6c22.6,0,44.5,6.8,63.1,19.6
+		c18.6,12.8,32.8,30.8,40.9,52c8.7,22.6,11.3,67.1,6.1,103.5c-0.6,4.1,2.3,7.9,6.4,8.5c4.1,0.6,7.9-2.3,8.5-6.4
+		c5.6-39.2,2.7-85.9-7-111c-9.2-24-25.2-44.4-46.4-59c-21.2-14.6-45.9-22.3-71.6-22.3s-50.5,7.7-71.6,22.3
+		c-21.2,14.6-37.2,35-46.4,59c-13.8,36-13.9,115.8,5.8,157.6c5,10.6,11,18.5,17.9,23.6c-13.2,13.5-23.5,29.9-29.9,48.1
+		c-13.8-38.9-45.2-69.4-84.7-81.9c15.7-7.5,29-19.4,38.3-34.1c3.8,2,8.1,3,12.5,3c15.1,0,27.4-12.3,27.4-27.4c0-5.8-1.8-11.3-5-15.7
+		c11.2-32.4,19.4-76.2,0-108.2c-10.9-18-29-29.5-50.9-32.5c-15.6-2.1-28.4,2-35.5,5.3c-10.4-12.4-22.3-19.1-47-19.1
+		c-20.2,0-52.2,8-76,30.7c-3,2.9-3.1,7.6-0.3,10.6c2.9,3,7.6,3.1,10.6,0.3c20.5-19.6,48.2-26.5,65.6-26.5c23.8,0,30.6,6.8,38.9,18.1
+		c2.4,3.2,6.9,4,10.2,1.8c0.1-0.1,13.4-8.7,31.3-6.2c17.4,2.4,31.6,11.4,40.1,25.4c12.6,20.9,12.7,52.1,0.3,90.6
+		c-2.6-1-5.3-1.6-8.2-1.8V280c0-3.7-2.6-6.8-6.2-7.4c-37.2-6.4-62.9-44.1-63.1-44.5c-1.5-2.3-4.2-3.6-7-3.3
+		c-2.8,0.3-5.1,2.1-6.2,4.6c-0.2,0.4-18.4,43-93.8,43c-4.1,0-7.5,3.4-7.5,7.5v12.5c-3.1,0.2-6.1,0.9-8.8,2
+		c-12-31.7-12.6-59-1.7-81.4c0.9-1.8,12.8-19.9,19.2-25.1c30-24.5-2.3-6.7-4.2-7.6c-3.7-1.8-6-11-28.5,26.2
+		c-13.3,27.4-12.2,60.3,3,97.9c-3,4.4-4.7,9.7-4.7,15.3c0,15.1,12.3,27.4,27.4,27.4c4.4,0,8.7-1.1,12.5-3
+		c9.3,14.7,22.5,26.5,38.3,34.1C38.8,395,0,445,0,503.9v0.3c0,4.1,3.4,7.5,7.5,7.5H256h248.5c4.1,0,7.5-3.4,7.5-7.5v-0.3
+		C512,468.2,497.7,435.8,474.6,412z M380.2,387.2c7.5,0,14.9,0.7,22,2.1c-3.7,8.6-12.3,14.4-22,14.4c-9.7,0-18.3-5.9-22-14.4
+		C365.4,387.9,372.7,387.2,380.2,387.2z M303.3,295.2v-7.8c56.9-2,83.4-27.1,94.1-41.8c10.3,12.3,31.5,33.3,59.8,40.5v9.1
+		c0,42.4-34.5,76.9-76.9,76.9S303.3,337.6,303.3,295.2z M131.8,387.2c7.5,0,14.9,0.7,22,2.1c-3.7,8.6-12.3,14.4-22,14.4
+		s-18.3-5.9-22-14.4C116.9,387.9,124.2,387.2,131.8,387.2z M222.1,332.2c-1.9,0-3.8-0.5-5.5-1.3c3.1-7.3,5.3-15.2,6.4-23.3
+		c6.4,0.4,11.5,5.8,11.5,12.3C234.4,326.6,228.9,332.2,222.1,332.2z M41.4,332.2c-6.8,0-12.4-5.5-12.4-12.4
+		c0-6.5,5.1-11.9,11.5-12.3c1.1,8.2,3.3,16,6.4,23.3C45.3,331.7,43.4,332.2,41.4,332.2z M55,300.3C55,300.3,55,300.2,55,300.3
+		c-0.1-1.7-0.2-3.4-0.2-5.1v-7.8c56.9-2,83.4-27.1,94.1-41.8c10.3,12.3,31.5,33.3,59.8,40.5v9.1c0,1.7-0.1,3.4-0.2,5
+		c0,0,0,0.1,0,0.1c-2.6,40.1-36,71.8-76.7,71.8S57.6,340.4,55,300.3z M15.2,496.7c3-48.4,35.6-88.9,79.9-103.6
+		c5.5,15.1,20,25.6,36.7,25.6c16.6,0,31.1-10.6,36.7-25.6c44.3,14.7,76.9,55.2,79.9,103.6H15.2z M263.7,496.7
+		c3-48.4,35.6-88.9,79.9-103.6c5.5,15.1,20,25.6,36.7,25.6c16.6,0,31.1-10.6,36.7-25.6c44.3,14.7,76.9,55.2,79.9,103.6H263.7z" />
+                <path class="st0" d="M206.3,112.1c3-2.8,3.2-7.6,0.4-10.6c-17.1-18.3-24.5-36.5-22.1-54.2c3.7-26.8,22.9-31.2,31-31.9
+		c15.3-1.3,29.7,6.5,33.3,18.2c1,3.1,3.9,5.3,7.2,5.3s6.2-2.1,7.2-5.3c3.6-11.6,18-19.5,33.3-18.2c8.1,0.7,27.3,5.2,31,31.9
+		c6.3,46.1-56.2,82.9-71.4,91c-5.2-2.8-16.1-9-27.9-17.9c-1.6-1.2-14.9-11.9-22.6-20.3c-13.9-15.1-15.9-10.5-15.1,3.4
+		c-2.5,3.3,25.3,26.3,28.6,28.8c17.5,13.2,33,20.8,33.7,21.1c2.1,1,4.5,1,6.6,0c0.9-0.4,22.8-11.2,44-29.5
+		c29.1-25.1,42.6-52.3,39-78.8c-4.2-30.6-25.8-43.2-44.6-44.8C281-0.9,265.3,5.4,256,16.3c-9.3-10.9-25-17.2-41.7-15.8
+		c-18.8,1.6-40.4,14.2-44.6,44.8c-3.1,22.4,5.7,44.7,26,66.5C198.6,114.8,203.3,115,206.3,112.1z" />
+              </g>
+            </svg>
+            <ul class="uk-breadcrumb breadcrumbs-list">
+              <li id="hotel-overview-dropdown">
+                <span class="breadcrumbs-dropdown">{% trans "HOTEL CASTELLASTVA" %}</span>
+                <i class="fa fa-angle-down breadcrumbs-dropdown"></i>
+                <div id="hotel-overview-dropdown-content" class="uk-animation-slide-top-small">
+                  <a title="{% trans "Hotel Castellastva - Overview" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/overview/" %}">{% trans "Hotel Overview" %}</a>
+                  <a title="{% trans "Hotel Castellastva - Accommodation" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/guest-rooms/" %}">{% trans "Accommodation" %}</a>
+                  <a title="{% trans "Hotel Castellastva - Restaurants & Bars" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/restaurants-and-bars/" %}">{% trans "Restaurants & bars" %}</a>
+                  <a title="{% trans "Hotel Castellastva - Beaches & Pools" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/beaches-and-pools/" %}">{% trans "Beaches & Pools" %}</a>
+                  <a title="{% trans "Hotel Castellastva - Wellness & SPA" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/wellness-and-spa/" %}">{% trans "Wellness & SPA" %}</a>
+                  <a title="{% trans "Hotel Castellastva - Location" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/location" %}">{% trans "Location" %}</a>
+                </div>
+              </li>
+              <li>
+                <span class="breadcrumbs-last-span"><a title="{% trans "Hotel Castellastva - Accommodation" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/guest-rooms/" %}" href="{% trans '/en/hotel-castellastva-in-petrovac/guest-rooms/' %}">{% trans "ACCOMMODATION" %}</a></span>
+              </li>
+              <li>
+                <span class="breadcrumbs-last-span">{% trans "DOUBLE ROOM WITH TERRACE/BALCONY" %}</span>
+            </li>
+            </ul>
+          </div>
+          {% include "components/dropdown-all-hotels-menu.html" %}
+        </div>
+      </div>
+
+      <h2 id="hero-header" class="width-padding mobile-element">
+        {% trans "HOTEL CASTELLASTVA" %}
+      </h2>
+      <span class="width-padding header-span mobile-element">{% trans "Accommodation" %}</span>
+      <h1 class="desktop-element width-padding" id="hero-header-desktop">
+        {% trans "Accommodation" %}
+      </h1>
+    </div>
+    <form action="https://secure.phobs.net/webservice/mobile/booking.php" id="phobs_book" name="phobs_book"
+      target="_blank" class="width-padding">
+      <span id="book-your-stay-span">{% trans "Book Your Stay" %}</span>
+      <select id="hotel_selection" name="hotel">
+        <option value="-">{% trans "All" %}</option>
+        <option value="690b8cb36cc9778f01169c7b23e92c4d">{% trans "Hotel Palas" %}</option>
+        <option value="0b45adca4485680ff1eb18b468ef97aa">{% trans "Hotel Aleksandar" %}</option>
+        <option value="fad8de6711bed793ff533298b9a8a1c0" selected>{% trans "Hotel Castellastva" %}</option>
+        <option value="2bf69a5e1f101263d2d143794eb63e80">{% trans "Hotel Slovenska Plaza Standard" %}</option>
+        <option value="1f6335bcc23330993ad10df199fe00fb">{% trans "Hotel Resort Slovenska Plaza Lux" %}</option>
+        <option value="9b791e3b56dd06983659e5f985f33516">{% trans "Hotel Mogren" %}</option>
+      </select>
+      <input type="text" id="datepicker1" name="checkin" readonly="readonly" placeholder="arrival date" />
+      <input type="text" id="datepicker2" readonly="readonly" name="checkout" placeholder="departure date" />
+      <input type="text" id="promocode" name="partners_access" placeholder="promo code" />
+
+      <input type="submit" value="{% trans "BOOK NOW" %}" id="submit" class="call-action cursor-pointer"
+         />
+      <a title="{% trans "Reservation Form" %}" href="#" class="call" uk-sticky uk-totop>{% trans "BOOK" %}</a>
+      <p class="hidden-inputs__wrapper">
+        <input name="company_id" type="hidden" value="5e01f11fbc6224083351531097a7f0ae" style="display: none" />
+        <input name="view_cancel" type="hidden" value="" style="display: none" />
+        <input name="lang" type="hidden" value="en" style="display: none" />
+      </p>
+    </form>
+  </header>
+
+ 
+<!-- dvokrevetna sa balkonom -->
+  <section class="width-padding">
+    <h3 class="blue-underline">{% trans  "Double Room with Terrace/Balcony" %}</h3 class="blue-underline">
+    <p class="width-padding uk-margin-medium-bottom">{% blocktrans %} 
+      Double room with an extra bed and balcony. Spacious double room with a double bed, and an extra sofa bed. Max occupancy 3 pax - it is possible to comfortably accommodate two adults and a child up to 7 years of age in all rooms. The balconies have a view of the olive gardens and the natural surroundings. 
+      Possibility of a baby cot.
+      {% endblocktrans %}
+    </p>
+    
+        <div class="uk-position-relative uk-visible-toggle uk-light desktop-element gallery-container uk-width-xxlarge" tabindex="-1"
+        uk-slideshow="min-height: 300; max-height: 600; animation: push" id="gallery-slider">
+        <ul class="uk-slideshow-items gallery-list-desktop ">
+          <li>
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony1.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li>
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony2.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li>
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony3.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li>
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony4.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li>
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony5.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li>
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony6.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li>
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony7.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li>
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony8.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li>
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony9.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li>
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony10.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+        </ul>
+        <div class="galery-navigation-container">
+          <a title="{% trans "Previous" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-previous" uk-slidenav-previous
+            uk-slideshow-item="previous"></a>
+          <div class="uk-position-relative uk-visible-toggle uk-light" id="gallery-slider-navigation" tabindex="-1"
+            uk-slider="center:true">
+            <ul class="uk-slider-items uk-child-width-1-3 gallery-list-navigation">
+              <li>
+                <img class="cursor-pointer" src="{% static "assets/images/Castellastva/accommodation/double-room-balcony1.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(0); UIkit.slideshow('#gallery-slider').show(0);" />
+              </li>
+              <li>
+                <img class="cursor-pointer" src="{% static "assets/images/Castellastva/accommodation/double-room-balcony2.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(1); UIkit.slideshow('#gallery-slider').show(1);" />
+              </li>
+              <li>
+                <img class="cursor-pointer" src="{% static "assets/images/Castellastva/accommodation/double-room-balcony3.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(2); UIkit.slideshow('#gallery-slider').show(2);" />
+              </li>
+              <li>
+                <img class="cursor-pointer" src="{% static "assets/images/Castellastva/accommodation/double-room-balcony4.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(3); UIkit.slideshow('#gallery-slider').show(3);" />
+              </li>
+              <li>
+                <img class="cursor-pointer" src="{% static "assets/images/Castellastva/accommodation/double-room-balcony5.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(4); UIkit.slideshow('#gallery-slider').show(4);" />
+              </li>
+              <li>
+                <img class="cursor-pointer" src="{% static "assets/images/Castellastva/accommodation/double-room-balcony6.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(5); UIkit.slideshow('#gallery-slider').show(5);" />
+              </li>
+              <li>
+                <img class="cursor-pointer" src="{% static "assets/images/Castellastva/accommodation/double-room-balcony7.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(6); UIkit.slideshow('#gallery-slider').show(6);" />
+              </li>
+              <li>
+                <img class="cursor-pointer" src="{% static "assets/images/Castellastva/accommodation/double-room-balcony8.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(7); UIkit.slideshow('#gallery-slider').show(7);" />
+              </li>
+              <li>
+                <img class="cursor-pointer" src="{% static "assets/images/Castellastva/accommodation/double-room-balcony9.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(8); UIkit.slideshow('#gallery-slider').show(8);" />
+              </li>
+              <li>
+                <img class="cursor-pointer" src="{% static "assets/images/Castellastva/accommodation/double-room-balcony10.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" onclick="UIkit.slider('#gallery-slider-navigation').show(9); UIkit.slideshow('#gallery-slider').show(9);" />
+              </li>
+            </ul>
+          </div>
+          <a title="{% trans "Next" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-next" uk-slidenav-next
+            uk-slideshow-item="next"></a>
+        </div>
+      </div>
+      <div class="uk-position-relative uk-visible-toggle uk-light mobile-element" tabindex="-1"
+        uk-slideshow="min-height: 300; max-height: 600; animation: push">
+        <ul class="uk-slideshow-items gallery-list-mobile">
+          <li count="1">
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony1.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li count="2">
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony2.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li count="3">
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony3.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li count="4">
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony4.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li count="5">
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony5.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li count="6">
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony6.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li count="7">
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony7.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li count="8">
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony8.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li count="9">
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony9.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+          <li count="10">
+            <img src="{% static "assets/images/Castellastva/accommodation/double-room-balcony10.jpg" %}" alt="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" title="{% trans "Hotel Castellastva - Double Room with Terrace/Balcony" %}" />
+          </li>
+        </ul>
+        <div class="galery-navigation-container">
+          <a title="{% trans "Previous" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-previous" uk-slidenav-previous
+            uk-slideshow-item="previous"></a>
+          <p class="gallery-counting-element" count="1" max-count="10">1/10</p>
+          <a title="{% trans "Next" %}" href="#" class="uk-border-circle gallery-arrow-navigation gallery-next" uk-slidenav-next
+            uk-slideshow-item="next"></a>
+        </div>
+      </div>
+
+    <img style="display: block; margin: 15px auto;" src="{% static "assets/images/Castellastva/accommodation/castellastva-dvokrevetna-sa-balkonom.png" %}" alt="{% trans "Resort Slovenska Plaza - Suite with Sofa Bed" %}" title="{% trans "Resort Slovenska Plaza - Suite with Sofa Bed" %}">
+      
+     
+    <div class="accommodation-cards-desktop-wrapper accommodation-cards-desktop-wrapper-1  accommodation-wrapper-alignment-correct">
+      <ul style="list-style-type: none; ">
+        <h5 class="uk-heading-line"><span>{% trans "In your private bathroom" %}</span></h5>
+       <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Hairdryer" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Bathrobe on request" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Free toiletries" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Slippers" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Shower" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Cosmetic mirror" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Towels" %}</li>
+      </ul>
+      <ul style="list-style-type: none; ">
+        <h5 class="uk-heading-line"><span>{% trans "View" %}</span></h5>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Olive groves and the natural surroundings" %}</li>
+      </ul>
+    </div>
+    <h4>{% trans "Room facilities" %}</h4>
+    <div class="accommodation-cards-desktop-wrapper accommodation-cards-desktop-wrapper-1 width-padding">
+      <ul style="list-style-type: none; ">
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Safety Deposit Box" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Telephone" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Air conditioning" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Wake Up Service/Alarm Clock" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Free WiFi (rooms and other areas)" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Cable Channels" %}</li>
+      </ul>
+
+      <ul style="list-style-type: none; ">
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Kettle with coffe and tea" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Flat-screen TV" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Closet" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Mini fridge (minibar on request)" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Socket near the bed" %}</li>
+        <li><i class='fas fa-check' style="color:#0059ab"></i>  {% trans "Baby cot (with surcharge)" %}</li>
+      </ul>
+    </div>
+    <hr>
+  </section>
+  <section class="width-padding" style="display: flex; justify-content: center;">
+      <button class="custom-submit uk-button uk-button-default" style="border-radius:10px; color:white; background-color:#0059ab;" >
+        <a title="{% trans "Book this room" %}" style="color:white; text-decoration:none;" href="{{ settings.site_settings.UpdateAccomodationCtaLinksSettings.b_castellastva_double_room_with_terrace }}">{% trans "Book this room" %}</a>
+      </button>
+    </section>
+
+  {% include "components/footer.html" %}
+
+  {% comment %} jquery {% endcomment %}
+  <script src="{% static "assets/js/jquery.min.js" %}"></script>
+  {% comment %} jquery datepicker {% endcomment %}
+  <script src="{% static "assets/js/jquery-ui.min.js" %}"></script>
+  <script src="{% static "assets/js/jquery-ui-i18n.min.js" %}"></script>
+
+  <script src="{% static "assets/js/datepicker-me.js" %}"></script>
+  <script src="{% static "assets/js/index.js" %}"></script>
+  <script src="{% static "assets/js/gallery.js" %}"></script>
+  <script src="{% static "assets/js/search.js" %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,329 @@
+{% load i18n %}
+{% load static %}
+
+<div id="covid-element" uk-sticky="offset:0px">
+    <a title="Covid-19 Info" href="{% trans "/en/news/covid-19/" %}">COVID-19 INFO</a>
+</div>
+<nav class="uk-navbar uk-navbar-container uk-margin" uk-sticky="offset:20px" id="navbar">
+    <div class="uk-navbar-right nav-overlay1">
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a title="{% trans "Homepage" %}" href='{% trans "/en/home/" %}' uk-icon="icon: home"></a></li>
+            <li>
+                <a title="{% trans "HG Budvanska Rivijera - Special Offers" %}" href="{% trans "/en/special-offers/" %}">{% trans "SPECIAL OFFERS" %}</a>
+            </li>
+            <li>
+                <a title="{% trans "HG Budvanska Rivijera - Blog" %}" href="{% trans "/en/blog/" %}">{% trans "BLOG" %}</a>
+            </li>
+            <li><a title="{% trans "HG Budvanska Rivijera - Events" %}" href="{% trans "/en/events/" %}">{% trans "EVENTS" %}</a></li>
+            <li><a title="{% trans "HG Budvanska Rivijera - Weddings" %}" href="{% trans "/en/weddings/" %}">{% trans "WEDDINGS" %}</a></li>
+            <li><a title="{% trans "HG Budvanska Rivijera - News" %}" href="{% trans "/en/news/" %}">{% trans "NEWS" %}</a></li>
+            <li><a title="{% trans "HG Budvanska Rivijera - Contact" %}" href="{% trans "/en/contact/" %}">{% trans "CONTACT" %}</a></li>
+            {% comment %} ecolabel <li><a id="eco-link" title="{% trans "HG Budvanska Rivijera - Eco" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/eco-label-certificate/" %}">{% trans "ECO" %}<i class="fas fa-leaf"></i></a></li> {% endcomment %}
+
+            <li>
+                <a title="{% trans "Choose language" %}" style="width: 35px;">
+                    {% trans 'assets/images/gb.png' as curr_language_image %}
+                    <img class="image-language" src='{% static curr_language_image %}' alt="{% trans "language" %}" title="{% trans "language" %}" />
+                </a>
+                <div uk-dropdown="pos: top-right" class="language-list-container">
+                    <ul class="uk-nav uk-dropdown-nav" id="language-list">
+                        {% if curr_language_image != "assets/images/gb.png" %}
+                        <li class="language-list-li">
+                            <a title="English" href="/en/home/"
+                              ><img
+                                class="image-language"s
+                                src="{% static "assets/images/gb.png" %}"
+                                alt="English" title="English"
+                              /><span>EN</span></a>
+                          </li>
+                        {% endif %}
+                        {% if curr_language_image != "assets/images/me.png" %}
+                        <li class="language-list-li">
+                            <a title="Crnogorski" href="/me/pocetna/">
+                                <img class="image-language"
+                                     src="{% static "assets/images/me.png" %}"
+                                     alt="Crnogorski" title="Crnogorski"
+                                /><span>ME</span></a>
+                        </li>
+                        {% endif %}
+                        {% if curr_language_image != "assets/images/it.png" %}
+                        <li class="language-list-li">
+                                  <a title="Italiano" href="/it/pagina-iniziale/"
+                                    ><img
+                                      class="image-language"
+                                      src="{% static "assets/images/it.png" %}"
+                                      alt="Italiano" title="Italiano"
+                                    /><span>IT</span></a
+                                  >
+                                </li>
+                        {% endif %}
+                        {% if curr_language_image != "assets/images/fr.png" %}
+                                <li class="language-list-li">
+                                  <a title="Français" href="/fr/accueil/"
+                                    ><img
+                                      class="image-language"
+                                      src="{% static "assets/images/fr.png" %}"
+                                      alt="Français" title="Français"
+                                    /><span>FR</span></a
+                                  >
+                                </li>
+                        {% endif %}
+                        {% if curr_language_image != "assets/images/de.png" %}
+                                <li class="language-list-li">
+                                  <a title="Deutsch" href="/de/startseite/"
+                                    ><img
+                                      class="image-language"
+                                      src="{% static "assets/images/de.png" %}"
+                                      alt="Deutsch" title="Deutsch"
+                                    /><span>DE</span></a
+                                  >
+                                </li>
+                        {% endif %}
+                        {% if curr_language_image != "assets/images/ru.png" %}
+                                <li class="language-list-li">
+                                  <a title="Pусский" href="/ru/doma/"
+                                    ><img
+                                      class="image-language"
+                                      src="{% static "assets/images/ru.png" %}"
+                                      alt="Pусский" title="Pусский"
+                                    /><span>RU</span></a
+                                  >
+                                </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <a title="{% trans "Search" %}" class="menu-search-icon" href="#" uk-toggle="target: #search-container; animation: uk-animation-fade" uk-search-icon style="margin-left: 15px; color: #333;"></a>
+    </div>
+
+    <div class="uk-navbar-left hamburger-menu">
+        <a title="{% trans "Menu" %}" class="uk-navbar-toggle" href="#toggle-animation"
+           uk-toggle="target: #toggle-animation; animation: uk-animation-fade">
+            <span uk-navbar-toggle-icon></span>
+        </a>
+    </div>
+    
+    <img src="{% static "assets/images/hgbr-logo-horizontalni.webp" %}" alt="logo" title="logo"
+    onClick="window.open('{% trans "/en/home/" %}','_self')" />
+    <div id="toggle-animation" class="uk-card uk-card-default uk-card-body uk-margin-small mobile-menu" hidden>
+        <a title="{% trans "Search" %}" class="menu-search-icon" uk-toggle="target: #search-container; animation: uk-animation-fade" href="#" uk-search-icon style="display: flex; justify-content: left; padding: 0;"></a>
+        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+            <li class="uk-nav-divider"></li>
+            <li class="uk-parent">
+                {% trans 'English' as curr_language %}
+                <a title="{{ curr_language }}" href="">{% trans "English" %}</a>
+                <ul class="uk-nav-sub">
+                    {% if curr_language != "English" %}
+                    <li><a title="English" href="/en/home/">English</a></li>
+                    {% endif %}
+                    {% if curr_language != "Crnogorski" %}
+                    <li><a title="Crnogorski" href="/me/pocetna/">Crnogorski</a></li>
+                    {% endif %}
+                    {% if curr_language != "Italiano" %}
+                    <li><a title="Italiano" href="/it/pagina-iniziale/">Italiano</a></li>
+                    {% endif %}
+                    {% if curr_language != "Français" %}
+                    <li><a title="Français" href="/fr/accueil/">Français</a></li>
+                    {% endif %}
+                    {% if curr_language != "Deutsch" %}
+                    <li><a title="Deutsch" href="/de/startseite/">Deutsch</a></li>
+                    {% endif %}
+                    {% if curr_language != "Русский" %}
+                    <li><a title="Русский" href="/ru/doma/">Русский</a></li>
+                    {% endif %}
+                </ul>
+            </li>
+            <li class="uk-nav-divider"></li>
+            <li class="uk-parent">
+                <a title="{% trans "Our hotels" %}"" href="#">{% trans "Our hotels" %}</a>
+                <ul class="uk-nav-sub">
+                    <li>
+                        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                            <li class="uk-parent">
+                                <a title="Hotel Palas" href="#">{% trans "Palas" %}</a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - Overview" %}" href="{% trans "/en/hotel-palas/overview/" %}">{% trans "About us" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - Accommodation" %}" href="{% trans "/en/hotel-palas/rooms-and-suites/" %}">{% trans "Accommodation" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - Accommodation Lux" %}" href="{% trans "/en/hotel-palas-lux/rooms-and-suites/" %}">{% trans "Accommodation Lux" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - Meetings & Events" %}" href="{% trans "/en/hotel-palas/conference-rooms/" %}">{% trans "Meetings" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - Weddings" %}" href="{% trans "/en/hotel-palas/weddings/" %}">{% trans "Weddings" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - Restaurants" %}" href="{% trans "/en/hotel-palas/restaurants-and-bars/" %}">{% trans "Restaurants" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - Beaches & Pools" %}" href="{% trans "/en/hotel-palas/beaches-and-pools/" %}">{% trans "Beaches" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - Wellness" %}" href="{% trans "/en/hotel-palas/wellness-and-spa/" %}">{% trans "Wellness" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - Wellness" %}" href="{% trans "/en/hotel-palas/thai-massage/" %}">{% trans "Thai Massage" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - City cafe" %}" href="{% trans "/en/events/city-tavern-palas/" %}">{% trans "City Tavern" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Palas - Location" %}" href="{% trans "/en/hotel-palas/location/" %}">{% trans "Location" %}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                            <li class="uk-parent">
+                                <a title="Hotel Aleksandar" href="#">{% trans "Aleksandar" %}</a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a title="{% trans "Hotel Aleksandar - Overview" %}" href="{% trans "/en/hotel-aleksandar-in-budva/overview/" %}">{% trans "About us" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Aleksandar - Accommodation" %}" href="{% trans "/en/hotel-aleksandar-in-budva/rooms-and-suites/" %}">{% trans "ccommodation" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Aleksandar - Meetings & Events" %}" href="{% trans "/en/hotel-aleksandar-in-budva/conference-rooms/" %}">{% trans "Meetings" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Aleksandar - Resturants" %}" href="{% trans "/en/hotel-aleksandar-in-budva/restaurants-and-bars/" %}">{% trans "Restaurants" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Aleksandar - Wellness" %}" href="{% trans "/en/hotel-aleksandar-in-budva/wellness-and-spa/" %}">{% trans "Beaches" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Aleksandar - Beaches & Pools" %}" href="{% trans "/en/hotel-aleksandar-in-budva/beaches-and-pools/" %}">{% trans "Wellness" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Aleksandar - Location" %}" href="{% trans "/en/hotel-aleksandar-in-budva/location/" %}">{% trans "Location" %}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                            <li class="uk-parent">
+                                <a title="Hotel Castellastva" href="#">{% trans "Castellastva" %}</a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a title="{% trans "Hotel Castellastva - Overview" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/overview/" %}">{% trans "About us" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Castellastva - Accommodation" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/guest-rooms/" %}">{% trans "Accommodation" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Castellastva - Restaurants" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/restaurants-and-bars/" %}">{% trans "Restaurants" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Castellastva - Beaches & Pools" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/beaches-and-pools/" %}">{% trans "Beaches" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Castellastva - Wellness" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/wellness-and-spa/" %}">{% trans "Wellness" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Hotel Castellastva - Location" %}" href="{% trans "/en/hotel-castellastva-in-petrovac/location/" %}">{% trans "Location" %}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                            <li class="uk-parent">
+                                <a title="{% trans "Resort Slovenska Plaza" %}" href="#">{% trans "Slovenska plaza" %}</a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a title="{% trans "Resort Slovenska Plaza - Overview" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/overview/" %}">{% trans "About us" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Resort Slovenska Plaza - Accommodation 3*" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/3-star-guest-rooms/" %}">{% trans "Accommodation***" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Resort Slovenska Plaza - Accommodation 4*" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/4-star-guest-rooms/" %}">{% trans "Accommodation****" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Resort Slovenska Plaza - Restaurants" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/restaurants-and-bars/" %}">{% trans "Restaurants" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Resort Slovenska Plaza - Beaches & Pools" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/beaches-and-pools/" %}">{% trans "Beaches" %}</a>
+                                    </li>
+                                    {% comment %} ecolabel<li>
+                                        <a title="{% trans "Resort Slovenska Plaza - Eco Label" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/eco-label-certificate/" %}">{% trans "Eco label" %}</a>
+                                    </li> {% endcomment %}
+                                    <li>
+                                        <a title="{% trans "Resort Slovenska Plaza - Tennis resort" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/tennis-resort/" %}">{% trans "Tennis resort" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Resort Slovenska Plaza - Location" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/location/" %}">{% trans "Location" %}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                            <li class="uk-parent">
+                                <a title="Hotel Mogren" href="#">{% trans "Mogren" %}</a>
+                                <ul class="uk-nav-sub">
+                                    <li>
+                                        <a title="{% trans "Mogren - Overview" %}" href="{% trans "/en/hotel-mogren-in-budva/overview/" %}">{% trans "About us" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Mogren - Accommodation" %}" href="{% trans "/en/hotel-mogren-in-budva/guest-rooms/" %}">{% trans "Accommodation" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Mogren - Meetings & Events" %}" href="{% trans "/en/hotel-mogren-in-budva/conference-rooms/" %}">{% trans "Meetings" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Mogren - Weddings" %}" href="{% trans "/en/hotel-mogren-in-budva/weddings/" %}">{% trans "Weddings" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Mogren - Restaurants" %}" href="{% trans "/en/hotel-mogren-in-budva/restaurants-and-bars/" %}">{% trans "Restaurants" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Mogren - City Cafe" %}" href="{% trans "/en/events/city-tavern-mogren/" %}">{% trans "City Tavern" %}</a>
+                                    </li>
+                                    <li>
+                                        <a title="{% trans "Mogren - Location" %}" href="{% trans "/en/hotel-mogren-in-budva/location/" %}">{% trans "Location" %}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="uk-nav-divider"></li>
+            <li><a title="{% trans "HG Budvanska Rivijera - Special Offers" %}" href="{% trans "/en/special-offers/" %}">{% trans " SPECIAL OFFERS" %}</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a title="{% trans "HG Budvanska Rivijera - Blog" %}" href="{% trans "/en/blog/" %}">{% trans " BLOG" %}</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a title="{% trans "HG Budvanska Rivijera - Events" %}" href="{% trans "/en/events/" %}">{% trans " EVENTS" %}</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a title="{% trans "HG Budvanska Rivijera - Weddings" %}" href="{% trans "/en/weddings/" %}">{% trans " WEDDINGS" %}</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a title="{% trans "HG Budvanska Rivijera - News" %}" href="{% trans "/en/news/" %}">{% trans " NEWS" %}</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a title="{% trans "HG Budvanska Rivijera - Contact" %}" href="{% trans "/en/contact/" %}">{% trans " CONTACT" %}</a></li>
+            <li class="uk-nav-divider"></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="search-container" hidden>
+    <form class="uk-search uk-search-large">
+        <span uk-search-icon></span>
+        <input id="search" class="uk-search-input" type="search" placeholder="Search...">
+        <a title="{% trans "Close" %}" class="menu-close-icon" uk-toggle="target: #search-container; animation: uk-animation-fade" href="#" uk-close ></a>
+    </form>
+</div>
+

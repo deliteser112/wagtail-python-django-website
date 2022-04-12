@@ -1,0 +1,41 @@
+.card-bottom-text-container {
+    height: 70px;
+}
+.card-bottom-text {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+.contact-hotel-name {
+    text-align: center;
+    color: #333333;
+    font-size: 24px;
+}
+.hotel-card-container {
+    margin: 0 0 20px 0;
+}
+.card-bottom-text-container  > svg{
+    height: 80px;
+}
+
+@media only screen and (min-width: 960px) {
+    .hotel-card-container {
+        width: 32%;
+    }
+    .card-bottom-text {
+        font-size: 14px;
+    }
+}
+@media only screen and (min-width: 1150px) {
+    .hotel-card-container {
+        width: 31%;
+    }
+    .card-bottom-text {
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .hotel-card-container {
+        height: 370px;
+    }
+}

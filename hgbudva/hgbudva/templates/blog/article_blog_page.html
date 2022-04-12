@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block content %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+   <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#ecad2e">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#ecad2e">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ecad2e">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>HG Budvanska rivijera | {{ page.title }}</title>
+
+  {% comment %} jquery datepicker {% endcomment %}
+  <link href="{% static "assets/css/jquery-ui.css" %}"
+    rel="stylesheet" />
+
+  {% comment %} UIkit CSS {% endcomment %}
+  <link rel="stylesheet" href="{% static "assets/css/uikit.min.css" %}" />
+
+  {% comment %} UIkit JS {% endcomment %}
+  <script async src="{% static "assets/js/uikit.min.js" %}"></script>
+  <script async src="{% static "assets/js/uikit-icons.min.js" %}"></script>
+
+  <link rel="stylesheet" href="{% static "assets/css/homepage-responsive.css" %}">
+  <link rel="stylesheet" href="{% static "assets/css/main-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/main-responsive.css" %}" />
+
+  <link rel="stylesheet" href="{% static "assets/css/news-blog-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/news-blog-responsive.css" %}" />
+
+  <link rel="stylesheet" href="{% static "assets/css/blog-mobile.css" %}" />
+  <link rel="stylesheet" href="{% static "assets/css/blog-responsive.css" %}" />
+
+  <link href="{% static "assets/css/material-icons.css" %}" rel="stylesheet" />
+  <script async src="{% static "assets/js/fontawesome.js" %}"></script>
+  <!-- Button Animation -->
+  <link rel="stylesheet" href="{% static 'assets/css/button-wave-animation.css' %}">
+</head>
+
+<body>
+  <header>
+    {% include "components/header-desktop-nav.html" %}
+
+   
+    <div class="header-hero-container header-hero-container-not-homepage" id="header-container">
+      <div class="hotel-menu" id="hotel-menu">
+        <div class="hotel-menu-container width-padding">
+          {% include "components/dropdown-index-menu.html" %}
+        </div>
+      </div>
+
+      <h2 id="hero-header" class="width-padding mobile-element">
+        BUDVANSKA RIVIJERA
+      </h2>
+      <span class="width-padding header-span mobile-element">{{ page.get_parent.title }}</span>
+      <h1 class="desktop-element width-padding" id="hero-header-desktop">
+             {{ page.get_parent.title }}
+      </h1>
+    </div>
+    <form action="https://secure.phobs.net/webservice/mobile/booking.php" id="phobs_book" name="phobs_book"
+      target="_blank" class="width-padding">
+      <span id="book-your-stay-span">{% trans "Book Your Stay" %}</span>
+      <select id="hotel_selection" name="hotel">
+        <option value="-">{% trans "All" %}</option>
+        <option value="690b8cb36cc9778f01169c7b23e92c4d">Hotel Palas</option>
+        <option value="0b45adca4485680ff1eb18b468ef97aa">Hotel Aleksandar</option>
+        <option value="fad8de6711bed793ff533298b9a8a1c0">Hotel Castellastva</option>
+        <option value="2bf69a5e1f101263d2d143794eb63e80">Hotel Slovenska Plaza Standard</option>
+        <option value="1f6335bcc23330993ad10df199fe00fb">Hotel Resort Slovenska Plaza Lux</option>
+        <option value="9b791e3b56dd06983659e5f985f33516">Hotel Mogren</option>
+      </select>
+      <input type="text" id="datepicker1" name="checkin" readonly="readonly" placeholder="arrival date" />
+      <input type="text" id="datepicker2" readonly="readonly" name="checkout" placeholder="departure date" />
+      <input type="text" id="promocode" name="partners_access" placeholder="promo code" />
+
+      <input type="submit" value="BOOK NOW" id="submit" class="call-action cursor-pointer"  />
+      <a title="{% trans "Reservation Form" %}" href="#" class="call" uk-sticky uk-totop>{% trans "BOOK" %}</a>
+      <p class="hidden-inputs__wrapper">
+        <input name="company_id" type="hidden" value="5e01f11fbc6224083351531097a7f0ae" style="display: none" />
+        <input name="view_cancel" type="hidden" value="" style="display: none" />
+        <input name="lang" type="hidden" value="en" style="display: none" />
+      </p>
+    </form>
+  </header>
+  <section class="width-padding">
+    <div>
+      <div class="blog-date"><span>{{page.date}}</span></div>
+      <h2 class="blog-title">{{page.title}}</h2>
+    </div>
+
+    <div class="subtitle-and-paragraph-wrapper">
+      <h5 style="text-align: justify; margin-bottom: 35px;">{{page.subtitle}}</h5>
+    </div>
+    {% image page.blog_image fill-1300x500 as blog_image %}
+    <div class="image-wrapper">
+      <img src="{{ blog_image.url }}" alt="Blog" />
+    </div>
+    <div class="subtitle-and-paragraph-wrapper">
+      {% include_block page.content|richtext %}
+    </div>
+    <div class="share-article">
+      <div class="share-article-text">{% trans "SHARE THIS ARTICLE:" %}</div>
+
+      <div class="sharethis-inline-share-buttons" style="z-index:0;"></div>
+    </div>
+
+    <div class="recent-blog-posts-wrapper">
+      <h3 class="main-title">{% trans "Recent" %}</h3>
+
+      <div class="recent-blog-posts-desktop-wrapper recent-blog-posts-desktop-wrapper-1 uk-animation-fade" id="recent">
+        <div class="recent-blog-posts-mobile-wrapper recent-blog-posts-mobile-wrapper-1">
+
+          {% for blog_post in paginative_posts_detail %}
+
+          <div class="recent-blog-posts">
+            <div class="recent-blog-posts-img-wrapper">
+              {% image blog_post.blog_image min-500x500 as recent_blog_image %}
+              <a title="{{blog_post.title}}" href="{{blog_post.url}}">
+              <img src="{{recent_blog_image.url}}" alt="{{blog_post.title}} image" />
+                </a>
+            </div>
+            <div class="recent-blog-posts-details">
+              <span class="blog-date">{{blog_post.date}}</span>
+              <h3>{{blog_post.title}}</h3>
+              <div>
+                <button class="uk-button uk-button-default uk-width-1-1 blob-btn">
+                  <a title="{{blog_post.title}}" href="{{blog_post.url}}">
+                    {% trans "READ MORE" %}
+                  </a>
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+    <ul class="uk-pagination">
+      {% if paginative_posts_detail.has_previous %}
+      <li>
+        <a title= "{% trans "Previous" %}" href="#recent?p={{ paginative_posts_detail.previous_page_number }}"><span class="uk-margin-small-right" uk-pagination-previous></span>
+          {% trans "Previous" %}</a>
+      </li>
+      {% endif %}
+      {% if paginative_posts_detail.has_next %}
+        <li class="uk-margin-auto-left">
+          <a title="{% trans "Next" %}" href="#recent?p={{ paginative_posts_detail.next_page_number }}">{% trans "Next" %} <span class="uk-margin-small-left" uk-pagination-next></span></a>
+        </li>
+      {% endif %}
+    </ul>
+  </section>
+  {% include "components/footer.html" %}
+
+  {% comment %} jquery {% endcomment %}
+  <script src="{% static "assets/js/jquery.min.js" %}"></script>
+  {% comment %} jquery datepicker {% endcomment %}
+  <script src="{% static "assets/js/jquery-ui.min.js" %}"></script>
+  <script src="{% static "assets/js/jquery-ui-i18n.min.js" %}"></script>
+
+  <script src="{% static "assets/js/datepicker-me.js" %}"></script>
+  <script src="{% static "assets/js/index.js" %}"></script>
+  <script src="{% static "assets/js/search.js" %}"></script>
+
+  <script type='text/javascript'
+    src='https://platform-api.sharethis.com/js/sharethis.js#property=5e300381daa3400012888c14&product=inline-share-buttons&cms=website'
+    async='async'></script>
+
+</body>
+
+</html>
+
+{% endblock %}

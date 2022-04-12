@@ -1,0 +1,16 @@
+@media only screen and (min-width: 640px){
+    .trapezoid-container{
+        min-height: 275px;
+    }
+}
+@media only screen and (min-width: 960px){
+    .trapezoid-container{
+        min-height: 350px;
+    }
+    .trapezoid-text-container {
+        width: 20%;
+    }
+    .trapezoid-container > img {
+        width: 60%;
+    }
+}

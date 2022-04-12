@@ -1,0 +1,48 @@
+#instafeed {
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 35px;
+  }
+  #instafeed img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+    border-radius: 8px;
+  }
+  #instafeed li {
+    overflow: hidden;
+    position: relative;
+  }
+  #instafeed li:hover img {
+    transform: scale(1.2);
+  }
+  #instafeed li:hover .insta-info {
+      bottom: 0;
+      opacity: 1;
+  }
+  #instafeed .uk-icon{
+      margin-right: 1px;
+  }
+  #instafeed .uk-icon:last-child{
+      margin-left: 7px;
+  }
+  .insta-info {
+    position: absolute;
+    padding: 10px 0 10px 10px;
+    bottom: -100%;
+    width: 100%;
+    background: #292929b3;
+    font-size: 17px;
+    transition: all .5s;
+    opacity: 0;
+  }
+  figcaption {
+    color: black;
+  }
+  figure {
+    margin: 0;
+  }
+

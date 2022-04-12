@@ -1,0 +1,286 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+     <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static "assets/images/favicon-32x32.png" %}"/>
+    {% comment %} Chrome, Firefox OS and Opera {% endcomment %}
+<meta name="theme-color" content="#ecad2e">
+{% comment %} Windows Phone {% endcomment %}
+<meta name="msapplication-navbutton-color" content="#ecad2e">
+{% comment %} iOS Safari {% endcomment %}
+<meta name="apple-mobile-web-app-status-bar-style" content="#ecad2e">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HG Budvanska rivijera - Search Results</title>
+
+    <link
+      href="{% static "assets/css/jquery-ui.css" %}"
+      rel="stylesheet"/>
+  
+    {% comment %} UIkit CSS {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="{% static "assets/css/uikit.min.css" %}"/>
+
+    {% comment %} UIkit CSS {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="{% static "assets/css/uikit.min.css" %}"/>
+
+    {% comment %} UIkit JS {% endcomment %}
+    <script async src="{% static "assets/js/uikit.min.js" %}"></script>
+    <script async src="{% static "assets/js/uikit-icons.min.js" %}"></script>
+
+    <link rel="stylesheet" href="{% static "assets/css/homepage-responsive.css" %}" />
+    <link rel="stylesheet" href="{% static "assets/css/main-mobile.css" %}" />
+    <link rel="stylesheet" href="{% static "assets/css/main-responsive.css" %}" />
+
+    <link rel="stylesheet" href="{% static "assets/css/weddings-index-mobile.css" %}" />
+    <link
+      rel="stylesheet"
+      href="{% static "assets/css/weddings-index-responsive.css" %}"/>
+
+    <link
+      href="{% static "assets/css/material-icons.css" %}"
+      rel="stylesheet"/>
+    <script async src="{% static "assets/js/fontawesome.js" %}"></script>
+
+    <style>
+      #search-results-list{
+        margin-top: 50px;
+      }
+      #search-results-list a{
+        color: #0059ab;
+        text-decoration: none;
+      }
+      #search-results-list a:hover{
+        color: #0059abb3;
+        text-decoration: none;
+      }
+      #search-results-msg{
+        margin-bottom: 100px;
+      }
+      p{
+        color: #919191;
+      }
+    </style>
+  
+
+</head>
+
+  <body>
+        <header>
+          {% include "components/header-desktop-nav.html" %}
+
+      {% comment %} <div class="hotel-menu-slide mobile-element">
+        <div
+          class="uk-position-relative uk-visible-toggle uk-light width-padding"
+          tabindex="-1"
+          uk-slider="finite: true"
+        >
+          <ul
+            class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m"
+          >
+            <li class="menu-slide-li">
+              <a href="">HOTEL OVERVIEW</a>
+            </li>
+            <li class="menu-slide-li">
+              <a href="">ACCOMMODATION</a>
+            </li>
+            <li class="menu-slide-li">
+              <a href="">BANQUETING & EVENTS</a>
+            </li>
+            <li class="menu-slide-li">
+              <a href="">RESTAURANTS & BARS</a>
+            </li>
+            <li class="menu-slide-li">
+              <a href="">BEACHES & POOLS</a>
+            </li>
+            <li class="menu-slide-li">
+              <a href="">WELLNESS</a>
+            </li>
+            <li class="menu-slide-li">
+              <a href="">LOCATION</a>
+            </li>
+          </ul>
+        </div>
+      </div> {% endcomment %}
+      <div class="header-hero-container header-hero-container-not-homepage" id="header-container">
+        <div class="hotel-menu" id="hotel-menu">
+          <div class="hotel-menu-container width-padding">
+            {% include "components/dropdown-index-menu.html" %}
+          </div>
+        </div>
+
+        <h2 id="hero-header" class="width-padding mobile-element">
+          BUDVANSKA RIVIJERA
+        </h1>
+        <span class="width-padding header-span mobile-element">{{page.title}}</span>
+        <h1 class="desktop-element width-padding" id="hero-header-desktop">
+          {{page.title}}
+        </h1>
+      </div>
+      <form
+        action="https://secure.phobs.net/webservice/mobile/booking.php"
+        id="phobs_book"
+        name="phobs_book"
+        target="_blank"
+        class="width-padding"
+      >
+        <span id="book-your-stay-span">{% trans "Book Your Stay" %}</span>
+        <select id="hotel_selection" name="hotel">
+          <option value="-">{% trans "All" %}</option>
+          <option value="690b8cb36cc9778f01169c7b23e92c4d">Hotel Palas</option>
+          <option value="0b45adca4485680ff1eb18b468ef97aa"
+            >Hotel Aleksandar</option
+          >
+          <option value="fad8de6711bed793ff533298b9a8a1c0"
+            >Hotel Castellastva</option
+          >
+          <option value="2bf69a5e1f101263d2d143794eb63e80"
+            >Hotel Slovenska Plaza Standard</option
+          >
+          <option value="1f6335bcc23330993ad10df199fe00fb"
+            >Hotel Resort Slovenska Plaza Lux</option
+          >
+          <option value="9b791e3b56dd06983659e5f985f33516">Hotel Mogren</option>
+        </select>
+        <input
+          type="text"
+          id="datepicker1"
+          name="checkin"
+          readonly="readonly"
+          placeholder="arrival date"/>
+        <input
+          type="text"
+          id="datepicker2"
+          readonly="readonly"
+          name="checkout"
+          placeholder="departure date"/>
+        <input
+          type="text"
+          id="promocode"
+          name="partners_access"
+          placeholder="promo code"/>
+
+        <input
+          type="submit"
+          value="BOOK NOW"
+          id="submit"
+          class="call-action"
+          />
+        <a title="{% trans "Reservation Form" %}" href="#" class="call" uk-sticky uk-totop>{% trans "BOOK" %}</a>
+        <p>
+          <input
+            name="company_id"
+            type="hidden"
+            value="5e01f11fbc6224083351531097a7f0ae"
+            style="display: none"/>
+          <input
+            name="view_cancel"
+            type="hidden"
+            value=""
+            style="display: none"/>
+          <input name="lang" type="hidden" value="en" style="display: none" />
+        </p>
+      </form>
+    </header>
+
+    <section class="width-padding">
+      <p id="search-results-msg" class="paragraph-size-1"></p>
+      <p id="search-results-msg-success" class="paragraph-size-1"></p>
+        <ul class="uk-list uk-list-divider" id="search-results-list">
+        </ul>
+    </section>
+
+    {% include "components/footer.html" %}
+
+    {% comment %} jquery {% endcomment %}
+    <script src="{% static "assets/js/jquery.min.js" %}"></script>
+    {% comment %} jquery datepicker {% endcomment %}
+    
+    <script src="{% static "assets/js/jquery-ui.min.js" %}" ></script>
+    <script src="{% static "assets/js/jquery-ui-i18n.min.js" %}"></script>
+
+    <script>
+        $(document).ready(function(){
+            const url = new URL(window.location.href);
+            var query = url.searchParams.get('query');
+            var lang = url.searchParams.get('lang');
+            var msg_html = '';
+            var special_offers_query = "special offers";
+            var params = {
+                query: query,
+                lang: lang
+            }
+            var msg_results = "Search results for ";
+            if(lang === 'me') msg_results = "Rezultati pretrage za "
+            else if(lang === 'it') msg_results = "Cerca risultati per "
+            else if(lang === 'de') msg_results = "Suchergebnisse für "
+            else if(lang === 'fr') msg_results = "Résultats de recherche pour "
+            else if(lang === 'ru') msg_results = "Pезультаты поиска для "
+
+            $.get("/search-hgbr/", params, function (response) {
+                var results = JSON.parse(response);
+                var array = results.results;
+                if(array.length === 0){
+                  if(lang === 'en') msg_html = "No results.";
+                  else if(lang === 'me') {
+                    msg_html = "Nema rezultata.";
+                    special_offers_query = "specijalne akcije";
+                  }
+                  else if(lang === 'it') {
+                    msg_html = "Nessun risultato trovato.";
+                    special_offers_query = "offerte speciali";
+                  }
+                  else if(lang === 'de') {
+                    msg_html = "Keine Suchergebnisse.";
+                    special_offers_query = "sonderaktionen";
+                  }
+                  else if(lang === 'fr') {
+                    msg_html = "Aucun résultat trouvé.";
+                    special_offers_query = "offres-speciales";
+                  }
+                  else if(lang === 'ru') {
+                    msg_html = "Нет Результатов Поиска.";
+                    special_offers_query = "specialnye-predloženija"
+                  }
+                  $("#search-results-msg").html(msg_results + "&quot;" + query + "&quot;: <br><br>" +  msg_html);
+                  params = {
+                    query: special_offers_query,
+                    lang: lang
+                  }
+                  $.get("/search-hgbr/", params, function (response) {
+                    var results = JSON.parse(response);
+                    var array = results.results;
+                    var list_html = "";
+                array.forEach(function(item, index){
+                  list_html += "<li><a class='paragraph-size-1' href='"+ item.url +"'>" + item.title + "</a></li>"
+                })
+                $("#search-results-list").html(list_html)
+                  })
+                }
+                else showResults(array, query)
+            });
+            function showResults(array, query){
+              var list_html = "";
+                array.forEach(function(item, index){
+                  list_html += "<li><a class='paragraph-size-1' href='"+ item.url +"'>" + item.title + "</a></li>"
+                })
+                $("#search-results-list").html(list_html)
+                $("#search-results-msg-success").html(msg_results + "&quot;" + query + "&quot;:");
+            }
+        })
+    </script>
+    <script src="{% static "assets/js/datepicker-me.js" %}"></script>
+    <script src="{% static "assets/js/index.js" %}"></script>
+    <script src="{% static "assets/js/search.js" %}"></script>
+
+  </body>
+</html>

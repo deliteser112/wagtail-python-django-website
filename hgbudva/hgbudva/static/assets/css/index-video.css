@@ -1,0 +1,85 @@
+#desktop-homepage-video {
+  display: none;
+}
+
+#tablet-homepage-video {
+  display: none;
+}
+
+.homepage-video {
+  position: absolute;
+  max-width: initial;
+  left: 0;
+  bottom: -35px;
+}
+.header-hero-container {
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 640px) {
+  #tablet-homepage-video {
+    display: block;
+  }
+  .header-hero-container {
+    height: 499px;
+  }
+  .header-hero-container form {
+    position: absolute;
+    bottom: -2px;
+  }
+  .header-hero-container h1 {
+    position: absolute;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  #desktop-homepage-video {
+    display: block;
+  }
+  #tablet-homepage-video {
+    display: none;
+  }
+  .header-hero-container {
+    height: 860px;
+  }
+  /* .header-hero-container form { */
+    #phobs_book {
+    position: absolute;
+    top: 470px;
+    left: 115px;
+    right: 115px;
+    bottom: auto;
+  }
+  .header-hero-container h1 {
+    position: absolute;
+    left: 115px;
+    right: 115px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header-hero-container {
+    height: 90vh;
+  }
+  #phobs_book {
+    /* top: 450px; */
+    top: 470px;
+    left: 160px;
+    right: 160px;
+    bottom: auto;
+  }
+  .header-hero-container h1 {
+    left: 160px;
+    right: 160px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  #phobs_book {
+    left: 250px;
+    right: 250px;
+  }
+  .header-hero-container h1 {
+    left: 250px;
+    right: 250px;
+  }
+}

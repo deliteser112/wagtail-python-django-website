@@ -1,0 +1,27 @@
+.header-hero-container {
+  background: url("../images/Wellnes - Palas/wellness-header.jpg")
+    center/cover no-repeat;
+}
+.trapezoid-container {
+  background: #f0f1f2;
+  min-height: 250px;
+}
+.trapezoid-container > img {
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%) !important;
+  -webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%) !important;
+  right: 0;
+  left: auto !important;
+}
+
+.trapezoid-text-container {
+  right: auto;
+}
+
+.wellness-trapezoid-header {
+  margin: 0;
+  justify-content: left;
+  text-align: left;
+}
+.header-hero-container h1 {
+  text-transform: none;
+}

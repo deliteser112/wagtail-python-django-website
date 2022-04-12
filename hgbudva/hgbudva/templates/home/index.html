@@ -1,0 +1,1527 @@
+{% load i18n %}
+{% load static %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/images/favicon-32x32.png" %}" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  {% comment %} Chrome, Firefox OS and Opera {% endcomment %}
+  <meta name="theme-color" content="#ECAD2E">
+  {% comment %} Windows Phone {% endcomment %}
+  <meta name="msapplication-navbutton-color" content="#ECAD2E">
+  {% comment %} iOS Safari {% endcomment %}
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ECAD2E">
+  <meta name="keywords" content="hotel, budva, palas, aleksandar, castellastva, slovenska plaza, mogren" />
+  <meta name="description" content='{% trans "HG Budvanska Rivijera is the largest hotel group in Montenegro. It operates hotels and restaurants in Budva and Petrovac." %}'>
+  <meta name="facebook-domain-verification" content="opvsn2jweexhduqmttu8dpu33hxpgd" />
+
+  <title>{% trans "HG Budvanska Rivijera - Hotels and restaurants in Budva, Petrovac" %}</title>
+
+  {% comment %} jquery datepicker css {% endcomment %}
+  <link href="{% static "assets/css/jquery-ui.css" %}"
+    rel="stylesheet" />
+
+  {% comment %} UIkit CSS {% endcomment %}
+  <link rel="stylesheet" href="{% static "assets/css/uikit.min.css" %}" />
+
+  {% comment %} UIkit JS {% endcomment %}
+  <script async src="{% static "assets/js/uikit.min.js" %}"></script>
+  <script async src="{% static "assets/js/uikit-icons.min.js" %}"></script>
+  <link rel="stylesheet" href="{% static 'assets/css/main-mobile.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/main-responsive.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'assets/css/homepage-mobile.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/homepage-responsive.css' %}" />
+
+  {% comment %} Instagram gallery {% endcomment %}
+  <link rel="stylesheet" href="{% static 'assets/css/instafeed.css' %}" />
+  <script defer src="{% static 'assets/js/instafeed.js' %}"></script>
+  {% comment %} Button Animation {% endcomment %}
+  <link rel="stylesheet" href="{% static 'assets/css/button-wave-animation.css' %}">
+  {% comment %} Video {% endcomment %}
+  <link rel="stylesheet" href="{% static 'assets/css/index-video.css' %}">
+  <script async src='{% static "assets/js/fontawesome.js" %}'></script>
+  <style type="text/css">
+    .map {
+      width:100%;
+      height:100%;
+      overflow:hidden;
+    }
+    iframe {
+      text-align: center;
+      margin-top:-60px;
+    }
+    iframe .i4ewOd-pzNkMb-haAclf{
+      display: none;
+    }
+    </style>
+
+
+</head>
+
+<body>
+  <header>
+
+    {% include "components/header-desktop-nav.html" %}
+
+
+    <div class="header-hero-container" id="header-container">
+      <div class="hotel-menu" id="hotel-menu">
+        <div class="hotel-menu-container width-padding">
+          {% include "components/dropdown-index-menu.html" %}
+        </div>
+      </div>
+      <video class="homepage-video" id="desktop-homepage-video" src="{% static 'assets/videos/desktop-waves.mp4' %}" loop muted playsinline uk-video="autoplay: inview"></video>
+      <video class="homepage-video" id="tablet-homepage-video" src="{% static 'assets/videos/desktop-waves.mp4' %}" loop muted playsinline uk-video="autoplay: inview"></video>
+      
+      <h1 id="hero-header" class="width-padding">
+        <span>{% trans "Hotel group" %}</span>{% trans "Budvanska rivijera" %}
+      </h1>
+      <form action="https://secure.phobs.net/webservice/mobile/booking.php" id="phobs_book" name="phobs_book"
+        target="_blank" class="width-padding">
+        <span id="book-your-stay-span">{% trans "Book Your Stay" %}</span>
+        <select id="hotel_selection" name="hotel">
+          <option value="-">{% trans "All" %}</option>
+          <option value="690b8cb36cc9778f01169c7b23e92c4d">{% trans "Hotel Palas" %}
+          </option>
+          <option value="0b45adca4485680ff1eb18b468ef97aa">{% trans "Hotel Aleksandar" %}
+          </option>
+          <option value="fad8de6711bed793ff533298b9a8a1c0">{% trans "Hotel Castellastva" %}
+          </option>
+          <option value="2bf69a5e1f101263d2d143794eb63e80">{% trans "Hotel Slovenska Plaza Standard" %}
+          </option>
+          <option value="1f6335bcc23330993ad10df199fe00fb">{% trans "Hotel Resort Slovenska Plaza Lux" %}
+          </option>
+          <option value="9b791e3b56dd06983659e5f985f33516">{% trans "Hotel Mogren" %}
+          </option>
+        </select>
+        <input type="text" id="datepicker1" name="checkin" readonly="readonly" placeholder="arrival date" />
+        <input type="text" id="datepicker2" readonly="readonly" name="checkout" placeholder="departure date" />
+        <input type="text" id="promocode" name="partners_access" placeholder="promo code" />
+
+        <input type="submit" value="{% trans "BOOK NOW" %}" id="submit" class="call-action cursor-pointer" />
+        <a title="{% trans "Reservation Form" %}" href="#" class="call" uk-sticky uk-totop>{% trans "BOOK" %}</a>
+        <p class="hidden-inputs__wrapper">
+        <input name="company_id" type="hidden" value="5e01f11fbc6224083351531097a7f0ae" style="display: none" />
+          <input name="view_cancel" type="hidden" value="" style="display: none" />
+          <input name="lang" type="hidden" value="en" style="display: none" />
+        </p>
+      </form>
+    </div>
+  </header>
+ 
+  <section class="width-padding desktop-element">
+    <span class="small-part-of-header">{% trans "Reimagined" %} {% trans "Unique Holidays" %}</span> <br />
+    <h2 class="blue-underline" id="index-text-header">
+      {% trans "Trustworthy Montenegrin Brand" %}
+    </h2>
+    <p class="paragraph-size-3 width-padding" id="index-text">
+      {% blocktrans %} Our hotel group is a distinctive Montenegrin label for family-oriented tourism services, with
+      inventory that’s spread across two coastal settlements: Budva and Petrovac. All estates
+      feature breath-taking vegetation, conference rooms for business meetings, entertainment
+      programmes, direct access to the sea with room views facing either various shades of blue
+      to the front, or rugged hills to the back. {% endblocktrans %}
+    </p>
+  </section>
+
+  <section id="our-hotels-cards" class="width-padding">
+    <h2 class="blue-underline">{% trans "Our Hotels" %}</h2>
+      <div
+      class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m our-hotels-cards-grid-container uk-grid-medium@xl"
+      uk-grid>
+      <div class="uk-card hotel-card-container cursor-pointer" data-url="{% trans "/en/hotel-palas/overview/" %}">
+        <div class="uk-inline-clip uk-transition-toggle hover-card-div">
+          {% if settings.site_settings.UpdateAccomodationPricesSettings.homepage_palas %}
+            <div class="card-arrow">
+              <span class="card-arrow-text">{% trans "from" %}
+                {{ settings.site_settings.UpdateAccomodationPricesSettings.homepage_palas }}&euro;</span>
+            </div>
+          {% endif %}
+          <div class="card-arrow card-arrow-badge card-arrow-badge-left mobile-element">
+            <img loading="lazy" src="{% static 'assets/images/beach.png' %}" alt="{% trans "beachfront" %}" title="{% trans "beachfront" %}" class="badge-img" width="45" height="45">
+          </div>
+          <div class="card-arrow card-arrow-badge card-arrow-badge-right mobile-element">
+            <img loading="lazy" src="{% static 'assets/images/ring.png' %}" alt="{% trans "weddings destination" %}" title="{% trans "weddings destination" %}" class="badge-img" width="45" height="45">
+          </div>
+          <div class="uk-inline-clip uk-transition-toggle hotel-card">
+            <img loading="lazy" class="image-hover-blur" src="{% static "assets/images/Index/palas_1.jpg" %}" alt="{% trans "Hotel Palas - Overview" %}" title="{% trans "Hotel Palas - Overview" %}" width="455" height="320" />
+          </div>
+          <div class="card-bottom-text-container">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M0.00,17.98 C100.99,113 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150 Z" style="stroke: none;fill: white;"></path></svg>
+
+            <span class="card-bottom-text">{% trans "Palas" %}<span uk-icon="icon: chevron-right; ratio: 1.5"
+                class="mobile-element"></span></span>
+          </div>
+          <div
+            class="desktop-element uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle hover-about-hotel-element">
+            <div class="hover-badges-container">
+              <div class="hover-badges">
+                <svg width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 581 581"
+                  style="enable-background:new 0 0 581 581;" xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #0059ab;
+                    }
+                  </style>
+                  <path class="st0" d="M329.4,367.8c0,53.4,43.3,96.8,96.8,96.8c53.4,0,96.8-43.3,96.8-96.8c0-53.4-43.3-96.8-96.8-96.8
+          C372.7,271,329.4,314.3,329.4,367.8z M426.1,290.3c42.8,0,77.4,34.7,77.4,77.4s-34.7,77.4-77.4,77.4s-77.4-34.7-77.4-77.4
+          C348.8,325,383.4,290.4,426.1,290.3z" />
+                  <path class="st0" d="M370.8,561.3h110.6v19.4H370.8V561.3z" />
+                  <path class="st0" d="M329.4,522.6h193.5v19.4H329.4V522.6z" />
+                  <path class="st0" d="M116.5,522.6h19.4v19.4h-19.4V522.6z" />
+                  <path class="st0" d="M58.4,541.9h19.4v19.4H58.4V541.9z" />
+                  <path class="st0" d="M117.5,468.1c50.5-88,82.2-185.5,93.1-286.4l90,89.5c1.8,1.8,4.2,2.8,6.8,2.8c0.5,0,1.1,0,1.6-0.1
+          c3.1-0.5,5.7-2.4,7.1-5.2c18.2-36.4,11.1-80.4-17.7-109.2l-7.9-7.9h68.1c5.3,0,9.7-4.3,9.7-9.7c0-1-0.2-2.1-0.5-3.1
+          c-12.9-38.6-49-64.7-89.7-64.7h-12.6l48.3-48.6c3.8-3.8,3.8-9.9,0-13.7c-0.7-0.7-1.6-1.3-2.5-1.8C274.6-8.2,230.6-1.1,201.8,27.7
+          l-9.2,9.2c-3,3-5.8,6.3-8.4,9.7c-2.5-3.4-5.3-6.6-8.3-9.7l-9.2-9.2C137.9-1.1,93.9-8.2,57.5,10c-4.8,2.4-6.7,8.2-4.3,13
+          c0.5,0.9,1.1,1.8,1.8,2.5l48.4,48.6H90.6c-40.7,0-76.9,26-89.7,64.7c-1.7,5.1,1,10.5,6.1,12.2c1,0.3,2,0.5,3.1,0.5h68l-7.9,7.9
+          c-28.8,28.8-36,72.8-17.7,109.2c1.4,2.8,4,4.7,7.1,5.2c0.5,0.1,1,0.1,1.6,0.1c2.6,0,5-1,6.8-2.8l83.8-83.3
+          c-10.4,92.7-45.3,181-101.2,255.7c-13-3.4-26.2-6.1-39.5-8l-6-0.6L3,454.2l5.6,0.6c9.7,1.4,19.3,3.3,28.9,5.6
+          c-1.9,2.4-3.9,4.9-5.9,7.3L46.5,480c74.4-88.4,118.7-198.2,126.6-313.4l11.1-11.1l8.3,8.3c-10.2,123.3-52.5,241.7-122.7,343.5
+          l15.8,11.1c7.6-10.9,14.9-22.1,21.9-33.6c45.3,21.7,85.2,53,117.1,91.7l15-12.3c-18.8-22.9-40.4-43.4-64.3-61H581v-19.4H146.7
+          C137.2,478.1,127.5,473,117.5,468.1z M303.8,247.1L201.5,145.4c26.2-7.8,54.5-0.7,73.9,18.5l9.2,9.2
+          C304,192.5,311.3,220.8,303.8,247.1z M343.6,132.2h-80.1c-18.7-8.9-39.7-11.4-59.9-7.2c14.1-19.8,36.9-31.6,61.2-31.6h13.1
+          C305.2,93.4,330.4,108.3,343.6,132.2z M206.2,50.7l9.2-9.2c19.3-19.4,47.7-26.7,74-19.1L232.1,80c-18.6,6.9-34.6,19.4-45.7,35.9
+          C181.9,92.2,189.3,67.8,206.2,50.7L206.2,50.7z M152.9,41.4l9.2,9.2c4.3,4.4,8,9.3,11.1,14.7c-4.4,10.2-6.9,21.1-7.4,32.2
+          c-8.7-7.6-18.7-13.5-29.5-17.5L79,22.3C105.3,14.7,133.6,22.1,152.9,41.4L152.9,41.4z M90.6,93.5h13.1c24.3,0,47.1,11.7,61.2,31.5
+          c-20.2-4.2-41.3-1.7-59.9,7.2H24.8C38.1,108.3,63.3,93.4,90.6,93.5L90.6,93.5z M64.7,247.1c-7.6-26.3-0.2-54.6,19.1-73.9l9.2-9.2
+          c13.9-13.9,32.8-21.7,52.5-21.6c7.3,0,14.5,1,21.4,3.1L64.7,247.1z" />
+                </svg>
+                <span class="paragraph-size-5">{% trans "Beachfront " %}<br>{% trans " hotel" %}</span>
+              </div>
+              <div class="hover-badges">
+                {% comment %} <img loading="lazy" src="{% static "assets/images/ring.svg" %}" alt="" class="badge-img" width="45" height="45" /> {% endcomment %}
+                <svg width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                  style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #0059ab;
+                    }
+                  </style>
+                  <g>
+                    <path class="st0" d="M382.3,148.4c0.1,0,0.1,0,0.2,0c0.1,0,0.1,0,0.2,0l63.3-1.1c5.4-0.1,9.7-4.4,9.8-9.8l1.1-63.3
+            c0-0.1,0-0.2,0-0.4C456.4,50.4,437,31,413.7,30.6c-19.9-0.3-36.2,15.5-38,36.6c-20.7,1.8-36.9,18.5-36.6,38
+            C339.5,128.6,358.9,148,382.3,148.4z M378.6,87l0.5,0c4.5-0.1,8.7-0.3,12.3-3.9c3.6-3.6,3.8-8,4-12.3l0-0.6
+            c0.3-9.5,7.1-19.6,17.5-19.6c0.1,0,0.2,0,0.3,0c12.5,0.2,23.2,10.9,23.5,23.4l-1,53.5l-53.5,1c-12.7-0.3-23.2-10.8-23.4-23.6
+            C358.9,94.3,369.1,87.3,378.6,87L378.6,87z" />
+                    <path class="st0" d="M100.8,59.9c1.3,4.3,5.3,7.1,9.6,7.1c1,0,1.9-0.1,2.9-0.4c5.3-1.6,8.3-7.2,6.7-12.5l-9.4-31.4
+            c-1.6-5.3-7.2-8.3-12.4-6.7c-5.3,1.6-8.3,7.2-6.7,12.5L100.8,59.9z" />
+                    <path class="st0" d="M41.3,93.2c3.4,0,6.7-1.7,8.6-4.8c2.8-4.7,1.3-10.9-3.4-13.7L17.2,57c-4.7-2.8-10.9-1.3-13.7,3.4
+            c-2.8,4.7-1.3,10.9,3.4,13.7l29.3,17.6C37.7,92.8,39.5,93.2,41.3,93.2z" />
+                    <path class="st0" d="M178.1,49.9c1.4,0.7,2.9,1,4.3,1c3.7,0,7.3-2.1,9-5.7l14.7-30.8c2.4-5,0.3-11-4.7-13.3c-5-2.4-11-0.3-13.3,4.7
+            l-14.7,30.8C171,41.5,173.1,47.5,178.1,49.9z" />
+                    <path class="st0" d="M484.5,417.1c3.9-8,7.2-16.4,9.7-24.9c14.3-47.8,6.6-98.9-21.3-140.3c-4.9-7.3-17.6-6.1-19.3,7.3
+            c26.7,37.1,34.4,83.7,21.4,127.3c-1.5,4.9-3.2,9.8-5.2,14.5c-4.3-9.6-12.1-17-21.4-20.6c0.2-0.6,0.4-1.2,0.6-1.8
+            c18.8-62.6-16.9-128.8-79.4-147.6c-17.9-5.4-36.8-6.4-55.1-3.1c-7.9-7.9-16.6-15.1-26-21.3c28.6-9.8,59.5-10.5,88.9-1.6
+            c3.2,0.9,25.4,9.3,44.6,24.2c11.7,9.1,25.7,23.9,31.7,30.2c5.4,5.8,3.2,3.4,4.7,3.2c3.5-1.2,17.4-3.8,13.3-12
+            c-4.2-8.4-21.6-27-35.1-37c-16.5-12.3-34.2-20.7-37.8-22.2c-5.2-2.1-10.4-4-15.7-5.5c-38.9-11.7-80.3-8.8-117.1,8.2
+            c-23.4-10.8-48.6-16-73.9-15.2l18.2-48.7c1.4-3.7,0.5-7.8-2.3-10.5l-37-37.4c-2.6-2.6-6.4-3.6-10-2.5l-86.4,25.9l-11.5,57.5
+            c-0.8,3.8,0.8,7.7,3.9,10l42,30.6c-24.4,15.1-44.5,36.4-58.4,62.3c-21,39-25.5,83.8-12.8,126.3c1,3.5,2.2,7,3.5,10.4
+            c-0.4,0.4-0.9,0.8-1.3,1.3c-16.2,16.8-16.2,44.2,0,61.1c0.1,0.1,0.2,0.2,0.3,0.3l45.6,44c1.9,1.9,4.4,2.8,6.9,2.8s5-0.9,6.9-2.8
+            l19-18.3c24.1,12.8,51,19.4,78,19.4c16,0,32-2.3,47.5-7c7.5-2.3,14.8-5,21.8-8.2c7,3.2,14.2,6,21.7,8.2c15.6,4.7,31.7,7,47.7,7
+            c24,0,47.8-5.2,70-15.6l61,1.1c0.1,0,0.1,0,0.2,0c0.1,0,0.1,0,0.2,0c23.4-0.4,42.8-19.8,43.2-43.2
+            C510.3,436.7,499.6,422.8,484.5,417.1L484.5,417.1z M92,121.2l69.1-20.8l21.1,21.3l-96,28.8L92,121.2z M95.2,168.7l89.4-26.8
+            l-14.6,39c-7,1.2-14.1,2.8-21,4.9c-6.9,2.1-13.7,4.6-20.2,7.5L95.2,168.7z M68.3,275.4c14.5-27,36.7-48.3,63.7-61.6
+            c0.1,0,0.2-0.1,0.3-0.1c7.2-3.5,14.7-6.5,22.5-8.8c37.3-11.2,76.7-7.2,111,11.2c34.3,18.5,59.3,49.2,70.5,86.5
+            c14.2,47.2,3.2,98.9-28.6,136.4c-0.2,0-0.3-0.1-0.5-0.1c-9.2-2.8-17.7-6.8-25.4-11.8c29.7-30.6,40.9-75.1,28.5-116.7
+            c-9.1-30.3-29.5-55.3-57.3-70.3c-27.9-15-59.9-18.3-90.2-9.2c-30.3,9.1-55.3,29.5-70.3,57.4c-15,27.9-18.3,59.9-9.1,90.3
+            c2.5,8.4,5.9,16.4,10.1,23.9c-0.1,0.1-0.3,0.2-0.4,0.3c-9.7-8.1-22.1-11.2-33.4-9.2c-0.9-2.4-1.7-4.8-2.4-7.2
+            C45.8,349.1,49.8,309.7,68.3,275.4L68.3,275.4z M266.1,414.5c-24.9-24.8-35.8-62.3-25-98.3c4.8-15.9,13.3-30.1,25-41.6
+            c11.5,11.4,20.1,25.6,24.9,41.6C301.5,351.3,291.7,389,266.1,414.5L266.1,414.5z M202.1,442.9c-15.1,0.8-30.4-1.8-44.4-7.9
+            c0.2-11.3-3.9-22.6-12.2-31.2c-8.9-9.2-21.9-12.5-34.2-10c-3.8-6.6-6.8-13.6-9.1-21c-7.6-25.2-4.9-51.9,7.6-75
+            c12.5-23.2,33.2-40.1,58.4-47.7c11.1-3.3,22.5-4.7,33.7-4.1c-11.3,15.2-19.8,32.3-25.3,50.8C161.1,348.7,172.3,402.3,202.1,442.9
+            L202.1,442.9z M92.8,488.1l-38.5-37.1c-8.7-9.2-8.7-24,0.1-33.2c7.4-7.6,19.5-5.3,26.4,1.2l0.4,0.4c3.1,2.9,6.4,6,11.5,6
+            c5.1,0,8.3-3,11.5-6l0.4-0.4c7-6.5,19.1-8.9,26.4-1.2c8.8,9.1,8.9,24,0.1,33.2L92.8,488.1z M238.5,484.2
+            c-34.7,10.4-72.1,7.4-104.5-8l11.3-10.9c0.1-0.1,0.2-0.2,0.2-0.2c3-3.1,5.4-6.6,7.3-10.3c14,5.6,28.8,8.4,43.8,8.4
+            c7,0,14.1-0.6,21-1.9c7.8,7.9,16.5,15.1,25.9,21.3C241.9,483.1,240.2,483.7,238.5,484.2L238.5,484.2z M293.6,484.2
+            c-77-23.1-120.8-104.6-97.7-181.6c5.9-19.6,15.5-37.3,28.6-52.6c6.5,1.9,12.8,4.5,18.8,7.8c2.4,1.3,4.8,2.7,7.1,4.2
+            c-13.2,13.6-22.9,30.1-28.5,48.5c-18.8,62.6,16.9,128.8,79.4,147.6c11.2,3.4,22.6,5,34,5c19.9,0,39.7-5,57.3-14.8l0.5,30.1
+            C361.7,492,326.6,494.1,293.6,484.2z M392.2,421.2c0,0.1,0,0.2,0,0.4l0.1,3.4C374,437.9,352,444.1,330,442.9
+            c13.1-17.8,22.6-38.2,27.8-59.7c6.8-28.4,6-58.2-2.5-86.3c-5.6-18.5-14.1-35.6-25.3-50.8c11.3-0.6,22.7,0.7,33.7,4
+            c52,15.6,81.6,70.7,66,122.7c-0.6,2-1.3,4-2,6C407.9,382.8,392.6,400.4,392.2,421.2L392.2,421.2z M466.6,475.9l-53.5-1l-1-53.5
+            c0.3-12.5,11.1-23.2,23.6-23.4c0.1,0,0.2,0,0.3,0c10.4,0,17.2,10.1,17.5,19.6l0,0.5c0.1,4.3,0.3,8.8,3.9,12.4
+            c3.6,3.6,8.1,3.8,12.4,3.9l0.5,0c9.6,0.3,19.8,7.2,19.6,17.8C489.8,465,479.3,475.5,466.6,475.9z" />
+                  </g>
+                </svg>
+                <span class="paragraph-size-5">{% trans "Wedding " %}<br>{% trans " destination" %}</span>
+              </div>
+            </div>
+            <p class="paragraph-size-4">
+              {% blocktrans %} Hotel Palas is a family resort in Petrovac with access to beaches that combine sand and
+              pebble. The locality in which the building is situated is surrounded by orange and olive trees,
+              and other green areas that warrant pleasant vacations. {% endblocktrans %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="uk-card hotel-card-container cursor-pointer" data-url="{% trans "/en/hotel-castellastva-in-petrovac/overview/" %}">
+        <div class="uk-inline-clip uk-transition-toggle hover-card-div">
+          {% if settings.site_settings.UpdateAccomodationPricesSettings.homepage_castellastva %}
+            <div class="card-arrow">
+              <span class="card-arrow-text">{% trans "from" %}
+                {{ settings.site_settings.UpdateAccomodationPricesSettings.homepage_castellastva }}&euro;</span>
+            </div>
+          {% endif %}
+          <div class="card-arrow card-arrow-badge card-arrow-badge-left mobile-element">
+            <img loading="lazy" src="{% static 'assets/images/bird.svg' %}" alt="TOUCAN" title="TOUCAN" class="badge-img" width="45" height="45">
+          </div>
+          <div class="card-arrow card-arrow-badge card-arrow-badge-right mobile-element">
+            <img loading="lazy" src="{% static 'assets/images/relationship.png' %}" alt="{% trans "couples destination" %}" title="{% trans "couples destination" %}" class="badge-img" width="45" height="45">
+          </div>
+          <div class="uk-inline-clip uk-transition-toggle hotel-card">
+            <img loading="lazy" class="image-hover-blur" src="{% static "assets/images/Index/castellastva_1.jpg" %}" alt="{% trans "Hotel Castellastva - Overview" %}" title="{% trans "Hotel Castellastva - Overview" %}" width="455" height="320" />
+          </div>
+
+          <div class="card-bottom-text-container">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M0.00,17.98 C100.99,113 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150 Z" style="stroke: none;fill: white;"></path></svg>
+
+            <span class="card-bottom-text">Castellastva<span uk-icon="icon: chevron-right; ratio: 1.5"
+                class="mobile-element"></span></span>
+          </div>
+          <div
+            class="desktop-element uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle hover-about-hotel-element">
+            <div class="hover-badges-container">
+              <div class="hover-badges">
+                <svg width="30px" height="30px" height="511pt" viewBox="0 -4 511.99982 511" width="511pt"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m171.566406 448.289062h10.414063v-52.507812c0-8.628906 6.992187-15.621094 15.621093-15.621094 8.625 0 15.617188 6.992188 15.617188 15.621094v52.507812h34.367188c18.949218 0 34.363281 15.417969 34.363281 34.367188 0 8.625-6.992188 15.621094-15.621094 15.621094-8.625 0-15.621094-6.996094-15.621094-15.621094 0-1.722656-1.398437-3.125-3.125-3.125h-76.015625c-1.722656 0-3.125 1.402344-3.125 3.125 0 8.625-6.992187 15.621094-15.621094 15.621094-8.625 0-15.617187-6.996094-15.617187-15.621094 0-18.949219 15.414063-34.367188 34.363281-34.367188zm0 0"
+                    fill="#50e0e0" />
+                  <path
+                    d="m19.253906 487.652344 89.523438-117.683594c10.34375 14.308594 16.296875 32.003906 15.871094 51.117188-.992188 44.753906-37.53125 81.226562-82.289063 82.140624-6.097656.125-12.050781-.398437-17.796875-1.511718-6.425781-1.242188-9.273438-8.855469-5.308594-14.0625zm0 0"
+                    fill="#4a5660" />
+                  <path
+                    d="m108.777344 369.96875-89.523438 117.683594c-3.964844 5.210937-1.117187 12.820312 5.308594 14.0625 4.46875.867187 9.070312 1.371094 13.761719 1.492187l82.667969-108.664062c-2.726563-8.910157-6.878907-17.195313-12.214844-24.574219zm0 0"
+                    fill="#3d4851" />
+                  <path
+                    d="m197.597656 380.160156c-8.625 0-15.621094 6.992188-15.621094 15.621094v41.527344h10.144532c7.109375 0 14.148437-.464844 21.097656-1.324219v-40.203125c0-8.628906-6.992188-15.621094-15.621094-15.621094zm0 0"
+                    fill="#00bcb9" />
+                  <path
+                    d="m333.371094 68.699219c-5.851563-12.621094-13.871094-24.023438-23.585938-33.730469-21.296875-21.292969-50.707031-34.46875-83.207031-34.46875-64.980469 0-117.675781 52.683594-117.675781 117.675781v189.527344h-40.957032c0 60.203125 48.800782 109 109 109h15.175782c61.636718 0 114.707031-36.65625 138.617187-89.347656zm0 0"
+                    fill="#3d4851" />
+                  <path
+                    d="m139.808594 118.175781c0-59.753906 44.542968-109.097656 102.222656-116.664062-5.054688-.664063-10.214844-1.011719-15.453125-1.011719-64.980469 0-117.675781 52.683594-117.675781 117.675781v189.527344h30.90625zm0 0"
+                    fill="#333a41" />
+                  <path
+                    d="m98.851562 307.703125h-30.90625c0 60.203125 48.800782 109.003906 109 109.003906h15.175782c2.808594 0 5.597656-.105469 8.371094-.253906-56.769532-3.785156-101.640626-51.019531-101.640626-108.75zm0 0"
+                    fill="#333a41" />
+                  <path
+                    d="m193.316406 147.367188c3.261719 33.46875 24.378906 53.296874 49.539063 72.601562 38.363281 29.429688 85.238281 54.214844 87.882812 107.386719 8.683594-19.140625 13.515625-40.40625 13.515625-62.792969v-146.386719c0-17.671875-3.894531-34.4375-10.882812-49.476562-14.671875-10.996094-32.894532-17.515625-52.640625-17.515625-51.171875 0-92.351563 45.601562-87.414063 96.183594zm0 0"
+                    fill="#e8e8e8" />
+                  <path
+                    d="m458.003906 117.570312c-32.710937-30.0625-77.175781-48.871093-124.632812-48.871093 6.03125 54.277343-22.273438 70.980469-29.179688 97.066406l35.898438 25.304687 65.261718 10.300782zm0 0"
+                    fill="#ff8f71" />
+                  <path
+                    d="m405.351562 177.011719v24.359375l45.820313 7.226562 56.089844 24.835938c2.363281.824218 4.820312-1 4.734375-3.496094-1.59375-43.449219-22.253906-83.207031-53.992188-112.367188-29.671875 3.5625-52.652344 28.816407-52.652344 59.441407zm0 0"
+                    fill="#4a5660" />
+                  <path
+                    d="m302.691406 176.679688c-.257812 25.441406 21.484375 45.59375 46.894532 44.519531 99.253906-4.1875 143.980468 7.507812 157.675781 12.234375-77.71875-82.070313-203.070313-67.667969-203.070313-67.667969-.914062 3.4375-1.457031 7.039063-1.5 10.914063zm0 0"
+                    fill="#f75747" />
+                  <path
+                    d="m275.304688 124.242188c4.265624 0 7.726562-3.460938 7.726562-7.726563v-14.585937c0-4.265626-3.460938-7.726563-7.726562-7.726563-4.265626 0-7.726563 3.460937-7.726563 7.726563v14.585937c0 4.265625 3.460937 7.726563 7.726563 7.726563zm0 0"
+                    fill="#333a41" />
+                  <path
+                    d="m255.667969 149.355469h18.445312c4.265625 0 7.726563-3.457031 7.726563-7.726563 0-4.265625-3.460938-7.726562-7.726563-7.726562h-18.445312c-4.269531 0-7.726563 3.460937-7.726563 7.726562 0 4.269532 3.457032 7.726563 7.726563 7.726563zm0 0"
+                    fill="#ff8997" />
+                  <path
+                    d="m1.910156 364.574219 94.652344-135.011719c18.757812-26.753906 54.492188-35.367188 83.378906-20.097656 35.683594 18.863281 45.753906 65.492187 20.792969 97.214844-34.339844 43.640624-94.808594 90.027343-191.875 74.289062-7.65625-1.238281-11.402344-10.042969-6.949219-16.394531zm0 0"
+                    fill="#4a5660" />
+                  <path
+                    d="m39.765625 380.96875c-7.65625-1.238281-11.402344-10.042969-6.949219-16.394531l94.652344-135.011719c9.320312-13.300781 22.839844-22.109375 37.628906-25.738281-25.441406-6.253907-52.890625 3.425781-68.535156 25.738281l-94.652344 135.011719c-4.453125 6.351562-.707031 15.15625 6.949219 16.398437 19.015625 3.082032 36.617187 3.769532 52.902344 2.574219-7.113281-.503906-14.445313-1.351563-21.996094-2.578125zm0 0"
+                    fill="#3d4851" /></svg>
+                <span class="paragraph-size-5">{% trans "TUI " %}<br>{% trans " TOUCAN" %}</span>
+              </div>
+              <div class="hover-badges">
+                <svg width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                  style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #0059ab;
+                    }
+                  </style>
+                  <g>
+                    <path class="st0" d="M345.4,298.1c-6.7,0-12.2,5.5-12.2,12.2c0,6.7,5.5,12.2,12.2,12.2s12.2-5.5,12.2-12.2
+		C357.5,303.6,352.1,298.1,345.4,298.1z" />
+                    <path class="st0" d="M415.1,322.5c6.7,0,12.2-5.5,12.2-12.2c0-6.7-5.5-12.2-12.2-12.2c-6.7,0-12.2,5.5-12.2,12.2
+		C403,317,408.4,322.5,415.1,322.5z" />
+                    <path class="st0" d="M96.9,298.1c-6.7,0-12.2,5.5-12.2,12.2c0,6.7,5.5,12.2,12.2,12.2S109,317,109,310.3
+		C109,303.6,103.6,298.1,96.9,298.1z" />
+                    <path class="st0" d="M166.6,322.5c6.7,0,12.2-5.5,12.2-12.2c0-6.7-5.5-12.2-12.2-12.2c-6.7,0-12.2,5.5-12.2,12.2
+		C154.5,317,159.9,322.5,166.6,322.5z" />
+                    <path class="st0"
+                      d="M474.6,412c10.2-7.5,18.2-20.8,24-39.7c1.2-4,9.2-32.2,6.2-41.7c-6.3-9.9-10.9-18.7-15.2,13.9
+		c-1.4,10.8-4.9,21.6-5.4,23.3c-3.8,12.4-10.5,27.7-21.1,33.7c-12.7-10.3-27.4-18.3-43.4-23.4c31-14.8,52.4-46.4,52.4-83V280
+		c0-3.7-2.6-6.8-6.2-7.4c-37.2-6.4-62.9-44.1-63.1-44.5c-1.5-2.3-4.2-3.6-7-3.3c-2.8,0.3-5.1,2.1-6.2,4.6c-0.2,0.4-18.4,43-93.8,43
+		c-4.1,0-7.5,3.4-7.5,7.5v15.2c0,36.6,21.4,68.2,52.4,83c-16,5-30.6,13-43.4,23.4c-5.9-3.4-11.2-9.9-15.8-19.6
+		c-17.9-38-17.9-113.2-5.3-145.8c8.1-21.2,22.3-39.1,40.9-52c18.7-12.8,40.5-19.6,63.1-19.6c22.6,0,44.5,6.8,63.1,19.6
+		c18.6,12.8,32.8,30.8,40.9,52c8.7,22.6,11.3,67.1,6.1,103.5c-0.6,4.1,2.3,7.9,6.4,8.5c4.1,0.6,7.9-2.3,8.5-6.4
+		c5.6-39.2,2.7-85.9-7-111c-9.2-24-25.2-44.4-46.4-59c-21.2-14.6-45.9-22.3-71.6-22.3s-50.5,7.7-71.6,22.3
+		c-21.2,14.6-37.2,35-46.4,59c-13.8,36-13.9,115.8,5.8,157.6c5,10.6,11,18.5,17.9,23.6c-13.2,13.5-23.5,29.9-29.9,48.1
+		c-13.8-38.9-45.2-69.4-84.7-81.9c15.7-7.5,29-19.4,38.3-34.1c3.8,2,8.1,3,12.5,3c15.1,0,27.4-12.3,27.4-27.4c0-5.8-1.8-11.3-5-15.7
+		c11.2-32.4,19.4-76.2,0-108.2c-10.9-18-29-29.5-50.9-32.5c-15.6-2.1-28.4,2-35.5,5.3c-10.4-12.4-22.3-19.1-47-19.1
+		c-20.2,0-52.2,8-76,30.7c-3,2.9-3.1,7.6-0.3,10.6c2.9,3,7.6,3.1,10.6,0.3c20.5-19.6,48.2-26.5,65.6-26.5c23.8,0,30.6,6.8,38.9,18.1
+		c2.4,3.2,6.9,4,10.2,1.8c0.1-0.1,13.4-8.7,31.3-6.2c17.4,2.4,31.6,11.4,40.1,25.4c12.6,20.9,12.7,52.1,0.3,90.6
+		c-2.6-1-5.3-1.6-8.2-1.8V280c0-3.7-2.6-6.8-6.2-7.4c-37.2-6.4-62.9-44.1-63.1-44.5c-1.5-2.3-4.2-3.6-7-3.3
+		c-2.8,0.3-5.1,2.1-6.2,4.6c-0.2,0.4-18.4,43-93.8,43c-4.1,0-7.5,3.4-7.5,7.5v12.5c-3.1,0.2-6.1,0.9-8.8,2
+		c-12-31.7-12.6-59-1.7-81.4c0.9-1.8,12.8-19.9,19.2-25.1c30-24.5-2.3-6.7-4.2-7.6c-3.7-1.8-6-11-28.5,26.2
+		c-13.3,27.4-12.2,60.3,3,97.9c-3,4.4-4.7,9.7-4.7,15.3c0,15.1,12.3,27.4,27.4,27.4c4.4,0,8.7-1.1,12.5-3
+		c9.3,14.7,22.5,26.5,38.3,34.1C38.8,395,0,445,0,503.9v0.3c0,4.1,3.4,7.5,7.5,7.5H256h248.5c4.1,0,7.5-3.4,7.5-7.5v-0.3
+		C512,468.2,497.7,435.8,474.6,412z M380.2,387.2c7.5,0,14.9,0.7,22,2.1c-3.7,8.6-12.3,14.4-22,14.4c-9.7,0-18.3-5.9-22-14.4
+		C365.4,387.9,372.7,387.2,380.2,387.2z M303.3,295.2v-7.8c56.9-2,83.4-27.1,94.1-41.8c10.3,12.3,31.5,33.3,59.8,40.5v9.1
+		c0,42.4-34.5,76.9-76.9,76.9S303.3,337.6,303.3,295.2z M131.8,387.2c7.5,0,14.9,0.7,22,2.1c-3.7,8.6-12.3,14.4-22,14.4
+		s-18.3-5.9-22-14.4C116.9,387.9,124.2,387.2,131.8,387.2z M222.1,332.2c-1.9,0-3.8-0.5-5.5-1.3c3.1-7.3,5.3-15.2,6.4-23.3
+		c6.4,0.4,11.5,5.8,11.5,12.3C234.4,326.6,228.9,332.2,222.1,332.2z M41.4,332.2c-6.8,0-12.4-5.5-12.4-12.4
+		c0-6.5,5.1-11.9,11.5-12.3c1.1,8.2,3.3,16,6.4,23.3C45.3,331.7,43.4,332.2,41.4,332.2z M55,300.3C55,300.3,55,300.2,55,300.3
+		c-0.1-1.7-0.2-3.4-0.2-5.1v-7.8c56.9-2,83.4-27.1,94.1-41.8c10.3,12.3,31.5,33.3,59.8,40.5v9.1c0,1.7-0.1,3.4-0.2,5
+		c0,0,0,0.1,0,0.1c-2.6,40.1-36,71.8-76.7,71.8S57.6,340.4,55,300.3z M15.2,496.7c3-48.4,35.6-88.9,79.9-103.6
+		c5.5,15.1,20,25.6,36.7,25.6c16.6,0,31.1-10.6,36.7-25.6c44.3,14.7,76.9,55.2,79.9,103.6H15.2z M263.7,496.7
+		c3-48.4,35.6-88.9,79.9-103.6c5.5,15.1,20,25.6,36.7,25.6c16.6,0,31.1-10.6,36.7-25.6c44.3,14.7,76.9,55.2,79.9,103.6H263.7z" />
+                    <path class="st0" d="M206.3,112.1c3-2.8,3.2-7.6,0.4-10.6c-17.1-18.3-24.5-36.5-22.1-54.2c3.7-26.8,22.9-31.2,31-31.9
+		c15.3-1.3,29.7,6.5,33.3,18.2c1,3.1,3.9,5.3,7.2,5.3s6.2-2.1,7.2-5.3c3.6-11.6,18-19.5,33.3-18.2c8.1,0.7,27.3,5.2,31,31.9
+		c6.3,46.1-56.2,82.9-71.4,91c-5.2-2.8-16.1-9-27.9-17.9c-1.6-1.2-14.9-11.9-22.6-20.3c-13.9-15.1-15.9-10.5-15.1,3.4
+		c-2.5,3.3,25.3,26.3,28.6,28.8c17.5,13.2,33,20.8,33.7,21.1c2.1,1,4.5,1,6.6,0c0.9-0.4,22.8-11.2,44-29.5
+		c29.1-25.1,42.6-52.3,39-78.8c-4.2-30.6-25.8-43.2-44.6-44.8C281-0.9,265.3,5.4,256,16.3c-9.3-10.9-25-17.2-41.7-15.8
+		c-18.8,1.6-40.4,14.2-44.6,44.8c-3.1,22.4,5.7,44.7,26,66.5C198.6,114.8,203.3,115,206.3,112.1z" />
+                  </g>
+                </svg>
+                <span class="paragraph-size-5">{% trans "Couples " %}<br>{% trans " destination" %}</span>
+              </div>
+            </div>
+            <p class="paragraph-size-4">
+              {% blocktrans %} The establishment is located in the centre of Petrovac, a coastal town, snugged between
+              rugged hills and overlooking the Adriatic sea. It is an ideal place for families or elderly
+              guests who look for relaxing vacations in a Mediterranean ambiance. {% endblocktrans %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="uk-card hotel-card-container cursor-pointer" data-url="{% trans "/en/hotel-aleksandar-in-budva/overview/" %}">
+        <div class="uk-inline-clip uk-transition-toggle hover-card-div">
+          {% if settings.site_settings.UpdateAccomodationPricesSettings.homepage_aleksandar %}
+            <div class="card-arrow">
+              <span class="card-arrow-text">{% trans "from" %}
+                {{ settings.site_settings.UpdateAccomodationPricesSettings.homepage_aleksandar }}&euro;</span>
+            </div>
+          {% endif %}
+          <div class="card-arrow card-arrow-badge card-arrow-badge-left mobile-element">
+            <img loading="lazy" src="{% static 'assets/images/beach.png' %}" alt="{% trans "beachfront" %}" title="{% trans "beachfront" %}" class="badge-img" width="45" height="45">
+          </div>
+          <div class="card-arrow card-arrow-badge card-arrow-badge-right mobile-element">
+            <img loading="lazy" src="{% static 'assets/images/mother.png' %}" alt="{% trans "family" %}" title="{% trans "family" %}" class="badge-img" width="45" height="45">
+          </div>
+          <div class="uk-inline-clip uk-transition-toggle hotel-card">
+            <img loading="lazy" class="image-hover-blur" src="{% static "assets/images/Index/aleksandar_1.jpg" %}" alt="{% trans "Hotel Aleksandar - Overview" %}" title="{% trans "Hotel Aleksandar - Overview" %}" width="455" height="320"/>
+          </div>
+          <div class="card-bottom-text-container">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M0.00,17.98 C100.99,113 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150 Z" style="stroke: none;fill: white;"></path></svg>
+
+            <span class="card-bottom-text">{% trans "Aleksandar" %}<span uk-icon="icon: chevron-right; ratio: 1.5"
+                class="mobile-element"></span></span>
+          </div>
+          <div
+            class="desktop-element uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle hover-about-hotel-element">
+            <div class="hover-badges-container">
+              <div class="hover-badges">
+                <svg width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 581 581"
+                  style="enable-background:new 0 0 581 581;" xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #0059ab;
+                    }
+                  </style>
+                  <path class="st0" d="M329.4,367.8c0,53.4,43.3,96.8,96.8,96.8c53.4,0,96.8-43.3,96.8-96.8c0-53.4-43.3-96.8-96.8-96.8
+	C372.7,271,329.4,314.3,329.4,367.8z M426.1,290.3c42.8,0,77.4,34.7,77.4,77.4s-34.7,77.4-77.4,77.4s-77.4-34.7-77.4-77.4
+	C348.8,325,383.4,290.4,426.1,290.3z" />
+                  <path class="st0" d="M370.8,561.3h110.6v19.4H370.8V561.3z" />
+                  <path class="st0" d="M329.4,522.6h193.5v19.4H329.4V522.6z" />
+                  <path class="st0" d="M116.5,522.6h19.4v19.4h-19.4V522.6z" />
+                  <path class="st0" d="M58.4,541.9h19.4v19.4H58.4V541.9z" />
+                  <path class="st0" d="M117.5,468.1c50.5-88,82.2-185.5,93.1-286.4l90,89.5c1.8,1.8,4.2,2.8,6.8,2.8c0.5,0,1.1,0,1.6-0.1
+	c3.1-0.5,5.7-2.4,7.1-5.2c18.2-36.4,11.1-80.4-17.7-109.2l-7.9-7.9h68.1c5.3,0,9.7-4.3,9.7-9.7c0-1-0.2-2.1-0.5-3.1
+	c-12.9-38.6-49-64.7-89.7-64.7h-12.6l48.3-48.6c3.8-3.8,3.8-9.9,0-13.7c-0.7-0.7-1.6-1.3-2.5-1.8C274.6-8.2,230.6-1.1,201.8,27.7
+	l-9.2,9.2c-3,3-5.8,6.3-8.4,9.7c-2.5-3.4-5.3-6.6-8.3-9.7l-9.2-9.2C137.9-1.1,93.9-8.2,57.5,10c-4.8,2.4-6.7,8.2-4.3,13
+	c0.5,0.9,1.1,1.8,1.8,2.5l48.4,48.6H90.6c-40.7,0-76.9,26-89.7,64.7c-1.7,5.1,1,10.5,6.1,12.2c1,0.3,2,0.5,3.1,0.5h68l-7.9,7.9
+	c-28.8,28.8-36,72.8-17.7,109.2c1.4,2.8,4,4.7,7.1,5.2c0.5,0.1,1,0.1,1.6,0.1c2.6,0,5-1,6.8-2.8l83.8-83.3
+	c-10.4,92.7-45.3,181-101.2,255.7c-13-3.4-26.2-6.1-39.5-8l-6-0.6L3,454.2l5.6,0.6c9.7,1.4,19.3,3.3,28.9,5.6
+	c-1.9,2.4-3.9,4.9-5.9,7.3L46.5,480c74.4-88.4,118.7-198.2,126.6-313.4l11.1-11.1l8.3,8.3c-10.2,123.3-52.5,241.7-122.7,343.5
+	l15.8,11.1c7.6-10.9,14.9-22.1,21.9-33.6c45.3,21.7,85.2,53,117.1,91.7l15-12.3c-18.8-22.9-40.4-43.4-64.3-61H581v-19.4H146.7
+	C137.2,478.1,127.5,473,117.5,468.1z M303.8,247.1L201.5,145.4c26.2-7.8,54.5-0.7,73.9,18.5l9.2,9.2
+	C304,192.5,311.3,220.8,303.8,247.1z M343.6,132.2h-80.1c-18.7-8.9-39.7-11.4-59.9-7.2c14.1-19.8,36.9-31.6,61.2-31.6h13.1
+	C305.2,93.4,330.4,108.3,343.6,132.2z M206.2,50.7l9.2-9.2c19.3-19.4,47.7-26.7,74-19.1L232.1,80c-18.6,6.9-34.6,19.4-45.7,35.9
+	C181.9,92.2,189.3,67.8,206.2,50.7L206.2,50.7z M152.9,41.4l9.2,9.2c4.3,4.4,8,9.3,11.1,14.7c-4.4,10.2-6.9,21.1-7.4,32.2
+	c-8.7-7.6-18.7-13.5-29.5-17.5L79,22.3C105.3,14.7,133.6,22.1,152.9,41.4L152.9,41.4z M90.6,93.5h13.1c24.3,0,47.1,11.7,61.2,31.5
+	c-20.2-4.2-41.3-1.7-59.9,7.2H24.8C38.1,108.3,63.3,93.4,90.6,93.5L90.6,93.5z M64.7,247.1c-7.6-26.3-0.2-54.6,19.1-73.9l9.2-9.2
+	c13.9-13.9,32.8-21.7,52.5-21.6c7.3,0,14.5,1,21.4,3.1L64.7,247.1z" />
+                </svg>
+                <span class="paragraph-size-5">{% trans "Beachfront " %}<br>{% trans " hotel" %}</span>
+              </div>
+              <div class="hover-badges">
+                <svg width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                  style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #0059ab;
+                    }
+                  </style>
+                  <g>
+                    <g>
+                      <path class="st0" d="M157.9,185.9c-3.2-2.6-7.9-2.1-10.5,1.1c-3,3.7-7,5.8-11.3,5.8s-8.3-2.1-11.3-5.8c-2.6-3.2-7.3-3.7-10.5-1.1
+			c-3.2,2.6-3.7,7.3-1.1,10.5c5.8,7.2,14.2,11.3,23,11.3s17.1-4.1,23-11.3C161.6,193.2,161.1,188.5,157.9,185.9z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="st0" d="M101.8,141.4c-4.1,0-7.5,3.4-7.5,7.5v8.6c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-8.6
+			C109.3,144.7,105.9,141.4,101.8,141.4z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="st0" d="M170.3,141.4c-4.1,0-7.5,3.4-7.5,7.5v8.6c0,4.1,3.4,7.5,7.5,7.5c4.1,0,7.5-3.4,7.5-7.5v-8.6
+			C177.8,144.7,174.5,141.4,170.3,141.4z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="st0" d="M406.4,228.8c-3.2-2.6-7.9-2.1-10.5,1.1c-3,3.7-7,5.8-11.3,5.8c-4.3,0-8.3-2.1-11.3-5.8
+			c-2.6-3.2-7.3-3.7-10.5-1.1c-3.2,2.6-3.7,7.3-1.1,10.5c5.8,7.2,14.2,11.3,23,11.3s17.1-4.1,23-11.3
+			C410.1,236.1,409.6,231.4,406.4,228.8z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="st0" d="M350.3,184.2c-4.1,0-7.5,3.4-7.5,7.5v8.6c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-8.6
+			C357.8,187.6,354.4,184.2,350.3,184.2z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="st0" d="M418.8,184.2c-4.1,0-7.5,3.4-7.5,7.5v8.6c0,4.1,3.4,7.5,7.5,7.5c4.1,0,7.5-3.4,7.5-7.5v-8.6
+			C426.3,187.6,423,184.2,418.8,184.2z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="st0" d="M491.1,332.5L432.4,309c-0.3-0.1-0.6-0.3-0.9-0.4c40.6-9.2,59.8-24.7,60.7-25.4c2-1.7,3-4.3,2.7-6.9
+			c-0.1-0.6-8.5-60.1-8.5-118.9c0-56.1-45.6-101.8-101.8-101.8s-101.8,45.6-101.8,101.8c0,15.4-0.7,34.2-1.8,52l-16.4,8.2l-48.1-24
+			c-0.1-0.1-0.3-0.1-0.4-0.2c2.3-6.7,3.8-13.7,4.3-21c10.1-3.1,17.4-12.5,17.4-23.5c0-7.4-3.3-14.1-8.6-18.7V80.3
+			c0-13.8-7-26.7-18.4-34.4c-3.9-14.4-16.8-24.5-32-24.5h-68.6c-37.2,0-67.5,30.3-67.5,67.5v41.3c-5.2,4.5-8.6,11.2-8.6,18.7
+			c0,11.1,7.3,20.4,17.4,23.5c1.9,25.2,14.9,47.3,34,61.5v20.7l-62,18.6C9.5,277.6,0,290.3,0,305.1v83.7c0,4.1,3.4,7.5,7.5,7.5h1.1
+			v86.8c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-86.8h27.8v86.8c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5V353.8
+			c0-6.6-1.9-12.9-5.6-18.4L48,316.1c-2.3-3.4-7-4.4-10.4-2.1c-3.4,2.3-4.4,7-2.1,10.4l12.8,19.2c2,3,3.1,6.5,3.1,10.1v27.6H16.1H15
+			v-76.2c0-8.1,5.2-15.1,13-17.4l25.7-7.7c9,37.5,43,64.9,82.3,64.9c14.1,0,27.8-3.5,40.1-10.1c4.5,6.1,11.7,10.1,19.9,10.1h1.1v1.1
+			c0,25.1,13.8,47.1,34.3,58.7v12.2c0,0.5-0.3,0.9-0.7,1l-28,9.3c-13.6,4.5-22.7,17.2-22.7,31.5v24.3c0,4.1,3.4,7.5,7.5,7.5
+			s7.5-3.4,7.5-7.5v-24.3c0-7.8,5-14.8,12.4-17.3l8.2-2.7c10.9,16.2,29.2,26.1,48.9,26.1c19.8,0,38.1-9.9,48.9-26.1l8.2,2.7
+			c7.4,2.5,12.4,9.4,12.4,17.3v24.3c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-24.3c0-14.3-9.1-27-22.7-31.5l-28-9.3
+			c-0.4-0.1-0.7-0.6-0.7-1v-12.2c15.3-8.7,26.9-23.2,31.8-40.5c14.2,14.8,34,23.5,55,23.5c33.2,0,62.4-21.5,72.4-52.7l28.6,11.5
+			c7,2.8,11.4,9.4,11.4,16.9v35.1h-1.1h-26.8v-9.6c0-4.1-3.4-7.5-7.5-7.5s-7.5,3.4-7.5,7.5v94.3c0,4.1,3.4,7.5,7.5,7.5
+			s7.5-3.4,7.5-7.5v-69.6h19.3v69.6c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-69.6h1.1c2,0,3.9-0.8,5.3-2.2c1.4-1.4,2.2-3.3,2.2-5.3
+			v-42.6C512,349.7,503.8,337.6,491.1,332.5z M297.8,157.5c0-47.8,38.9-86.8,86.8-86.8s86.8,38.9,86.8,86.8
+			c0,50.4,6.1,101.3,8,116.5c-6.7,4.4-23.9,14.1-53,20.4v-11.9c4-2.3,7.8-4.8,11.4-7.7c14.8-11.9,25.2-28.6,29.4-47
+			c1.4-6.1,2.1-12.5,2.1-18.8c0-42.4-30.7-48.5-60.3-54.4c-18.9-3.7-38.4-7.6-53.9-20c-2.3-1.8-5.3-2.2-7.9-0.9s-4.3,3.9-4.3,6.8
+			c0,0.2-0.3,19.9-28.6,27c-4,1-26.8,6-26.8,13.2c1,4,26.4,2.4,30.4,1.4c23.7-5.9,33.3-19.2,37.2-29.2c16.3,9.6,34.5,13.3,50.9,16.5
+			c31.7,6.3,48.2,10.9,48.2,39.6c0,5.2-0.6,10.4-1.7,15.5c-3.4,15.1-12,28.9-24.2,38.7c-12.5,10.1-27.6,15.4-43.7,15.4
+			c-14.7,0-28.7-4.5-40.5-13c-4.3-11.9-11.3-22.7-20.5-31.6v-33.5c0-2.6-1.3-5-3.6-6.4s-5-1.5-7.3-0.3l-16.2,8.1
+			C297.3,186.1,297.8,171.2,297.8,157.5z M308.5,212.4v27.1L281.3,226L308.5,212.4z M220.7,212.4l27.1,13.6l-27.1,13.6V212.4z
+			 M179.9,294.6v7.1c-5.4,4.6-8.6,11.4-8.6,18.6c-10.7,6.3-22.8,9.6-35.3,9.6c-32.6,0-60.8-23-67.9-54.3l18.5-5.6
+			c4.6,23.1,25,40.6,49.4,40.6c19.4,0,36.2-11,44.6-27.1C180.2,287.2,179.9,290.8,179.9,294.6z M100.7,260.3v-17.4
+			c10.8,5,22.7,7.7,35.3,7.7c12.6,0,24.6-2.8,35.3-7.7v17.4c0,19.5-15.9,35.3-35.3,35.3c-19.5,0-35.3-15.8-35.3-35.2
+			C100.7,260.3,100.7,260.3,100.7,260.3z M136,235.6c-38.4,0-69.6-31.2-69.6-69.6c0-4.1-3.4-7.5-7.5-7.5c-5.3,0-9.6-4.3-9.6-9.6
+			s4.3-9.6,9.6-9.6h17.1c3.2,0,6.1-2.1,7.1-5.1l6.9-20.7c17.2-0.4,70.7-2.8,100.8-17.9c3.7-1.9,40.6-26,28.6-31.1
+			c-1.9-3.7-31.6,15.8-35.3,17.6c-32.3,16.1-98.8,16.3-99.5,16.3c-3.2,0-6.1,2.1-7.1,5.1l-6.9,20.6H58.9c-0.4,0-0.7,0-1.1,0V88.9
+			c0-28.9,23.5-52.5,52.5-52.5h68.6c9,0,16.5,6.5,17.9,15.3c0.4,2.3,1.7,4.2,3.7,5.4c8.5,4.8,13.7,13.7,13.7,23.2v43.9
+			c-0.4,0-0.7,0-1.1,0h-8.6c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h8.6c5.3,0,9.6,4.3,9.6,9.6s-4.3,9.6-9.6,9.6
+			c-4.1,0-7.5,3.4-7.5,7.5C205.7,204.4,174.4,235.6,136,235.6z M186.4,260.3V234c7.5-5.5,14-12.3,19.3-19.9v19.8
+			c-8.4,8.2-14.9,17.9-19.3,28.5C186.4,261.7,186.4,261,186.4,260.3z M298.5,433.8c-8.3,10.1-20.7,16.1-34,16.1
+			c-13.3,0-25.7-6-34-16.1l4.8-1.6c6.6-2.2,11-8.3,11-15.2v-6c5.8,1.6,11.9,2.5,18.2,2.5s12.4-0.9,18.2-2.5v6
+			c0,6.9,4.4,13.1,11,15.2L298.5,433.8z M324.6,329.9c-4.1,0-7.5,3.4-7.5,7.5v7.5c0,0.1,0,0.1,0,0.2v0.9c0,28.9-23.5,52.5-52.5,52.5
+			s-52.5-23.5-52.5-52.5v-8.6c0-4.1-3.4-7.5-7.5-7.5H196c-5.3,0-9.6-4.3-9.6-9.6c0-3.4,1.8-6.5,4.8-8.3c0.7-0.4,1.3-0.9,1.8-1.5
+			c18.5-0.5,78.6-4,118.1-26.6c3.6-2.1,31.6-20.1,23.2-27.9c-2.1-3.6-27.1,12.9-30.7,14.9c-34.6,19.8-89,23.7-108.7,24.5v-0.9
+			c0-13.9,4.2-27.5,11.9-38.8c0.6,0.9,1.4,1.8,2.4,2.4c1.2,0.7,2.6,1.1,3.9,1.1c1.1,0,2.3-0.3,3.4-0.8l48.1-24l48.1,24
+			c1.1,0.5,2.2,0.8,3.4,0.8c1.4,0,2.7-0.4,3.9-1.1c1-0.6,1.8-1.4,2.4-2.4c7.7,11.4,11.9,24.9,11.9,38.8v10.9c0,2.7,1.4,5.1,3.7,6.5
+			c3,1.8,4.8,4.9,4.8,8.3c0,5.3-4.3,9.6-9.6,9.6H324.6z M384.5,372.7c-20.8,0-40-10.6-51.2-27.8c13.5-0.1,24.5-11.1,24.5-24.6
+			c0-7.2-3.2-13.9-8.6-18.6v-7.1c0-3-0.2-6-0.5-9c11.1,5.2,23.3,7.9,35.8,7.9c9.1,0,18.2-1.5,26.8-4.4v11c0,10.1,6.1,19.1,15.5,22.9
+			l16.2,6.5C435.2,355.1,411.5,372.7,384.5,372.7z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="st0" d="M286.4,357.3c-3.2-2.6-7.9-2.1-10.5,1.1c-3,3.7-7,5.8-11.3,5.8c-4.3,0-8.3-2.1-11.3-5.8
+			c-2.6-3.2-7.3-3.7-10.5-1.1c-3.2,2.6-3.7,7.3-1.1,10.5c5.8,7.2,14.2,11.3,23,11.3s17.1-4.1,23-11.3
+			C290.1,364.6,289.6,359.9,286.4,357.3z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <circle class="st0" cx="239" cy="328.9" r="7.5" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <circle class="st0" cx="290" cy="328.9" r="7.5" />
+                    </g>
+                  </g>
+                </svg>
+                <span class="paragraph-size-5">{% trans "Family " %}<br>{% trans " hotel" %}</span>
+              </div>
+            </div>
+            <p class="paragraph-size-4">
+              {% blocktrans %} Hotel Aleksandar is a set of annex buildings which together resemble an authentic
+              Mediterranean village that features a lot of facilities for great vacations. When here, guests
+              can enjoy many entertainment programmes, with special emphasis on kids and elderly. {% endblocktrans %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="uk-card hotel-card-container cursor-pointer" data-url="{% trans "/en/hotel-slovenska-plaza-in-budva/overview/" %}">
+        <div class="uk-inline-clip uk-transition-toggle hover-card-div">
+          {% if settings.site_settings.UpdateAccomodationPricesSettings.homepage_slovenska_plaza %}
+            <div class="card-arrow">
+              <span class="card-arrow-text">{% trans "from" %}
+                {{ settings.site_settings.UpdateAccomodationPricesSettings.homepage_slovenska_plaza }}&euro;</span>
+            </div>
+          {% endif %}
+          <div class="card-arrow card-arrow-badge card-arrow-badge-left mobile-element">
+            <img loading="lazy" src="{% static 'assets/images/hotel.png' %}" alt="{% trans "resort" %}" title="{% trans "resort" %}" class="badge-img" width="45" height="45">
+          </div>
+          <div class="card-arrow card-arrow-badge card-arrow-badge-right mobile-element">
+            <img loading="lazy" src="{% static 'assets/images/racket.png' %}" alt="{% trans "tennis resort" %}" title="{% trans "tennis resort" %}" class="badge-img" width="45" height="45">
+          </div>
+          <div class="uk-inline-clip uk-transition-toggle hotel-card">
+            <img loading="lazy" class="image-hover-blur" src="{% static "assets/images/Index/slovenska_1.jpg" %}" alt="{% trans "Resort Slovenska Plaza - Overview" %}" title="{% trans "Resort Slovenska Plaza - Overview" %}" width="455" height="320"/>
+          </div>
+          <div class="card-bottom-text-container">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M0.00,17.98 C100.99,113 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150 Z" style="stroke: none;fill: white;"></path></svg>
+
+            <span class="card-bottom-text">{% trans "Slovenska Plaza" %}<span uk-icon="icon: chevron-right; ratio: 1.5"
+                class="mobile-element"></span></span>
+          </div>
+          <div
+            class="desktop-element uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle hover-about-hotel-element">
+            <div class="hover-badges-container">
+              <div class="hover-badges">
+                <svg width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                  style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #0059ab;
+                    }
+                  </style>
+                  <g>
+                    <g>
+                      <path class="st0" d="M298.7,384h-85.3c-4.7,0-8.5,3.8-8.5,8.5v59.7c0,4.7,3.8,8.5,8.5,8.5h85.3c4.7,0,8.5-3.8,8.5-8.5v-59.7
+			C307.2,387.8,303.4,384,298.7,384z M290.1,443.7h-68.3v-42.7h68.3V443.7z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="247.5" y="392.5" class="st0" width="17.1" height="59.7" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="st0" d="M341.3,51.2H170.7c-4.7,0-8.5,3.8-8.5,8.5v392.5c0,4.7,3.8,8.5,8.5,8.5h170.7c4.7,0,8.5-3.8,8.5-8.5V59.7
+			C349.9,55,346.1,51.2,341.3,51.2z M332.8,443.7H179.2V68.3h153.6V443.7z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="st0" d="M170.7,85.3h-68.3c-4.7,0-8.5,3.8-8.5,8.5v358.4c0,4.7,3.8,8.5,8.5,8.5h68.3c4.7,0,8.5-3.8,8.5-8.5V93.9
+			C179.2,89.2,175.4,85.3,170.7,85.3z M162.1,443.7h-51.2V102.4h51.2V443.7z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="76.8" y="85.3" class="st0" width="25.6" height="17.1" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="145.1" y="51.2" class="st0" width="221.9" height="17.1" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="196.3" y="341.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="230.4" y="341.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="264.5" y="341.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="298.7" y="341.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="196.3" y="298.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="230.4" y="298.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="264.5" y="298.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="298.7" y="298.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="196.3" y="256" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="230.4" y="256" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="264.5" y="256" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="298.7" y="256" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="196.3" y="213.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="230.4" y="213.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="264.5" y="213.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="298.7" y="213.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="196.3" y="170.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="230.4" y="170.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="264.5" y="170.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="298.7" y="170.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="196.3" y="128" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="230.4" y="128" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="264.5" y="128" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="298.7" y="128" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="196.3" y="85.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="230.4" y="85.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="264.5" y="85.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="298.7" y="85.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="128" y="384" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="128" y="341.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="128" y="298.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="128" y="256" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="128" y="213.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="128" y="170.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="128" y="128" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path class="st0" d="M409.6,85.3h-68.3c-4.7,0-8.5,3.8-8.5,8.5v358.4c0,4.7,3.8,8.5,8.5,8.5h68.3c4.7,0,8.5-3.8,8.5-8.5V93.9
+			C418.1,89.2,414.3,85.3,409.6,85.3z M401.1,443.7h-51.2V102.4h51.2V443.7z" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="409.6" y="85.3" class="st0" width="25.6" height="17.1" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="366.9" y="384" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="366.9" y="341.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="366.9" y="298.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="366.9" y="256" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="366.9" y="213.3" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="366.9" y="170.7" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="366.9" y="128" class="st0" width="17.1" height="25.6" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect y="443.7" class="st0" width="102.4" height="17.1" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="409.6" y="443.7" class="st0" width="102.4" height="17.1" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="34.1" y="273.1" class="st0" width="17.1" height="179.2" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="34.1" y="273.1" transform="matrix(0.6 -0.8 0.8 0.6 -235.5202 160.4268)" class="st0"
+                        width="17.1" height="85.3" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="0" y="307.2" transform="matrix(0.7999 -0.6002 0.6002 0.7999 -180.9668 88.7876)"
+                        class="st0" width="85.3" height="17.1" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="460.8" y="273.1" class="st0" width="17.1" height="179.2" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="460.8" y="273.1" transform="matrix(0.6 -0.8 0.8 0.6 -64.8566 501.7589)" class="st0"
+                        width="17.1" height="85.3" />
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <rect x="426.6" y="307.2" transform="matrix(0.8001 -0.5998 0.5998 0.8001 -95.6122 344.5997)"
+                        class="st0" width="85.3" height="17.1" />
+                    </g>
+                  </g>
+                </svg>
+                <span class="paragraph-size-5">{% trans "Resort " %}<br>{% trans " hotel" %}</span>
+              </div>
+              <div class="hover-badges">
+                <svg width="30" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 496 496"
+                  style="enable-background:new 0 0 496 496;" xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #0059ab;
+                    }
+                  </style>
+                  <path class="st0" d="M430.3,291.4c0.8-0.7,1.6-1.4,2.3-2.1c74.6-74.7,84.7-186.1,22.5-248.4C428.8,14.5,392.1,0,351.7,0
+	c-51.6,0-104.3,23.1-144.6,63.5c-51.1,51.2-71.9,119.7-59.9,177.8l-41.9,82l-91.4,91.5c-9,9-13.9,20.9-13.9,33.6
+	C0,474.6,21.3,496,47.5,496c12.7,0,24.6-5,33.6-14l91.4-91.5l81-41.6c2.4,0.5,4.9,1,7.4,1.5c-12,38.5-2.9,82.3,27.5,112.8
+	c21.1,21.2,49.2,32.8,79.1,32.8h0c29.9,0,58-11.6,79.1-32.8c43.6-43.7,43.6-114.7,0-158.4C441.5,299.8,436,295.3,430.3,291.4z
+	 M462.3,371.6c-7.4,2.9-15.1,4.4-23,4.4c-35.2,0-63.9-28.7-63.9-64c0-8,1.5-15.7,4.4-23.1c20.9,2.7,40.2,12.1,55.3,27.2
+	C450.7,331.7,459.7,351.3,462.3,371.6z M288.4,304.7c-0.1,0-0.2,0-0.4,0c-4.5,0-8.8-0.3-13.1-0.8l8.6-8.6l7.2,7.2
+	C290,303.3,289.2,304,288.4,304.7z M404.1,249.4L366.8,212l24.6-24.7l34,34.1C419.5,231.2,412.3,240.5,404.1,249.4z M355.4,128.7
+	L330.8,104l24.6-24.7l24.6,24.7L355.4,128.7z M391.4,115.3L416,140l-24.6,24.7L366.8,140L391.4,115.3z M344.1,140l-24.6,24.7
+	L294.9,140l24.6-24.7L344.1,140z M308.2,176l-24.6,24.7L258.9,176l24.6-24.7L308.2,176z M272.2,212l-24.6,24.7L223,212l24.6-24.7
+	L272.2,212z M283.6,223.3l24.6,24.7l-24.6,24.7L258.9,248L283.6,223.3z M294.9,212l24.6-24.7l24.6,24.7l-24.6,24.7L294.9,212z
+	 M330.8,176l24.6-24.7l24.6,24.7l-24.6,24.7L330.8,176z M433.3,206.6L402.7,176l24.6-24.7l18.3,18.3
+	C443.2,182,439.1,194.5,433.3,206.6z M438.6,140l8.7-8.7c0.7,5.9,1,12,0.8,18.2L438.6,140z M427.3,128.7L402.7,104l23.5-23.5
+	c7.9,9.4,13.7,20.2,17.3,32L427.3,128.7z M391.4,92.7L366.8,68l15.7-15.8c12.1,3.5,23,9.2,32.4,16.9L391.4,92.7z M355.4,56.7
+	l-8.4-8.4c1.6-0.1,3.1-0.3,4.7-0.3c4,0,7.9,0.2,11.8,0.6L355.4,56.7z M326.8,50.6L344.1,68l-24.6,24.7l-29.8-29.8
+	C301.8,57.1,314.2,53,326.8,50.6z M275.1,70.8l33.1,33.2l-24.6,24.7L247,92C255.8,83.9,265.2,76.8,275.1,70.8z M235.6,103.3
+	l36.6,36.7l-24.6,24.7l-33.3-33.3C220.4,121.5,227.5,112.2,235.6,103.3z M206.5,146.1l29.8,29.9l-24.6,24.7l-17.5-17.5
+	C196.6,170.5,200.8,158.1,206.5,146.1z M200.4,212l-8.1,8.1c-0.5-5.4-0.6-10.9-0.4-16.5L200.4,212z M211.7,223.3l24.6,24.7
+	l-23.5,23.5c-7.7-9.4-13.3-20.4-16.8-32.5L211.7,223.3z M247.6,259.3l24.6,24.7l-16.1,16.2c-12-3.6-22.8-9.4-32.1-17.2L247.6,259.3z
+	 M303.2,292.4l-8.4-8.4l24.6-24.7l17,17C324.6,279.8,313.4,285.2,303.2,292.4z M355.4,272.7L330.8,248l24.6-24.7l37.4,37.4
+	c-4.5,4.1-9.2,8-14.3,11.8c-3.7-0.4-7.4-0.5-11.1-0.5C363.4,272,359.4,272.2,355.4,272.7z M69.8,470.8c-6,6-13.9,9.2-22.3,9.2
+	C30.2,480,16,465.8,16,448.4c0-8.4,3.3-16.4,9.2-22.3l86.6-86.7l44.6,44.7L69.8,470.8z M169.3,374.2l-1.5-1.5l-46.2-46.2l32.2-63
+	c6.8,17.9,16.9,34.4,30.8,48.4c13.3,13.3,29.2,23.5,46.8,30.4L169.3,374.2z M195.9,300.5c-55.9-56-45.8-157.3,22.5-225.8
+	C255.8,37.4,304.4,16,351.7,16c36.1,0,68.8,12.9,92.1,36.2c55.9,56,45.8,157.3-22.5,225.8c-1.8,1.8-3.7,3.4-5.5,5.1
+	c-5.4-2.6-10.9-4.8-16.6-6.5c3.8-3.3,7.4-6.6,10.8-9.9c62.1-62.2,72.2-153.3,22.5-203.1C412,42.9,384,32,351.7,32
+	c-43.2,0-87.6,19.7-122,54.1c-30.7,30.7-49.6,69.3-53.4,108.5c-3.6,37.5,7.4,71.1,30.8,94.6c17.9,17.9,41.4,28.5,68.4,31
+	c-3.3,4.8-6.2,9.8-8.7,14.9C239.1,331.1,214.7,319.3,195.9,300.5z M272.5,396.4c7.4-2.9,15.1-4.4,23-4.4c35.2,0,63.9,28.7,63.9,64
+	c0,8-1.5,15.7-4.4,23.1c-20.9-2.7-40.2-12.1-55.3-27.2C284.1,436.3,275.2,416.7,272.5,396.4z M435.2,451.9
+	c-17.1,17.1-39.5,26.9-63.5,27.9c2.4-7.7,3.8-15.6,3.8-23.8c0-44.1-35.8-80-79.9-80c-8.1,0-16,1.3-23.7,3.8
+	c1-23.2,10.2-46,27.8-63.6v0c17.1-17.1,39.5-26.9,63.5-27.9c-2.4,7.7-3.8,15.6-3.8,23.8c0,44.1,35.8,80,79.9,80
+	c8.1,0,16-1.3,23.7-3.8C462,411.4,452.8,434.2,435.2,451.9z" />
+                  <path class="st0" d="M98.2,386.3l16-16l11.3,11.3l-16,16L98.2,386.3z" />
+                  <path class="st0" d="M42.3,442.3l39.9-40l11.3,11.3l-39.9,40L42.3,442.3z" />
+                </svg>
+                <span class="paragraph-size-5">{% trans "Tennis " %}<br>{% trans " resort" %}</span>
+              </div>
+            </div>
+            <p class="paragraph-size-4">
+              {% blocktrans %} This hotel is the largest estate of the Hotel Group Budvanska Rivijera and appoints 10 villas
+              in total, all of them forming one beautiful whole. It is connected to the main promenade,
+              where you can find the same-named Slovenska Plaza beach. {% endblocktrans %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="uk-card hotel-card-container cursor-pointer" data-url="{% trans "/en/hotel-mogren-in-budva/overview/" %}">
+        <div class="uk-inline-clip uk-transition-toggle hover-card-div">
+          {% if settings.site_settings.UpdateAccomodationPricesSettings.homepage_mogren %}
+            <div class="card-arrow">
+              <span class="card-arrow-text">{% trans "from" %}
+                {{ settings.site_settings.UpdateAccomodationPricesSettings.homepage_mogren }}&euro;</span>
+            </div>
+          {% endif %}
+          <div class="card-arrow card-arrow-badge card-arrow-badge-left mobile-element">
+            <img loading="lazy" src="{% static 'assets/images/buildings.png' %}" alt="{% trans "city hotel" %}" title="{% trans "city hotel" %}" class="badge-img" width="45" height="45">
+          </div>
+          <div class="uk-inline-clip uk-transition-toggle hotel-card">
+            <img loading="lazy" class="image-hover-blur" src="{% static "assets/images/Index/mogren_1.jpg" %}" alt="{% trans "Hotel Mogren - Overview" %}" title="{% trans "Hotel Mogren - Overview" %}" width="455" height="320"/>
+          </div>
+          <div class="card-bottom-text-container">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M0.00,17.98 C100.99,113 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150 Z" style="stroke: none;fill: white;"></path></svg>
+
+            <span class="card-bottom-text">{% trans "Mogren" %}<span uk-icon="icon: chevron-right; ratio: 1.5"
+                class="mobile-element"></span></span>
+          </div>
+          <div
+            class="desktop-element uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex u k-flex-center uk-flex-middle hover-about-hotel-element">
+            <div class="hover-badges-container">
+              <div class="hover-badges">
+                <svg width="30px" version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                  style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #0059ab;
+                    }
+                  </style>
+                  <g>
+                    <path class="st0" d="M472,455c18.2-4.5,32-23.8,32-47s-13.8-42.6-32-47V104h-16V72h-32V40h-16.2L408,8l-16-0.1L391.8,40H376v32h-32
+		v32h-16v69.4c-17.3,4.7-33.6,12.4-48,22.6v-76h32V72h-40V40h-16.2L256,8l-16-0.1L239.8,40H224v32h-40v48h32v153.8l-32-8V200h16v-16
+		h-48v-48h-16v48h-16v-16h-16v16H88v-32H72v32H24v16h16v248.2c-9.7,7.3-16,18.8-16,31.8c0,2.7,0.4,5.4,0.9,8H8v16h496v-16h-32V455z
+		 M232,443.4c-11.4-5-25.2-4.3-36,2C185.5,432,169.3,424,152,424c-11.8,0-22.8,3.7-32,10.1V266.2l112,28V443.4z M238,279.3l0.9-2.2
+		c17.7-53.1,65.7-89.6,121.1-92.8v277.3c-8.9-4.3-18.9-6.3-29.3-5.3C321.6,436.7,302,424,280,424c-11.7,0-22.8,3.7-32,10.2V281.8
+		L238,279.3z M392,408v30c-9.3-4.4-16-16.1-16-30c0-17.6,10.8-32,24-32s24,14.4,24,32c0,13.9-6.7,25.6-16,30v-30H392z M376,473.1
+		v-26.8c4.7,4.2,10.1,7.3,16,8.7v33h-5.6C383.7,482.4,380.2,477.4,376,473.1z M408,455c9.8-2.4,18.2-9.1,24-18.4
+		c5.8,9.3,14.2,16,24,18.4v33h-48V455z M488,408c0,13.9-6.7,25.6-16,30v-30h-16v30c-9.3-4.4-16-16.1-16-30c0-17.6,10.8-32,24-32
+		S488,390.4,488,408z M392,56h16v16h-16V56z M360,88h16h48h16v16h-80V88z M344,120h112v241c-9.8,2.4-18.2,9.1-24,18.4
+		c-7.3-11.7-18.9-19.3-32-19.3c-9,0-17.3,3.6-24,9.7V168h-8c-8.1,0-16.2,0.6-24,1.9V120z M240,56h16v16h-16V56z M200,88h96v16h-96
+		V88z M264,120v89.1c-13,12.2-23.9,26.7-32,43V120H264z M56,200h112v61.8l-64-16v205.6c-1,1.7-2,3.3-2.8,5.1
+		c-1.7-0.2-3.4-0.4-5.2-0.4c-7.5-10-19.4-16-32-16c-2.7,0-5.4,0.3-8,0.8V200z M40,480c0-13.2,10.8-24,24-24
+		c8.6,0,16.7,4.7,20.9,12.2l2.5,4.4L96,472c2.4,0,4.8,0.5,7.6,1.4l7.8,2.6l2.4-7.8C119,451.3,134.4,440,152,440
+		c14.6,0,28,7.9,35,20.7l5,9.1l7.5-7.1c9-8.5,23.9-8.5,32.9,0l7.5,7.1l5-9.1c7.1-12.8,20.5-20.7,35-20.7c17.4,0,32.6,11.1,38,27.6
+		l2.2,6.9l7.1-1.6c15.8-3.5,31.3,3,40.4,15H41.6C40.6,485.4,40,482.8,40,480L40,480z" />
+                    <path class="st0" d="M136,216h16v16h-16V216z" />
+                    <path class="st0" d="M72,216h16v16H72V216z" />
+                    <path class="st0" d="M104,216h16v16h-16V216z" />
+                    <path class="st0" d="M72,344h16v16H72V344z" />
+                    <path class="st0" d="M72,312h16v16H72V312z" />
+                    <path class="st0" d="M72,280h16v16H72V280z" />
+                    <path class="st0" d="M72,376h16v16H72V376z" />
+                    <path class="st0" d="M72,248h16v16H72V248z" />
+                    <path class="st0" d="M72,408h16v16H72V408z" />
+                    <path class="st0" d="M424,136h16v16h-16V136z" />
+                    <path class="st0" d="M392,136h16v16h-16V136z" />
+                    <path class="st0" d="M360,136h16v16h-16V136z" />
+                    <path class="st0" d="M136,392h16v16h-16V392z" />
+                    <path class="st0" d="M136,360h16v16h-16V360z" />
+                    <path class="st0" d="M136,328h16v16h-16V328z" />
+                    <path class="st0" d="M136,296h16v16h-16V296z" />
+                    <path class="st0" d="M168,296h16v16h-16V296z" />
+                    <path class="st0" d="M168,328h16v16h-16V328z" />
+                    <path class="st0" d="M168,392h16v16h-16V392z" />
+                    <path class="st0" d="M168,360h16v16h-16V360z" />
+                    <path class="st0" d="M200,392h16v16h-16V392z" />
+                    <path class="st0" d="M200,328h16v16h-16V328z" />
+                    <path class="st0" d="M200,296h16v16h-16V296z" />
+                    <path class="st0" d="M200,360h16v16h-16V360z" />
+                    <path class="st0" d="M296,392h16v16h-16V392z" />
+                    <path class="st0" d="M264,392h16v16h-16V392z" />
+                    <path class="st0" d="M328,392h16v16h-16V392z" />
+                    <path class="st0" d="M296,360h16v16h-16V360z" />
+                    <path class="st0" d="M264,360h16v16h-16V360z" />
+                    <path class="st0" d="M328,360h16v16h-16V360z" />
+                    <path class="st0" d="M328,328h16v16h-16V328z" />
+                    <path class="st0" d="M264,328h16v16h-16V328z" />
+                    <path class="st0" d="M296,328h16v16h-16V328z" />
+                    <path class="st0" d="M264,296h16v16h-16V296z" />
+                    <path class="st0" d="M328,296h16v16h-16V296z" />
+                    <path class="st0" d="M296,296h16v16h-16V296z" />
+                    <path class="st0" d="M328,264h16v16h-16V264z" />
+                    <path class="st0" d="M296,264h16v16h-16V264z" />
+                    <path class="st0" d="M264,264h16v16h-16V264z" />
+                    <path class="st0" d="M296,232h16v16h-16V232z" />
+                    <path class="st0" d="M328,232h16v16h-16V232z" />
+                    <path class="st0" d="M392,168h16v16h-16V168z" />
+                    <path class="st0" d="M424,168h16v16h-16V168z" />
+                    <path class="st0" d="M424,200h16v16h-16V200z" />
+                    <path class="st0" d="M392,200h16v16h-16V200z" />
+                    <path class="st0" d="M392,232h16v16h-16V232z" />
+                    <path class="st0" d="M424,232h16v16h-16V232z" />
+                    <path class="st0" d="M424,264h16v16h-16V264z" />
+                    <path class="st0" d="M392,264h16v16h-16V264z" />
+                    <path class="st0" d="M392,296h16v16h-16V296z" />
+                    <path class="st0" d="M424,296h16v16h-16V296z" />
+                    <path class="st0" d="M424,328h16v16h-16V328z" />
+                    <path class="st0" d="M392,328h16v16h-16V328z" />
+                  </g>
+                </svg>
+                <span class="paragraph-size-5">{% trans "City " %}<br>{% trans " hotel" %}</span>
+              </div>
+
+            </div>
+            <p class="paragraph-size-4">
+              {% blocktrans %} Built in 1934 and renovated in 2011, this hotel represents the uphold tradition of its people.
+              Though many aspects about this hotel are being considered an advantage, one particularly
+              stands out - the terrace that’s facing the walls of the Old Town of Budva. {% endblocktrans %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="uk-card hotel-card-container cursor-pointer" style="visibility: hidden;" data-url="">
+        <div class="uk-inline-clip uk-transition-toggle hover-card-div">
+          <div class="card-arrow card-arrow-badge card-arrow-badge-left mobile-element">
+            <img loading="lazy" src="{% static 'assets/images/buildings.png' %}"alt="{% trans "city hotel" %}" title="{% trans "city hotel" %}" class="badge-img" width="45" height="45">
+          </div>
+          <div class="uk-inline-clip uk-transition-toggle hotel-card">
+            <img loading="lazy" class="image-hover-blur" src="" alt="{% trans "Hotel Palas Lux - Overview" %}" title="{% trans "Hotel Palas Lux - Overview" %}" />
+          </div>
+          <div class="card-bottom-text-container">
+            <span class="card-bottom-text">{% trans "Palas Lux" %}<span uk-icon="icon: chevron-right; ratio: 1.5"
+                class="mobile-element"></span></span>
+          </div>
+          <div
+            class="desktop-element uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle hover-about-hotel-element">
+            <div class="hover-badges-container">
+              {% comment %} <div class="hover-badges">
+                <svg width="30px" version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                  style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #0059ab;
+                    }
+                  </style>
+                  <g>
+                    <path class="st0" d="M472,455c18.2-4.5,32-23.8,32-47s-13.8-42.6-32-47V104h-16V72h-32V40h-16.2L408,8l-16-0.1L391.8,40H376v32h-32
+		v32h-16v69.4c-17.3,4.7-33.6,12.4-48,22.6v-76h32V72h-40V40h-16.2L256,8l-16-0.1L239.8,40H224v32h-40v48h32v153.8l-32-8V200h16v-16
+		h-48v-48h-16v48h-16v-16h-16v16H88v-32H72v32H24v16h16v248.2c-9.7,7.3-16,18.8-16,31.8c0,2.7,0.4,5.4,0.9,8H8v16h496v-16h-32V455z
+		 M232,443.4c-11.4-5-25.2-4.3-36,2C185.5,432,169.3,424,152,424c-11.8,0-22.8,3.7-32,10.1V266.2l112,28V443.4z M238,279.3l0.9-2.2
+		c17.7-53.1,65.7-89.6,121.1-92.8v277.3c-8.9-4.3-18.9-6.3-29.3-5.3C321.6,436.7,302,424,280,424c-11.7,0-22.8,3.7-32,10.2V281.8
+		L238,279.3z M392,408v30c-9.3-4.4-16-16.1-16-30c0-17.6,10.8-32,24-32s24,14.4,24,32c0,13.9-6.7,25.6-16,30v-30H392z M376,473.1
+		v-26.8c4.7,4.2,10.1,7.3,16,8.7v33h-5.6C383.7,482.4,380.2,477.4,376,473.1z M408,455c9.8-2.4,18.2-9.1,24-18.4
+		c5.8,9.3,14.2,16,24,18.4v33h-48V455z M488,408c0,13.9-6.7,25.6-16,30v-30h-16v30c-9.3-4.4-16-16.1-16-30c0-17.6,10.8-32,24-32
+		S488,390.4,488,408z M392,56h16v16h-16V56z M360,88h16h48h16v16h-80V88z M344,120h112v241c-9.8,2.4-18.2,9.1-24,18.4
+		c-7.3-11.7-18.9-19.3-32-19.3c-9,0-17.3,3.6-24,9.7V168h-8c-8.1,0-16.2,0.6-24,1.9V120z M240,56h16v16h-16V56z M200,88h96v16h-96
+		V88z M264,120v89.1c-13,12.2-23.9,26.7-32,43V120H264z M56,200h112v61.8l-64-16v205.6c-1,1.7-2,3.3-2.8,5.1
+		c-1.7-0.2-3.4-0.4-5.2-0.4c-7.5-10-19.4-16-32-16c-2.7,0-5.4,0.3-8,0.8V200z M40,480c0-13.2,10.8-24,24-24
+		c8.6,0,16.7,4.7,20.9,12.2l2.5,4.4L96,472c2.4,0,4.8,0.5,7.6,1.4l7.8,2.6l2.4-7.8C119,451.3,134.4,440,152,440
+		c14.6,0,28,7.9,35,20.7l5,9.1l7.5-7.1c9-8.5,23.9-8.5,32.9,0l7.5,7.1l5-9.1c7.1-12.8,20.5-20.7,35-20.7c17.4,0,32.6,11.1,38,27.6
+		l2.2,6.9l7.1-1.6c15.8-3.5,31.3,3,40.4,15H41.6C40.6,485.4,40,482.8,40,480L40,480z" />
+                    <path class="st0" d="M136,216h16v16h-16V216z" />
+                    <path class="st0" d="M72,216h16v16H72V216z" />
+                    <path class="st0" d="M104,216h16v16h-16V216z" />
+                    <path class="st0" d="M72,344h16v16H72V344z" />
+                    <path class="st0" d="M72,312h16v16H72V312z" />
+                    <path class="st0" d="M72,280h16v16H72V280z" />
+                    <path class="st0" d="M72,376h16v16H72V376z" />
+                    <path class="st0" d="M72,248h16v16H72V248z" />
+                    <path class="st0" d="M72,408h16v16H72V408z" />
+                    <path class="st0" d="M424,136h16v16h-16V136z" />
+                    <path class="st0" d="M392,136h16v16h-16V136z" />
+                    <path class="st0" d="M360,136h16v16h-16V136z" />
+                    <path class="st0" d="M136,392h16v16h-16V392z" />
+                    <path class="st0" d="M136,360h16v16h-16V360z" />
+                    <path class="st0" d="M136,328h16v16h-16V328z" />
+                    <path class="st0" d="M136,296h16v16h-16V296z" />
+                    <path class="st0" d="M168,296h16v16h-16V296z" />
+                    <path class="st0" d="M168,328h16v16h-16V328z" />
+                    <path class="st0" d="M168,392h16v16h-16V392z" />
+                    <path class="st0" d="M168,360h16v16h-16V360z" />
+                    <path class="st0" d="M200,392h16v16h-16V392z" />
+                    <path class="st0" d="M200,328h16v16h-16V328z" />
+                    <path class="st0" d="M200,296h16v16h-16V296z" />
+                    <path class="st0" d="M200,360h16v16h-16V360z" />
+                    <path class="st0" d="M296,392h16v16h-16V392z" />
+                    <path class="st0" d="M264,392h16v16h-16V392z" />
+                    <path class="st0" d="M328,392h16v16h-16V392z" />
+                    <path class="st0" d="M296,360h16v16h-16V360z" />
+                    <path class="st0" d="M264,360h16v16h-16V360z" />
+                    <path class="st0" d="M328,360h16v16h-16V360z" />
+                    <path class="st0" d="M328,328h16v16h-16V328z" />
+                    <path class="st0" d="M264,328h16v16h-16V328z" />
+                    <path class="st0" d="M296,328h16v16h-16V328z" />
+                    <path class="st0" d="M264,296h16v16h-16V296z" />
+                    <path class="st0" d="M328,296h16v16h-16V296z" />
+                    <path class="st0" d="M296,296h16v16h-16V296z" />
+                    <path class="st0" d="M328,264h16v16h-16V264z" />
+                    <path class="st0" d="M296,264h16v16h-16V264z" />
+                    <path class="st0" d="M264,264h16v16h-16V264z" />
+                    <path class="st0" d="M296,232h16v16h-16V232z" />
+                    <path class="st0" d="M328,232h16v16h-16V232z" />
+                    <path class="st0" d="M392,168h16v16h-16V168z" />
+                    <path class="st0" d="M424,168h16v16h-16V168z" />
+                    <path class="st0" d="M424,200h16v16h-16V200z" />
+                    <path class="st0" d="M392,200h16v16h-16V200z" />
+                    <path class="st0" d="M392,232h16v16h-16V232z" />
+                    <path class="st0" d="M424,232h16v16h-16V232z" />
+                    <path class="st0" d="M424,264h16v16h-16V264z" />
+                    <path class="st0" d="M392,264h16v16h-16V264z" />
+                    <path class="st0" d="M392,296h16v16h-16V296z" />
+                    <path class="st0" d="M424,296h16v16h-16V296z" />
+                    <path class="st0" d="M424,328h16v16h-16V328z" />
+                    <path class="st0" d="M392,328h16v16h-16V328z" />
+                  </g>
+                </svg>
+                <span class="paragraph-size-5">City <br> hotel</span>
+              </div>
+
+            </div> {% endcomment %}
+            <p class="paragraph-size-4">
+              {% trans "Coming Soon..." %}
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    </div>
+  </section>
+
+  <section id="trapezoid-index-page-container">
+    <div class="mobile-element">
+      <div class="trapezoid-container">
+        <img loading="lazy" src="{% static "assets/images/Index/index-wellness.webp" %}" alt="{% trans "HG Budvanska Rivijera - Wellness" %}" title="{% trans "HG Budvanska Rivijera - Wellness" %}" width="950" height="420">
+        <div class="trapezoid-text-container width-padding">
+          <h2>{% trans "Wellness & Spa" %}</h2>
+          <button class="index-read-more-button"><a title="{% trans "HG Budvanska Rivijera - Wellness" %}" style="color: white; text-decoration: none; font-size: 1rem;"
+              href="{% trans "/en/hotel-palas/wellness-and-spa/" %}">{% trans "READ MORE" %}</a></button>
+        </div>
+      </div>
+      <div class="trapezoid-container mobile-element">
+        <img loading="lazy" src="{% static "assets/images/Index/index-weddings.webp" %}" alt="{% trans "HG Budvanska Rivijera - Weddings" %}" title="{% trans "HG Budvanska Rivijera - Weddings" %}" width="950" height="420">
+        <div class="trapezoid-text-container width-padding">
+          <h2>{% trans "Weddings & Events" %}</h2>
+          <button class="index-read-more-button"><a title="{% trans "HG Budvanska Rivijera - Weddings" %}" style="color: white; text-decoration: none; font-size: 1rem;"
+              href="{% trans "/en/weddings/" %}">{% trans "READ MORE" %}</a></button>
+        </div>
+      </div>
+    </div>
+    <div uk-slideshow="animation: push" class="desktop-element">
+      <div class="uk-position-relative uk-visible-toggle uk-light trapezoid-slider-container" tabindex="-1"
+        uk-slideshow="min-height: 300; max-height: 420;">
+        <ul class="uk-slideshow-items trapezoid-slider">
+          <li class="trapezoid-slider-element">
+            <div class="trapezoid-container">
+              <img loading="lazy" src="{% static "assets/images/Index/index-wellness.webp" %}" alt="{% trans "HG Budvanska Rivijera - Wellness" %}" title="{% trans "HG Budvanska Rivijera - Wellness" %}" width="950" height="420">
+              <div class="trapezoid-text-container width-padding">
+                <h3>{% trans "Wellness & Spa" %}</h3>
+                <p class="paragraph-size-4">
+                  {% blocktrans %} After a long day of hiking, swimming, diving or just sunbathing, many of us look for an
+                  oasis
+                  of tranquillity where we can recharge and reactivate our body for new adventures. This
+                  is
+                  why our facilities contain wellness centres for added relaxation moments where guests
+                  have
+                  the option to indulge in massages that range from oriental to therapeutic, with all
+                  practices
+                  being conducted by licenced professionals.
+                  The majority of our hotels feature additional services such as beauty salons,
+                  recreational
+                  facilities, and other amenities that promise a calming ambiance for holidays you’ve been
+                  waiting for so long. {% endblocktrans %}
+                </p>
+                <button class="index-read-more-button blob-btn"><a title="{% trans "HG Budvanska Rivijera - Wellness" %}" href="{% trans "/en/hotel-palas/wellness-and-spa/" %}">{% trans "READ MORE" %}</a>
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="trapezoid-slider-element">
+            <div class="trapezoid-container">
+              <img loading="lazy" src="{% static "assets/images/Index/index-gradska-new.webp" %}" alt="{% trans "HG Budvanska Rivijera - Wellness" %}" title="{% trans "HG Budvanska Rivijera - Wellness" %}" width="950" height="420">
+              <div class="trapezoid-text-container width-padding">
+                <h3>{% trans "City Café of Mogren Hotel" %}</h3>
+                <p class="paragraph-size-4">
+                  {% blocktrans %} The city café of the Mogren hotel is located in the immediate vicinity of Budva's 
+                  Old Town, one of the oldest settlements on the Adriatic, which is known for over two and a half 
+                  thousand years. The unique architectural and urban ensemble, surrounded by medieval ramparts, 
+                  carefully preserves the history of the city of Budva, and the City Café of the Mogren Hotel is 
+                  its faithful ally in that. {% endblocktrans %}
+                </p>
+                <button class="index-read-more-button blob-btn"><a title="{% trans "HG Budvanska Rivijera - City Cafe" %}" href="{% trans "/en/news/city-café-of-mogren-hotel/" %}">{% trans "READ MORE" %}</a>
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="trapezoid-slider-element">
+            <div class="trapezoid-container">
+              <img loading="lazy" src="{% static "assets/images/Palas/food1.webp" %}" alt="{% trans "HG Budvanska Rivijera - Restaurants and Bars" %}" title="{% trans "HG Budvanska Rivijera - Restaurants and Bars" %}" width="950" height="420">
+              <div class="trapezoid-text-container width-padding">
+                <h3>{% trans "Restaurants and bars" %}</h3>
+                <p class="paragraph-size-4">
+                  {% blocktrans %} Our dining areas are atmospheric by nature; furnished with sophisticated and charming ornamentation, enriched by the savour of exquisite food, therein providing all senses with a vibrant feel.
+                  In total, the hotel houses the aforementioned restaurant serving traditional and international cuisine, an aperitif bar, a sandwich bar, and a self-service restaurant. All areas are architecturally designed to replicate the noble and chic, yet traditional look that Budva embodies.
+
+ {% endblocktrans %}
+                </p>
+                <button class="index-read-more-button blob-btn"><a title="{% trans "HG Budvanska Rivijera - Restaurants" %}" href="{% trans "/en/restaurants/" %}">{% trans "READ MORE" %}</a>
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="trapezoid-slider-element">
+            <div class="trapezoid-container">
+              <img loading="lazy" src="{% static "assets/images/Index/tennis.webp" %}" alt="{% trans "HG Budvanska Rivijera - Tennis" %}" title="{% trans "HG Budvanska Rivijera - Tennis" %}" width="950" height="420">
+              <div class="trapezoid-text-container width-padding">
+                <h3>{% trans "Tennis Resort" %}</h3>
+                <p class="paragraph-size-4">
+                  {% blocktrans %}
+                  Tennis complex Slovenska Plaza is located in the tourist complex Slovenska beach, right next to the main road. The complex consists of 11 drained clay courts and 3 courts covered with asphalt concrete. The central court has a stand with 300 seats. Bocce courts are located at Slovenska Beach and consists of four bowling tracks processed gravel, the space for 200 people and additional facilities.
+ {% endblocktrans %}
+                </p>
+                <button class="index-read-more-button blob-btn"><a title="{% trans "HG Budvanska Rivijera - Tennis" %}" href="{% trans "/en/hotel-slovenska-plaza-in-budva/tennis-resort/" %}">{% trans "READ MORE" %}</a>
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="trapezoid-slider-element">
+            <div class="trapezoid-container">
+              <img loading="lazy" src="{% static "assets/images/Index/index-weddings.webp" %}" alt="{% trans "HG Budvanska Rivijera - Weddings" %}" title="{% trans "HG Budvanska Rivijera - Weddings" %}" width="950" height="420">
+              <div class="trapezoid-text-container width-padding">
+                <h3>{% trans "Weddings & Events" %}</h3>
+                <p class="paragraph-size-4">
+                  {% blocktrans %} The beautiful setting of our hotels make for a great venue to organize different events.
+                  Green areas with mesmerizing viewpoints or breath-taking sunsets reflected in the sea
+                  are
+                  what newlyweds are looking for when trying to capture the most beautiful moments on the
+                  most important day of their lives.
+                  Our Hotel Group recognized this potential and acted accordingly; appointing high-quality
+                  event managers, providing customized full-service catering, decorating all areas
+                  according
+                  to your preferences, and much more. {% endblocktrans %}
+                </p>
+                <button class="index-read-more-button blob-btn"><a title="{% trans "HG Budvanska Rivijera - Weddings" %}" href="{% trans "/en/weddings/" %}">{% trans "READ MORE" %}</a>
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <a title="{% trans "Previous" %}" class="uk-slidenav-large uk-position-center-left uk-position-small uk-border-circle arrow-navigation-custom"
+          href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+        <a title="{% trans "Next" %}" class="uk-slidenav-large uk-position-center-right uk-position-small uk-border-circle arrow-navigation-custom"
+          href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+      </div>
+    </div>
+  </section>
+ {% if homepage_special_offers %}
+  <section id="special-offers-container" class="width-padding ">
+    <h2 class="blue-underline">{% trans "Special Offers" %}</h2>
+    <div uk-slider>
+      <div class="uk-position-relative">
+        <div class="uk-slider-container uk-light">
+          <ul
+            class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid uk-grid-large uk-grid-match">
+              {% for special_offer in homepage_special_offers %}
+                <li>
+              <div class="uk-card uk-card-default special-offers-card">
+              <div class="uk-card-media-top">
+                 {% image special_offer.blog_image min-325x325 as offer_image %}
+                <a title="{{special_offer.title}}" href="{{special_offer.url}}">
+                  <svg viewBox="0 0 500 150" preserveAspectRatio="none" ><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg>
+                  <img loading="lazy"
+                      src="{{offer_image.url}}"
+                      alt="{{special_offer.title}} image" width="400" height="200"/></a>
+              </div>
+              <div class="uk-card-body">
+                <h4 class="uk-card-title"><a title="{{ special_offer.title}}" href="{{special_offer.url}}">{{ special_offer.title}}</a></h4>
+                <p class="paragraph-size-3">
+                  {{ special_offer.subtitle }}
+                </p>
+              </div>
+            </div>
+          </li>
+              {% endfor %}
+          </ul>
+        </div>
+        <div class="uk-visible@s uk-light">
+          <a title="{% trans "Previous" %}" class="uk-position-center-left-out uk-position-small uk-border-circle arrow-navigation-custom" href="#"
+            uk-slidenav-previous uk-slider-item="previous"></a>
+          <a title="{% trans "Next" %}" class="uk-position-center-right-out uk-position-small uk-border-circle arrow-navigation-custom" href="#"
+            uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+      </div>
+      <ul class="uk-hidden@s uk-slider-nav uk-dotnav uk-flex-center uk-margin dot-navigation-custom"></ul>
+    </div>
+  </section>
+ {% endif %}
+
+ {% if homepage_first_event and homepage_second_event and homepage_news %}
+  <section id="news-events-container" class="width-padding ">
+    <h2 class="blue-underline mobile-element">{% trans "Events" %}</h2>
+    <h2 class="blue-underline desktop-element" id="news-events-desktop-header">
+      {% trans "News & Events" %}
+    </h2>
+    <div id="news-events-grid-container">
+      <div>
+        <h3 class="desktop-element">{% trans "Events" %}</h3>
+        <div class="uk-child-width-1-2@m uk-child-width-1-1@s events-cards-grid-container" uk-grid>
+          <div class="uk-card uk-card-default events-card">
+            <div class="uk-card-media-top">
+              <a title="{{homepage_first_event.title}}" href="{{homepage_first_event.url}}">
+                {% image homepage_first_event.blog_image min-325x325 as homepage_first_event_image %}
+              <img loading="lazy"
+                  src="{{homepage_first_event_image.url}}" alt="{{homepage_first_event.title}} image" width="325" height="325" />
+              </a>
+            </div>
+            <div class="uk-card-body card-body-custom">
+              <h5 class="uk-card-title events-cards-title">
+                <a title="{{homepage_first_event.title}}" href="{{homepage_first_event.url}}" class="paragraph-size-3">{{homepage_first_event.title}}</a>
+              </h5>
+            </div>
+          </div>
+          <div class="uk-card uk-card-default desktop-element events-card">
+            <div class="uk-card-media-top">
+              <a title="{{homepage_second_event.title}}" href="{{homepage_second_event.url}}">
+                {% image homepage_second_event.blog_image max-325x325 as homepage_second_event_image %}
+                <img loading="lazy" src="{{homepage_second_event_image.url}}" alt="{{homepage_second_event.title}} image" width="325" height="325" /></a>
+            </div>
+            <div class="uk-card-body card-body-custom">
+              <h5 class="uk-card-title events-cards-title">
+                <a title="{{homepage_second_event.title}}" href="{{homepage_second_event.url}}">{{homepage_second_event.title}}</a>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="desktop-element">
+        <h3>{% trans "News" %}</h3>
+        <ul class="uk-list uk-list-divider news-list">
+          {% for single_news in homepage_news %}
+          <li class="paragraph-size-3"> <a href="{{single_news.url}}">{{single_news.title}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+ {% endif %}
+  <section id="join-signup-container">
+    <div id="join-signup-grid-container" class="width-padding desktop-element">
+      <div style="position: relative;">
+      <div class="join-container">
+        <span class="join-signup-header">{% trans "Join Our Community" %}</span>
+        <span class="join-username">{% trans "@hg.budvanska.rivijera" %}</span>
+        <a title="Facebook" href="{{ settings.site_settings.SocialMediaSettings.facebook}}" target="_blank" class="join-icons">
+          <img loading="lazy" src="{% static 'assets/images/facebook-blue.svg' %}" alt="facebook" title="facebook" width="35" height="35" />
+        </a>
+        <a title="Twitter" href="{{ settings.site_settings.SocialMediaSettings.twitter}}" target="_blank">
+          <img loading="lazy" src="{% static 'assets/images/twitter-blue.svg' %}" alt="twitter" title="twitter" width="35" height="35" />
+        </a>
+        <a title="Instagram" href="{{ settings.site_settings.SocialMediaSettings.instagram}}" target="_blank">
+          <img loading="lazy" src="{% static 'assets/images/instagram-blue.svg' %}" alt="instagram" title="instagram" width="35" height="35"/>
+        </a>
+        {% comment %} <a href="#">
+          <img loading="lazy" src="{% static 'assets/images/linkedin-blue.svg' %}" alt="linkedin" title="linkedin" width="35" height="35" />
+        </a> {% endcomment %}
+      </div>
+    </div>
+        <div id="mc_embed_signup">
+          <span class="signup-header">.</span>
+          <iframe width="540" height="350" src="https://8d6582de.sibforms.com/serve/MUIEAH1rdWKjHRLt2fTMYU0ON1ihRqG3nDzTkSBAyEyFIyq5RCDUM3PuIjk8_iM8dArnGAeB8dGl0V0YSoBJ1OGux3UCvDWZNWn5r9hOc94e2Q5KZa8tk7aSbDKp4OFkHQoobCDNw2k2iyNGd19ih-gwRLUHS6Qlyl7_HCOPjjiREbtUREGv2lHaHMmsEhA9hs-C9qjUTp5Sfv0j" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+          </div>
+    </div>
+      <div id="mc_embed_signup" class="mobile-element width-padding">
+        <span class="signup-header">.</span>
+        <iframe width="540" height="350" src="https://8d6582de.sibforms.com/serve/MUIEAH1rdWKjHRLt2fTMYU0ON1ihRqG3nDzTkSBAyEyFIyq5RCDUM3PuIjk8_iM8dArnGAeB8dGl0V0YSoBJ1OGux3UCvDWZNWn5r9hOc94e2Q5KZa8tk7aSbDKp4OFkHQoobCDNw2k2iyNGd19ih-gwRLUHS6Qlyl7_HCOPjjiREbtUREGv2lHaHMmsEhA9hs-C9qjUTp5Sfv0j" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+        </div>
+  </section>
+{% comment %}
+  <section id="instagram-gallery-container" class="width-padding desktop-element">
+    <h2 class="blue-underline">{% trans "View Budvanska Rivijera Instagram Gallery" %}</h2>
+    <div class="intagram-gallery-container">
+      <ul class="instafeed-gallery" uk-lightbox="animation: fade" id="instafeed"></ul>
+    </div>
+  </section>
+  {% endcomment %}
+  <section class="width-padding">
+    <h2 class="blue-underline">{% trans "Check our hotel locations" %}</h2>
+      <p class="paragraph-size-3 width-padding" id="index-text">
+      {% blocktrans %} Our hotels are located by the sea in the most attractive locations in Budva and Petrovac {% endblocktrans %}
+    </p>
+    <div style="height: 460px; width: 100%; overflow: hidden;">
+      <iframe style="margin-top: -56px; width: 100%;" name="iframe1" src="https://www.google.com/maps/d/u/0/embed?mid=1hM0GLfX9GiswNgtolodBLqabhyAH_onj" width="640" height="480" frameBorder="0" allowfullscreen="allowfullscreen"></iframe>
+
+    </div>
+  </section>
+
+{% include "components/footer.html" %}
+  
+  {% comment %} jquery {% endcomment %}  
+  <script src="{% static "assets/js/jquery.min.js" %}" ></script>
+  {% comment %} jquery datepicker {% endcomment %}
+
+  <script src="{% static "assets/js/jquery-ui.min.js" %}" ></script>
+  <script src="{% static "assets/js/jquery-ui-i18n.min.js" %}" ></script>
+  
+  <script src="{% static "assets/js/datepicker-me.js" %}" ></script>
+  <script src="{% static "assets/js/index.js" %}" ></script>
+  <script src="{% static "assets/js/search.js" %}" ></script>
+  <script type="text/javascript" src="{% static 'assets/js/insta-gallery.js' %}"></script>
+  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='MMERGE6';ftypes[6]='date';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+  <script>
+    $(".footer-desktop li.add-dynamic-content").append('<p class="footer-mail"><span uk-icon="mail" style="font-size: 22px;"></span><a title="" href="mailto:kabinet@budvanskarivijera.co.me">kabinet@budvanskarivijera.co.me</a><br /></p>')
+    $(".footer-mobile ul.add-dynamic-content").append('<li><span><a title="" href="mailto:kabinet@budvanskarivijera.co.me">kabinet@budvanskarivijera.co.me</a></span></li>')
+  </script>
+</body>
+
+</html>

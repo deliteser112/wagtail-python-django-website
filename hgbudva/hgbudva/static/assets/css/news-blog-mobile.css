@@ -1,0 +1,191 @@
+.most-recent-blog-wrapper {
+    margin-bottom: 40px;
+}
+/* MIJENJAM */
+
+.main-title {
+    text-align: left;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    font-size: 1.3em;
+}
+
+.most-recent-blog {
+    background-color: #fff;
+    /* height: 230px; */
+    transition: all .4s;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+.most-recent-blog:hover{
+    background: #eee;
+}
+.most-recent-blog:hover .most-recent-blog-img-wrapper{
+    opacity: .7;
+}
+.most-recent-blog > div {
+    height: 200px;
+}
+/* MIJENJAM */
+
+.most-recent-blog-img-wrapper {
+    background-size: cover;
+    background-position: center;
+    transition: all .4s;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+}
+.most-recent-blog-details,
+.recent-blog-posts-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.most-recent-blog-details h5 {
+    margin: 10px 0 0 0;
+    text-align: left;
+    color: rgb(165, 165, 165);
+}
+
+.most-recent-blog-details h3 {
+    display: -webkit-box;
+    /*-webkit-line-clamp: 3;*/
+    -webkit-box-orient: vertical;
+    margin: 0;
+    text-align: left !important;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    font-size: 1.2rem!important;
+}
+.most-recent-blog-details h3>a, .recent-blog-posts-details h3>a{
+    color: #333;
+    text-decoration: none;
+}
+.most-recent-blog-details .paragraph-size-3{
+    text-align: center;
+}
+.most-recent-blog-details p {
+    display: none;
+    text-align: left !important;
+    font-size:1rem !important;
+    margin: 15px 0;
+}
+
+.most-recent-blog-details button,
+.recent-blog-posts-details button {
+    color: #0059AB !important;
+    width: auto;
+    text-align: center;
+    padding: 0 15px;
+}
+.recent-blog-posts-details h3{
+    font-size: 1.3rem !important;
+}
+.most-recent-blog-details button {
+    border: 1px solid #0059AB !important;
+    margin-bottom: 10px;
+    height: 30px;
+    line-height: 29px;
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+.recent-blog-posts-wrapper {
+    margin-bottom: 25px;
+}
+/* IZMJENA */
+.recent-blog-posts {
+    background-color: #FFF;
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 1.3rem!important;
+    box-shadow:0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    margin-bottom: 15px;
+    transition: all 0.3s ease 0s;
+}
+.recent-blog-posts:hover{
+    -webkit-transform: scale(1.015);
+    transform: scale(1.025);
+    box-shadow: 0 10px 50px -5px #ccc !important;
+    transition: 0.3s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.recent-blog-posts:last-child {
+    margin-bottom: 0;
+}
+
+.recent-blog-posts-img-wrapper img {
+    width: 100%;
+}
+
+/* izmjena  align i font size*/
+.recent-blog-posts-details .blog-date{
+    text-align: left;
+}
+.recent-blog-posts-details h4 {
+    text-align: left;
+    color: rgb(165, 165, 165);
+    margin: 0;
+}
+.recent-blog-posts-details .blog-buttons{
+    text-align: center;
+    font-size: 18px;
+}
+.recent-blog-posts-details h3 {
+    display: -webkit-box;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding-bottom: 10px;
+    line-height: 1.1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    margin: 15px 0;
+    font-size: 1.2rem !important;
+}
+
+.recent-blog-posts-details button {
+    border: 1px solid #0059AB !important;
+    line-height: 29px;
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+.recent-blog-posts-mobile-wrapper-2 {
+    display: none;
+}
+
+.blog-date{
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.blog-link{
+    color: #0059ab;
+    text-decoration: none;
+}
+
+.blog-buttons{
+    width: 100%;
+    text-align: right;
+}
+.most-recent-blog-details .blog-buttons{
+    text-align: center;
+}
+/*corporate news*/
+#accordion-container > ul{
+    list-style-type: none;
+    padding: 0;
+}
+#accordion-container > ul > li{
+    margin-bottom: 20px;
+}
+#accordion-container > ul a{
+    text-decoration: none;
+    color: #333;
+    line-height: 1.4;
+    font-weight: 300;
+}
